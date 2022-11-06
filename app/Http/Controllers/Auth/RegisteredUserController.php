@@ -57,6 +57,7 @@ class RegisteredUserController extends Controller
         $user = User::create($validate);
         $user->assignRole('alumni');
 
+
         // $user = User::create([
         //     'name' => $request->name,
         //     'email' => $request->email,
