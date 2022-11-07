@@ -2,7 +2,7 @@
 
 @section('main-content')
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">{{ __('Profile') }}</h1>
+<h1 class="h3 mb-4 text-gray-800">{{ __('Tambah Data Alumni') }}</h1>
 
 @if (session('success'))
 <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -27,46 +27,6 @@
 
     <div class="col-lg-4 order-lg-2">
 
-        <!-- <div class="card shadow mb-4">
-            <div class="card-profile-image mt-4">
-                <figure class="rounded-circle avatar avatar font-weight-bold"
-                    style="font-size: 60px; height: 180px; width: 180px;" data-initial="{{ Auth::user()->name[0] }}">
-                </figure>
-            </div>
-            <div class="card-body">
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <h5 class="font-weight-bold">{{ Auth::user()->name }}</h5>
-                            <p>Administrator</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card-profile-stats">
-                            <span class="heading">22</span>
-                            <span class="description">Friends</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card-profile-stats">
-                            <span class="heading">10</span>
-                            <span class="description">Photos</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card-profile-stats">
-                            <span class="heading">89</span>
-                            <span class="description">Comments</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
     </div>
 
     <div class="col-lg-12 order-lg-1">
@@ -74,15 +34,16 @@
         <div class="card shadow mb-4">
 
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">My Account</h6>
+                <!-- <h6 class="m-0 font-weight-bold text-primary">My Account</h6> -->
             </div>
 
             <div class="card-body">
 
-                <form method="POST" action="{{ route('profile.update') }}" autocomplete="off">
+                <form method="POST" action="{{ route('storeaddalumni') }}" autocomplete="off"
+                    enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                    <input type="hidden" name="_method" value="PUT">
+                    <!-- <input type="hidden" name="_method" value="PUT"> -->
 
                     <div class="pl-lg-6">
                         <div class="row">
@@ -90,15 +51,15 @@
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="name">Name<span
                                             class="small text-danger">*</span></label>
-                                    <input readonly type="text" id="name" class="form-control" name="name"
-                                        placeholder="Name" value="{{ old('name', Auth::user()->name) }}">
+                                    <input type="text" id="name" class="form-control" name="name" placeholder="Name"
+                                        value="{{ old('name', Auth::user()->name) }}">
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="email">Email address<span
                                             class="small text-danger">*</span></label>
-                                    <input readonly type="email" id="email" class="form-control" name="email"
+                                    <input type="email" id="email" class="form-control" name="email"
                                         placeholder="example@example.com"
                                         value="{{ old('email', Auth::user()->email) }}">
                                 </div>
@@ -167,9 +128,9 @@
                                     <br>
                                     <select id="jurusan" name="jurusan" class="form-select form-control p-2 "
                                         value="{{ old('jurusan', Auth::user()->jurusan) }}">
-                                        <option value="DIV Komputasi Statistik">DIV Komputasi Statistik</option>
-                                        <option value="DIV Statistika">DIV Statistika</option>
-                                        <option value="DIII Statistika">DIII Statistika</option>
+                                        <option value="D-IV Komputasi Statistik">DIV Komputasi Statistik</option>
+                                        <option value="D-IV Statistika">DIV Statistika</option>
+                                        <option value="D-III Statistika">DIII Statistika</option>
                                     </select>
                                 </div>
                             </div>
@@ -177,14 +138,24 @@
                                 <div class="form-group">
                                     <label class="form-control-label" for="">Dokumen Ijazah<span
                                             class="small text-danger">*</span></label>
-                                    <input class="form-control form-control-user" type="file" id="formFile"> <br>
+                                    <!-- <input class="form-control form-control-user" type="file" name="ijazahasli"
+                                        id="ijazahasli"> -->
+                                    <input type="file" class="form-control form-control-user pt-2" name="ijazahasli"
+                                        placeholder=" {{ __('SK Penempatan 1 BPS') }}"
+                                        value="{{ old('skpenempatan1bps') }}" required>
+                                    <br>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="">Dokumen Transkrip Nilai<span
                                             class="small text-danger">*</span></label>
-                                    <input class="form-control form-control-user" type="file" id="formFile"> <br>
+                                    <!-- <input class="form-control form-control-user" type="file" name="transkripnilaiasli"
+                                        id="transkripnilaiasli"> <br> -->
+
+                                    <input type="file" class="form-control form-control-user pt-2"
+                                        name="transkripnilaiasli" placeholder=" {{ __('SK Penempatan 1 BPS') }}"
+                                        value="{{ old('skpenempatan1bps') }}" required>
                                 </div>
                             </div>
                             <div class="col-lg-2 mx-auto pt-4 mt-2">

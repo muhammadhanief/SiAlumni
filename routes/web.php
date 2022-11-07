@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\AddAlumniController;
+use App\Http\Controllers\DashboardAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,12 +33,12 @@ Route::get('/home', function () {
 
 Route::controller(AddAlumniController::class)->group(function () {
     Route::get('/addalumni', 'index')->name('addalumni');
-    // Route::get('/form-tambah-barang', 'create');
-    // Route::post('/tambah-barang', 'store');
-    // Route::get('/show-barang/{id}', 'show');
-    // Route::get('/edit-barang/{id}', 'edit');
-    // Route::post('/update-barang/{id}', 'update');
-    // Route::delete('/delete-barang/{id}', 'destroy');
+    Route::post('/storeaddalumni', 'store')->name('storeaddalumni');
+    Route::get('/admin/manajemenalumni', 'indexsemuaalumni')->name('manajemen_alumni');
+});
+
+Route::controller(DashboardAdminController::class)->group(function () {
+    Route::get('/dashboardadminindex', 'index')->name('dashboardadminindex');
 });
 
 
@@ -55,9 +56,9 @@ Route::get('/about', function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin/manajemenalumni', function () {
-    return view('admin.manajemen_alumni');
-})->name('manajemen_alumni');
+// Route::get('/admin/manajemenalumni', function () {
+//     return view('admin.manajemen_alumni');
+// })->name('manajemen_alumni');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

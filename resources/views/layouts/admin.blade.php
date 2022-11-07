@@ -13,6 +13,11 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- DataTables -->
+    <link href="libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+
     <!-- Fonts -->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link
@@ -63,7 +68,7 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('formulir') }}">
+                <a class="nav-link collapsed" href="{{ route('dashboardadminindex') }}">
                     <i class="fas fa-fw fa-align-justify"></i>
                     <span>{{ __('Dashboard Admin') }}</span>
                 </a>
@@ -73,6 +78,13 @@
                 <a class="nav-link collapsed" href=" {{ route('manajemen_alumni') }}">
                     <i class="fas fa-fw fa-align-justify"></i>
                     <span>{{ __('Manajemen Data Alumni') }}</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href=" {{ route('addalumni') }}">
+                    <i class="fas fa-fw fa-align-justify"></i>
+                    <span>{{ __('Tambah Data Alumni') }}</span>
                 </a>
             </li>
 
@@ -422,11 +434,42 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay"></div>
+
+    <!-- JAVASCRIPT -->
+    <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="libs/metismenu/metisMenu.min.js"></script>
+    <script src="libs/simplebar/simplebar.min.js"></script>
+    <script src="libs/node-waves/waves.min.js"></script>
+    <script src="libs/feather-icons/feather.min.js"></script>
+    <!-- pace js -->
+    <script src="libs/pace-js/pace.min.js"></script>
+
+    <!-- Required datatable js -->
+    <script src="libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Buttons examples -->
+    <script src="libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="libs/jszip/jszip.min.js"></script>
+    <script src="libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="libs/pdfmake/build/vfs_fonts.js"></script>
+    <script src="libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+    <!-- Responsive examples -->
+    <script src="libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- Datatable init js -->
+    <script src="js/pages/datatables.init.js"></script>
+
+    <script src="js/app.js"></script>
+
+    @yield('js')
 </body>
 
 </html>
