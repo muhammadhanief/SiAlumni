@@ -15,6 +15,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('alumni.home');
+        if (auth()->user()->statusAkun == "Pending") {
+            return view('alumni.pendingverif');
+        }
+        if (auth()->user()->statusAkun == "Ditolak") {
+            return view('alumni.ditolakverif');
+        } else {
+            return view('alumni.home');
+        }
     }
 }

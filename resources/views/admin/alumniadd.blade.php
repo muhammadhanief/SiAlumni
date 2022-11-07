@@ -51,8 +51,7 @@
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="name">Name<span
                                             class="small text-danger">*</span></label>
-                                    <input type="text" id="name" class="form-control" name="name" placeholder="Name"
-                                        value="{{ old('name', Auth::user()->name) }}">
+                                    <input type="text" id="name" class="form-control" name="name" placeholder="Name">
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -60,8 +59,7 @@
                                     <label class="form-control-label" for="email">Email address<span
                                             class="small text-danger">*</span></label>
                                     <input type="email" id="email" class="form-control" name="email"
-                                        placeholder="example@example.com"
-                                        value="{{ old('email', Auth::user()->email) }}">
+                                        placeholder="example@example.com">
                                 </div>
                             </div>
                             <!-- <div class="col-lg-6"> -->
@@ -74,16 +72,14 @@
                                 <div class="form-group">
                                     <label class="form-control-label" for="nip">NIP<span
                                             class="small text-danger">*</span></label>
-                                    <input type="text" id="nip" class="form-control" name="nip" placeholder=""
-                                        value="{{ old('nip', Auth::user()->nip) }}">
+                                    <input type="text" id="nip" class="form-control" name="nip" placeholder="">
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="nim">NIM<span
                                             class="small text-danger">*</span></label>
-                                    <input type="text" id="nim" class="form-control" name="nim" placeholder=""
-                                        value="{{ old('nim', Auth::user()->nim) }}">
+                                    <input type="text" id="nim" class="form-control" name="nim" placeholder="">
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -91,7 +87,7 @@
                                     <label class="form-control-label" for="tahunLulus">Tahun Lulus<span
                                             class="small text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-user" name="tahunLulus"
-                                        value="{{ old('tahunLulus', Auth::user()->tahunLulus) }}" required>
+                                        required>
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -99,7 +95,7 @@
                                     <label class="form-control-label" for="tempatLahir">Tempat Lahir<span
                                             class="small text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-user" name="tempatLahir"
-                                        value="{{ old('tempatLahir', Auth::user()->tempatLahir) }}" required>
+                                        required>
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -107,8 +103,7 @@
                                     <label class="form-control-label" for="tanggalLahir">Tanggal Lahir<span
                                             class="small text-danger">*</span></label>
                                     <input type="date" class="form-control form-control-user" name="tanggalLahir"
-                                        value="{{ old('tanggalLahir', Auth::user()->tanggalLahir) }}" required
-                                        autofocus>
+                                        required autofocus>
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -116,7 +111,7 @@
                                     <label class="form-control-label" for="nomorPonsel">Nomor Ponsel<span
                                             class="small text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-user" name="nomorPonsel"
-                                        value="{{ old('nomorPonsel', Auth::user()->nomorPonsel) }}" required>
+                                        required>
                                 </div>
                             </div>
                             <div class="col-lg-4 mx-auto">
@@ -126,8 +121,7 @@
                                     <!-- <input type="text" id="jurusan" class="form-control" name="jurusan" placeholder=""
                                         value="{{ old('jurusan', Auth::user()->jurusan) }}"> -->
                                     <br>
-                                    <select id="jurusan" name="jurusan" class="form-select form-control p-2 "
-                                        value="{{ old('jurusan', Auth::user()->jurusan) }}">
+                                    <select id="jurusan" name="jurusan" class="form-select form-control p-2 ">
                                         <option value="D-IV Komputasi Statistik">DIV Komputasi Statistik</option>
                                         <option value="D-IV Statistika">DIV Statistika</option>
                                         <option value="D-III Statistika">DIII Statistika</option>
@@ -141,8 +135,7 @@
                                     <!-- <input class="form-control form-control-user" type="file" name="ijazahasli"
                                         id="ijazahasli"> -->
                                     <input type="file" class="form-control form-control-user pt-2" name="ijazahasli"
-                                        placeholder=" {{ __('SK Penempatan 1 BPS') }}"
-                                        value="{{ old('skpenempatan1bps') }}" required>
+                                        placeholder=" {{ __('SK Penempatan 1 BPS') }}" required>
                                     <br>
                                 </div>
                             </div>
@@ -155,7 +148,7 @@
 
                                     <input type="file" class="form-control form-control-user pt-2"
                                         name="transkripnilaiasli" placeholder=" {{ __('SK Penempatan 1 BPS') }}"
-                                        value="{{ old('skpenempatan1bps') }}" required>
+                                        required>
                                 </div>
                             </div>
                             <div class="col-lg-2 mx-auto pt-4 mt-2">

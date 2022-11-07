@@ -75,6 +75,10 @@
                                 <th>Tahun Lulus</th>
                                 <th>{{ Auth::user()->tahunLulus }}</th>
                             </tr>
+                            <tr>
+                                <th>Status Aktivasi Akun</th>
+                                <th>{{ Auth::user()->statusAkun }}</th>
+                            </tr>
                         </table>
 
 
