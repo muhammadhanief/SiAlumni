@@ -21,7 +21,7 @@
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
     <!-- Favicon -->
-    <link href="{{ asset('img/logostis.png') }}" rel="icon" type="image/png">
+    <link href="{{ asset('img/stis.png') }}" rel="icon" type="image/png">
 </head>
 
 <body class="bg-gradient-primary min-vh-100 d-flex justify-content-center align-items-center">

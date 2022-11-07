@@ -111,7 +111,7 @@
 
                         $('#metodePengambilan').change(function() {
                             val = $(this).val();
-                            if (val == 3) {
+                            if (val == 4) {
                                 $("#alamat-pengiriman").show();
                                 $("#email-pengiriman").hide();
                             } else if (val == 1) {

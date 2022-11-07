@@ -30,7 +30,7 @@
             <div class="card-header py-3">
                 <div class="row justify-content-end">
                     <h4 class="m-0 font-weight-bold text-primary col">Data Alumni</h4>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <a href="/addalumni" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-plus-lg" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"

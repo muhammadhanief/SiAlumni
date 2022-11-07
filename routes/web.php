@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FormulirController;
+use App\Http\Controllers\AddAlumniController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,17 @@ Route::get('/home', function () {
 // Route::get('/profile', 'ProfileController@index')->name('profile');
 // Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 // Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+
+Route::controller(AddAlumniController::class)->group(function () {
+    Route::get('/addalumni', 'index')->name('addalumni');
+    // Route::get('/form-tambah-barang', 'create');
+    // Route::post('/tambah-barang', 'store');
+    // Route::get('/show-barang/{id}', 'show');
+    // Route::get('/edit-barang/{id}', 'edit');
+    // Route::post('/update-barang/{id}', 'update');
+    // Route::delete('/delete-barang/{id}', 'destroy');
+});
 
 
 Route::controller(ProfileController::class)->group(function () {

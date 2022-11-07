@@ -24,7 +24,7 @@
     <link href="{{ asset('css/timeline.css') }}" rel="stylesheet">
 
     <!-- Favicon -->
-    <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
+    <link href="{{ asset('img/stis.png') }}" rel="icon" type="image/png">
 </head>
 
 <body id="page-top">
@@ -36,8 +36,8 @@
             style="background: linear-gradient(to top, #2eaafa, #1F2F98);">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" style="background: #213EA4;
-" href="{{ route('home') }}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" style="background: #213EA4;"
+                href="{{ route('home') }}">
                 <div class="sidebar-brand-icon">
                     <img src="{{ asset('img/stis.png') }}" class="img-fluid img-circle p-2">
                 </div>
@@ -59,19 +59,52 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                {{ __('Menu Admin') }}
+                {{ __('Admin') }}
             </div>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('formulir') }}">
+                    <i class="fas fa-fw fa-align-justify"></i>
+                    <span>{{ __('Dashboard Admin') }}</span>
+                </a>
+            </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href=" {{ route('manajemen_alumni') }}">
+                    <i class="fas fa-fw fa-align-justify"></i>
+                    <span>{{ __('Manajemen Data Alumni') }}</span>
+                </a>
+            </li>
 
-            <!-- Nav Item - Formulir -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('formulir') }}" data-toggle="collapse"
                     data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-align-justify"></i>
-                    <span>{{ __('Permohonan') }}</span>
+                    <span>{{ __('Verifikasi') }}</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Verifikasi tersedia:</h6>
+                        <a class="collapse-item" href="{{ route('formulir') }}">Legalisir Ijazah</a>
+                        <a class="collapse-item" href="#">Legalisir Transkrip Nilai</a>
+                    </div>
+                </div>
+            </li>
+
+
+
+
+            <div class="sidebar-heading">
+                {{ __('Alumni') }}
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('formulir') }}" data-toggle="collapse"
+                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <i class="fas fa-fw fa-align-justify"></i>
+                    <span>{{ __('Permohonan') }}</span>
+                </a>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Formulir tersedia:</h6>
                         <a class="collapse-item" href="{{ route('formulir') }}">Legalisir Ijazah</a>
@@ -80,13 +113,10 @@
                 </div>
             </li>
 
+            <!-- Nav Item - Formulir -->
+
+
             <!-- Nav Item - Admin -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('manajemen_alumni') }}">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>{{ __('Daftar Permohonan') }}</span>
-                </a>
-            </li>
 
 
             <!-- Divider -->
