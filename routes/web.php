@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\AddAlumniController;
 use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\VerifikasiAkunController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,15 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/addalumni', 'index')->name('addalumni');
         Route::post('/storeaddalumni', 'store')->name('storeaddalumni');
         Route::get('/admin/manajemenalumni', 'indexsemuaalumni')->name('manajemen_alumni');
+    });
+
+    Route::controller(VerifikasiAkunController::class)->group(function () {
+        Route::get('/verifikasiindex', 'index')->name('verifikasiindex');
+        Route::POST('/setujuiakun/{id}', 'setujuiakun');
+        Route::POST('/tolakakun/{id}', 'tolakakun');
+        Route::POST('/pendingakun/{id}', 'pendingakun');
+        // Route::post('/storeaddalumni', 'store')->name('storeaddalumni');
+        // Route::get('/admin/manajemenalumni', 'indexsemuaalumni')->name('manajemen_alumni');
     });
 
     Route::controller(DashboardAdminController::class)->group(function () {

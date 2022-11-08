@@ -34,8 +34,8 @@
 
         <div class="row">
 
+            @role('alumni')
             <div class="col-lg-6">
-
                 <!-- Circle Buttons -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
@@ -142,11 +142,104 @@
                                     </a> -->
                     </div>
                 </div>
-
                 <!-- Brand Buttons -->
-
             </div>
-            @if (isset(\Auth::user()->nim) == FALSE)
+            @else
+            <div class="col-lg-6">
+                <!-- Circle Buttons -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Data Diri</h6>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <tr>
+                                <th>Nama</th>
+                                <th>{{ Auth::user()->name }}</th>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <th>{{ Auth::user()->email }}</th>
+                            </tr>
+                            <tr>
+                                <th>Role</th>
+                                <th>
+                                    @role('baak')
+                                    BAAK
+                                    @endrole
+                                    @role('wadir1')
+                                    Wakil Direktur 1
+                                    @endrole
+                                    @role('superadmin')
+                                    Superadmin
+                                    @endrole
+                                </th>
+                            </tr>
+                        </table>
+                        <!-- Circle Buttons (Default) -->
+                        <!-- <div class="mb-2">
+                                        <code>.btn-circle</code>
+                                    </div>
+                                    <a href="#" class="btn btn-primary btn-circle">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-success btn-circle">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-info btn-circle">
+                                        <i class="fas fa-info-circle"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-warning btn-circle">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-circle">
+                                        <i class="fas fa-trash"></i>
+                                    </a> -->
+                        <!-- Circle Buttons (Small) -->
+                        <!-- <div class="mt-4 mb-2">
+                                        <code>.btn-circle .btn-sm</code>
+                                    </div>
+                                    <a href="#" class="btn btn-primary btn-circle btn-sm">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-success btn-circle btn-sm">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-info btn-circle btn-sm">
+                                        <i class="fas fa-info-circle"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-warning btn-circle btn-sm">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </a> -->
+                        <!-- Circle Buttons (Large) -->
+                        <!-- <div class="mt-4 mb-2">
+                                        <code>.btn-circle .btn-lg</code>
+                                    </div>
+                                    <a href="#" class="btn btn-primary btn-circle btn-lg">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-success btn-circle btn-lg">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-info btn-circle btn-lg">
+                                        <i class="fas fa-info-circle"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-warning btn-circle btn-lg">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-circle btn-lg">
+                                        <i class="fas fa-trash"></i>
+                                    </a> -->
+                    </div>
+                </div>
+                <!-- Brand Buttons -->
+            </div>
+            @endrole
+
+            <!-- @if (isset(\Auth::user()->nim) == FALSE)
             <div class="col-lg-6">
                 <div class="alert alert-danger alert-dismissible fade show card-shadow mb-4">
                     <h4 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Akun anda belum terverifikasi
@@ -162,14 +255,14 @@
                     </a>
                 </div>
             </div>
-            @else
-            <div class="col-lg-6">
+            @else -->
+            <!-- <div class="col-lg-6">
                 <div class="alert alert-success alert-dismissible fade show card-shadow mb-4">
                     <h4 class="info-heading"><i class="fas fa-check"></i> Akun anda sudah terverifikasi
                     </h4>
                     <p>Anda bisa lanjut ke menu permohonan</p>
 
-                    <!-- <hr> -->
+                    <hr>
                     <a href="{{ route('profile') }}" class="btn btn-secondary btn-icon-split"
                         style="background-color:#2285ba">
                         <span class="icon text-white-50">
@@ -179,8 +272,8 @@
                     </a>
                 </div>
             </div>
-            @endif
-            <div class="col-lg-12">
+            @endif -->
+            <!-- <div class="col-lg-12">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Progress</h6>
@@ -249,7 +342,7 @@
 
                 </div>
 
-            </div>
+            </div> -->
             <!-- /.container-fluid -->
 
         </div>

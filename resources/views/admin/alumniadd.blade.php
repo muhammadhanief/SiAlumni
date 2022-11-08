@@ -47,7 +47,7 @@
 
                     <div class="pl-lg-6">
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="name">Nama<span
                                             class="small text-danger">*</span></label>
@@ -55,72 +55,69 @@
                                         autofocus>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <!-- <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="email">Email<span
                                             class="small text-danger">*</span></label>
-                                    <input type="email" id="email" class="form-control" name="email"
-                                        placeholder="example@example.com">
+                                    <input type="email" id="email" class="form-control" name="email">
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- <div class="col-lg-6"> -->
                             <!-- <div class="form-group focused">
                                         <label class="form-control-label" for="last_name">Last name</label>
                                         <input type="text" id="last_name" class="form-control" name="last_name" placeholder="Last name" value="{{ old('last_name', Auth::user()->last_name) }}">
                                     </div> -->
                             <!-- </div> -->
-                            <div class="col-lg-4">
+                            <!-- <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="nip">NIP<span
                                             class="small text-danger">*</span></label>
                                     <input type="text" id="nip" class="form-control" name="nip" placeholder="">
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
+                            </div> -->
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="nim">NIM<span
                                             class="small text-danger">*</span></label>
                                     <input type="text" id="nim" class="form-control" name="nim" placeholder="">
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <!-- <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="tahunLulus">Tahun Lulus<span
                                             class="small text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-user" name="tahunLulus"
                                         required>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
+                            </div> -->
+                            <!-- <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="tempatLahir">Tempat Lahir<span
                                             class="small text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-user" name="tempatLahir"
                                         required>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
+                            </div> -->
+                            <!-- <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="tanggalLahir">Tanggal Lahir<span
                                             class="small text-danger">*</span></label>
                                     <input type="date" class="form-control form-control-user" name="tanggalLahir"
                                         required>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
+                            </div> -->
+                            <!-- <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="nomorPonsel">Nomor Ponsel<span
                                             class="small text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-user" name="nomorPonsel"
                                         required>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 mx-auto">
+                            </div> -->
+                            <!-- <div class="col-lg-4 mx-auto">
                                 <div class="form-group">
                                     <label class="form-control-label" for="jurusan">Jurusan<span
                                             class="small text-danger">*</span></label>
-                                    <!-- <input type="text" id="jurusan" class="form-control" name="jurusan" placeholder=""
-                                        value="{{ old('jurusan', Auth::user()->jurusan) }}"> -->
                                     <br>
                                     <select id="jurusan" name="jurusan" class="form-select form-control p-2 ">
                                         <option value="D-IV Komputasi Statistik">DIV Komputasi Statistik</option>
@@ -128,8 +125,8 @@
                                         <option value="D-III Statistika">DIII Statistika</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
+                            </div> -->
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="">Dokumen Ijazah<span
                                             class="small text-danger">*</span></label>
@@ -140,7 +137,7 @@
                                     <br>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="">Dokumen Transkrip Nilai<span
                                             class="small text-danger">*</span></label>

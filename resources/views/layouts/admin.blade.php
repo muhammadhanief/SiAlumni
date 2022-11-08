@@ -59,6 +59,8 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+
+            @role('superadmin|wadir1|baak')
             <!-- Heading -->
             <div class="sidebar-heading">
                 {{ __('Admin') }}
@@ -68,6 +70,13 @@
                 <a class="nav-link collapsed" href="{{ route('dashboardadminindex') }}">
                     <i class="fas fa-fw fa-align-justify"></i>
                     <span>{{ __('Dashboard Admin') }}</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href=" {{ route('verifikasiindex') }}">
+                    <i class="fas fa-fw fa-align-justify"></i>
+                    <span>{{ __('Verifikasi Akun') }}</span>
                 </a>
             </li>
 
@@ -99,14 +108,10 @@
                     </div>
                 </div>
             </li>
-
-
-
-
+            @endrole
             <div class="sidebar-heading">
                 {{ __('Alumni') }}
             </div>
-
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('formulir') }}" data-toggle="collapse"
                     data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
