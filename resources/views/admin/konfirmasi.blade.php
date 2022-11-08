@@ -24,6 +24,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
+
         <!-- Tabel untuk approved pengajuan legalisir -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -47,6 +48,87 @@
                                 </a> -->
                 </div>
             </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                        <!-- <table id="datatable-buttons" class="table table-bordered dt-responsive w-100">-->
+                        <!-- <table class="table table-bordered yajra-datatable"> -->
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>NIM</th>
+                                <th>NIP</th>
+                                <th>Tahun Lulus</th>
+                                <!-- <th>Email</th> -->
+                                <th>File SK Penempatan 1 BPS</th>
+                                <th>File SK Atasan BPS</th>
+                                <th>Status Akun</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach($user as $data)
+
+                            <tr>
+                                @once
+                                <td>{{ $data->name  }}</td>
+                                <td>{{ $data->nim }}</td>
+                                <td>{{ $data->nip }}</td>
+                                <td>{{ $data->tahunLulus }}</td>
+                                <!-- <td>{{ $data->email }}</td> -->
+                                <!-- <td>{{ $data->jurusan }}</td> -->
+                                <td> <a href="{{ asset('storage/'). '/' . $data->skatasanbps}}" target="blank">Klik
+                                        disini</a> </td>
+                                <td> <a href="{{ asset('storage/'). '/' . $data->skpenempatan1bps}}" target="blank">Klik
+                                        disini</a> </td>
+                                <td>{{ $data->statusAkun }}</td>
+                                <td>
+                                    <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('post')
+
+                                        <button type="submit" class="btn btn-success btn-circle btn-sm"
+                                            onclick="return confirm('Apakah kamu yakin menyetujui akun?')"><span
+                                                data-feather="check"><i class="fas fa-check"></i></span></button>
+                                    </form>
+                                    <form action="/tolakakun/{{ $data->id }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('post')
+
+                                        <button type="submit" class="btn btn-danger btn-circle btn-sm"
+                                            onclick="return confirm('Apakah kamu yakin menolak akun?')"><span
+                                                data-feather="check"><i class="fas fa-ban"></i></span></button>
+                                    </form>
+                                    <form action="/pendingakun/{{ $data->id }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('post')
+
+                                        <button type="submit" class="btn btn-info btn-circle btn-sm"
+                                            onclick="return confirm('Apakah kamu yakin pending akun?')"><span
+                                                data-feather="check"><i class="fas fa-pause"></i></span></button>
+                                    </form>
+                                    <!-- <form action="/verifakun/{{ $data->id }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('post')
+
+                                        <button type="submit" class="btn btn-info btn-circle btn-sm"
+                                            onclick="return confirm('Apakah kamu yakin menyetujui akun?')"><span
+                                                data-feather="check"><i class="fas fa-link"></i></span>
+                                        </button>
+                                    </form> -->
+                                    <!-- </td> -->
+                            </tr>
+                            @endonce
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-header py-3">
+                <h4 class="font-weight-bold text-primary">Database Mahasiswa</h4>
+            </div>
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -80,21 +162,13 @@
                                         disini</a> </td>
                                 <td>{{ $data->statusAkun }}</td>
                                 <td>
-                                    <form action="/konfirmasi/{{$data->id}}" method="post" class="d-inline">
+                                    <!-- <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
-                                        <a href="{{route('konfirmasi', $data->id)}}"
-                                            class="btn btn-success btn-circle btn-sm"> <i
-                                                class="fas fa-external-link-alt"></i></a>
-                                    </form>
 
-                                    <!-- <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
-                                            @csrf
-                                            @method('post')
-
-                                            <button type="submit" class="btn btn-success btn-circle btn-sm"
-                                                onclick="return confirm('Apakah kamu yakin menyetujui akun?')"><span
-                                                    data-feather="check"><i class="fas fa-check"></i></span></button>
+                                        <button type="submit" class="btn btn-success btn-circle btn-sm"
+                                            onclick="return confirm('Apakah kamu yakin menyetujui akun?')"><span
+                                                data-feather="check"><i class="fas fa-check"></i></span></button>
                                     </form>
                                     <form action="/tolakakun/{{ $data->id }}" method="post" class="d-inline">
                                         @csrf
@@ -112,6 +186,15 @@
                                             onclick="return confirm('Apakah kamu yakin pending akun?')"><span
                                                 data-feather="check"><i class="fas fa-pause"></i></span></button>
                                     </form> -->
+                                    <form action="/verifakun/{{ $data->id }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('post')
+
+                                        <button type="submit" class="btn btn-info btn-circle btn-sm"
+                                            onclick="return confirm('Apakah kamu yakin menyetujui akun?')"><span
+                                                data-feather="check"><i class="fas fa-link"></i></span>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

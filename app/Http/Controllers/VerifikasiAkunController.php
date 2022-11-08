@@ -20,6 +20,13 @@ class VerifikasiAkunController extends Controller
             'alumni' => User::role('alumni')->orderBy('statusAkun', 'asc')->get(),
         ]);
     }
+    public function verif($id)
+    {
+        return view('admin.konfirmasi', [
+            'user' => User::role('alumni')->orderBy('statusAkun', 'asc')->where('id',$id)->get(),
+            'alumni' => User::role('alumni')->orderBy('statusAkun', 'asc')->get(),
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::POST('/setujuiakun/{id}', 'setujuiakun');
         Route::POST('/tolakakun/{id}', 'tolakakun');
         Route::POST('/pendingakun/{id}', 'pendingakun');
+        Route::get('/konfirmasi/{id}','verif')->name('konfirmasi');
         // Route::post('/storeaddalumni', 'store')->name('storeaddalumni');
         // Route::get('/admin/manajemenalumni', 'indexsemuaalumni')->name('manajemen_alumni');
     });
