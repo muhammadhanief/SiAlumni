@@ -57,8 +57,6 @@ class AddAlumniController extends Controller
             'tempatLahir' => ['required', 'string', 'max:255'],
             'tanggalLahir' => ['required', 'string', 'max:255'],
             'nomorPonsel' => ['required', 'string', 'max:255'],
-            // 'jenisKelamin' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'ijazahasli' => 'required|mimes:pdf',
             'transkripnilaiasli' => 'required|mimes:pdf',

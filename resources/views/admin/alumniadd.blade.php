@@ -33,9 +33,9 @@
 
         <div class="card shadow mb-4">
 
-            <div class="card-header py-3">
-                <!-- <h6 class="m-0 font-weight-bold text-primary">My Account</h6> -->
-            </div>
+            <!-- <div class="card-header py-3"> -->
+            <!-- <h6 class="m-0 font-weight-bold text-primary">My Account</h6> -->
+            <!-- </div> -->
 
             <div class="card-body">
 
@@ -49,14 +49,15 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="name">Name<span
+                                    <label class="form-control-label" for="name">Nama<span
                                             class="small text-danger">*</span></label>
-                                    <input type="text" id="name" class="form-control" name="name" placeholder="Name">
+                                    <input type="text" id="name" class="form-control" name="name" placeholder="Name"
+                                        autofocus>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="email">Email address<span
+                                    <label class="form-control-label" for="email">Email<span
                                             class="small text-danger">*</span></label>
                                     <input type="email" id="email" class="form-control" name="email"
                                         placeholder="example@example.com">
@@ -103,7 +104,7 @@
                                     <label class="form-control-label" for="tanggalLahir">Tanggal Lahir<span
                                             class="small text-danger">*</span></label>
                                     <input type="date" class="form-control form-control-user" name="tanggalLahir"
-                                        required autofocus>
+                                        required>
                                 </div>
                             </div>
                             <div class="col-lg-4">

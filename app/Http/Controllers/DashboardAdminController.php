@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\dataalumni;
 
 class DashboardAdminController extends Controller
 {
@@ -14,7 +15,11 @@ class DashboardAdminController extends Controller
     public function index()
     {
         //
-        return view('admin.dashboard', []);
+        $data = dataalumni::all();
+        $datanya = $data->count();
+        return view('admin.dashboard', [
+            'data' => $datanya,
+        ]);
     }
 
     /**
