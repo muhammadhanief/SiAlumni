@@ -108,12 +108,20 @@
                     </div>
                 </div>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('permohonan') }}">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>{{ __('Daftar Permohonan') }}</span>
+                </a>
+            </li>
             @endrole
+            @role('alumni')
             <div class="sidebar-heading">
                 {{ __('Alumni') }}
             </div>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('formulir') }}" data-toggle="collapse"
+                <a class="nav-link collapsed" href="{{ route('formulir.ijazah') }}" data-toggle="collapse"
                     data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     <i class="fas fa-fw fa-align-justify"></i>
                     <span>{{ __('Permohonan') }}</span>
@@ -121,11 +129,12 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Formulir tersedia:</h6>
-                        <a class="collapse-item" href="{{ route('formulir') }}">Legalisir Ijazah</a>
-                        <a class="collapse-item" href="#">Legalisir Transkrip Nilai</a>
+                        <a class="collapse-item" href="{{ route('formulir.ijazah') }}">Legalisir Ijazah</a>
+                        <a class="collapse-item" href="{{ route('formulir.transkrip') }}">Legalisir Transkrip Nilai</a>
                     </div>
                 </div>
             </li>
+            @endrole
 
             <!-- Nav Item - Formulir -->
 

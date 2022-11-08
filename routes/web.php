@@ -7,6 +7,7 @@ use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\AddAlumniController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\VerifikasiAkunController;
+use App\Http\Controllers\PermohonanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,23 @@ Route::group(['middleware' => ['auth']], function () {
         Route::POST('/pendingakun/{id}', 'pendingakun');
         // Route::post('/storeaddalumni', 'store')->name('storeaddalumni');
         // Route::get('/admin/manajemenalumni', 'indexsemuaalumni')->name('manajemen_alumni');
+    });
+
+    Route::controller(FormulirController::class)->group(function () {
+        Route::get('/formulir/ijazah', 'index')->name('formulir.ijazah');
+        Route::get('/formulir/transkrip', 'indexTrans')->name('formulir.transkrip');
+        Route::post('/formulir', 'store')->name('formulir.store');
+    });
+
+    // formulir
+
+
+    // daftar permohonan
+    // Route::get('/permohonan', 'PermohonanController@index')->name('permohonan');
+
+    // // daftar permohonan
+    Route::controller(PermohonanController::class)->group(function () {
+        Route::get('/permohonan', 'index')->name('permohonan');
     });
 
     Route::controller(DashboardAdminController::class)->group(function () {
