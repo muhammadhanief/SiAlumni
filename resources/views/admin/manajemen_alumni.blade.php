@@ -54,30 +54,26 @@
                         <!-- <table class="table table-bordered yajra-datatable"> -->
                         <thead>
                             <tr>
-                                <th>NIM</th>
                                 <th>Nama</th>
-                                <th>Tahun Lulus</th>
-                                <th>Jurusan/ Peminatan</th>
-                                <th>Nomor Ijazah</th>
+                                <th>NIM</th>
+                                <!-- <th>Nomor Ijazah</th> -->
                                 <th>File Ijazah</th>
                                 <th>File Transkrip Nilai</th>
-                                <th>Aksi</th>
+                                <!-- <th>Aksi</th> -->
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($alumni as $data)
                             <tr>
-                                <td>{{ $data->nim }}</td>
                                 <td>{{ $data->name  }}</td>
-                                <td>{{ $data->tahunLulus }}</td>
-                                <td>{{ $data->jurusan }}</td>
-                                <td>{{ "gada" }}</td>
+                                <td>{{ $data->nim }}</td>
+                                <!-- <td>{{ "gada" }}</td> -->
                                 <td> <a href="{{ asset('storage/'). '/' . $data->ijazahasli}}" target="blank">Klik
                                         disini</a> </td>
                                 <td> <a href="{{ asset('storage/'). '/' . $data->transkripnilaiasli}}"
                                         target="blank">Klik
                                         disini</a> </td>
-                                <td>{{ "gada"}}</td>
+                                <!-- <td>{{ "gada"}}</td> -->
                             </tr>
                             @endforeach
                         </tbody>
