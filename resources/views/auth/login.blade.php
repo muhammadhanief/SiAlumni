@@ -71,18 +71,18 @@
                                         </button>
                                     </div> -->
 
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <a class="btn btn-outline-info btn-block btn-user"
                                             href="{{ url('auth/google') }}"><img
                                                 src="https://img.icons8.com/color/16/000000/google-logo.png">
                                             {{ __('Login with Google') }}
                                         </a>
 
-                                    </div>
+                                    </div> -->
 
                                 </form>
 
-                                <hr>
+                                <!-- <hr> -->
 
                                 <!-- @if (Route::has('password.request'))
                                 <div class="text-center">
