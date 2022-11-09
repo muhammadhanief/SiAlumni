@@ -43,7 +43,7 @@ class VerifikasiAkunController extends Controller
         DB::table('users')
             ->where('name', $name)
             // ->update(['statusAkun' => 'Lolos', 'nim' => $users->nim]);
-            ->update(['statusAkun' => 'Lolos', 'nim' => $users->nim]);
+            ->update(['statusAkun' => 'Lolos', 'nim' => $users->nim, 'tahunLulus' => $users->tahunLulus]);
         return redirect('/verifikasiindex')->with('success', 'Akun berhasil diverifikasi');
     }
 

@@ -81,6 +81,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'M Zikri',
             'nim' => '222011623',
             'tanggalLahir' => '2022-11-08',
+            'tahunLulus' => '2014',
             'ijazahasli' => 'ijazahasli/contohijazah.pdf',
             'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
         ]);
@@ -105,6 +106,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'M Hanief',
             'nim' => '222011787',
             'tanggalLahir' => '2022-10-08',
+            'tahunLulus' => '2014',
             'ijazahasli' => 'ijazahasli/contohijazah.pdf',
             'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
         ]);
@@ -130,6 +132,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'M Zaki',
             'nim' => '222011232',
             'tanggalLahir' => '2022-11-08',
+            'tahunLulus' => '2014',
             'ijazahasli' => 'ijazahasli/contohijazah.pdf',
             'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
         ]);
