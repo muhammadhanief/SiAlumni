@@ -52,11 +52,11 @@
                                         </div>
 
 
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <input type="text" class="form-control form-control-user" name="tahunLulus"
                                                 placeholder="{{ __('Tahun Lulus') }}" value="{{ old('tahunLulus') }}"
                                                 required autofocus>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <select id="jurusan" name="jurusan" aria-placeholder="{{ __('Jurusan') }}"
                                                 class="form-select form-control-user w-100 py-3">
@@ -66,13 +66,15 @@
                                                 <option value="D-III Statistika">D-III Statistika</option>
                                             </select>
                                         </div>
-                                        <hr>
+                                        <!-- <hr> -->
+
                                         <div class="form-group py-1">
                                             <label class="font-weight-bold">SK Atasan BPS</label>
                                             <input type="file" class="form-control form-control-user py-2"
                                                 name="skatasanbps" placeholder=" {{ __('SK Atasan BPS') }}"
                                                 value="{{ old('skatasanbps') }}" required>
                                         </div>
+
                                     </div>
                                     <div class="col-md-6">
                                         <br>
@@ -90,11 +92,11 @@
                                         <!-- <hr>  -->
                                         <br>
                                         <p></p>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <input type="text" class="form-control form-control-user" name="nim"
                                                 placeholder="{{ __('NIM') }}" value="{{ old('nim') }}" required
                                                 autofocus>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <input type="date" class="form-control form-control-user"
                                                 name="tanggalLahir" placeholder="{{ __('Tanggal Lahir') }}"
@@ -105,15 +107,15 @@
                                                 placeholder="{{ __('Nomor Ponsel') }}" value="{{ old('nomorPonsel') }}"
                                                 required>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <select id="jenisKelamin" name="jenisKelamin"
                                                 aria-placeholder="{{ __('Jenis Kelamin') }}"
                                                 class="form-select form-control-user w-100 py-3">
                                                 <option value="Laki-Laki">Laki-Laki</option>
                                                 <option value="Perempuan">Perempuan</option>
                                             </select>
-                                        </div>
-                                        <hr>
+                                        </div> -->
+                                        <!-- <hr> -->
                                         <p></p>
 
                                         <div class="form-group py-1">
@@ -122,6 +124,8 @@
                                                 name="skpenempatan1bps" placeholder=" {{ __('SK Penempatan 1 BPS') }}"
                                                 value="{{ old('skpenempatan1bps') }}" required>
                                         </div>
+
+
 
 
 

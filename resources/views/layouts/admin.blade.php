@@ -26,6 +26,7 @@
     <!-- Favicon -->
     <link href="{{ asset('img/stis.png') }}" rel="icon" type="image/png">
     <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel=" stylesheet">
+    <script src="https://kit.fontawesome.com/73dfd73928.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -326,7 +327,7 @@
     <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
-
+    <script src="https://kit.fontawesome.com/73dfd73928.js" crossorigin="anonymous"></script>
 
 </body>
 

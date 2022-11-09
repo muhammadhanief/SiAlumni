@@ -2,7 +2,7 @@
 
 @section('main-content')
 
-@if (isset(\Auth::user()->nim) == TRUE)
+
 
 
 <!-- Page Heading -->
@@ -235,6 +235,5 @@
         </div>
     </div>
 </form>
-@endif
 
 @endsection

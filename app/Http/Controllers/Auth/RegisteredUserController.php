@@ -39,14 +39,13 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'nip' => ['required', 'string', 'max:255'],
-            'nim' => ['required', 'string', 'max:255'],
+            // 'nim' => ['required', 'string', 'max:255'],
             'jurusan' => ['required', 'string', 'max:255'],
-            'tahunLulus' => ['required', 'string', 'max:255'],
+            // 'tahunLulus' => ['required', 'string', 'max:255'],
             'tempatLahir' => ['required', 'string', 'max:255'],
             'tanggalLahir' => ['required', 'string', 'max:255'],
             'nomorPonsel' => ['required', 'string', 'max:255'],
-            'jenisKelamin' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
+            // 'jenisKelamin' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'skpenempatan1bps' => 'required|mimes:pdf',
             'skatasanbps' => 'required|mimes:pdf',
@@ -68,7 +67,8 @@ class RegisteredUserController extends Controller
         // event(new Registered($user));
 
         // Auth::login($user);
-        return redirect('login');
+        // return redirect('login');
+        return redirect()->route('login')->withSuccess('Berhasil Melakukan Register, Silakan Login');
         // return redirect(RouteServiceProvider::HOME);
     }
 }

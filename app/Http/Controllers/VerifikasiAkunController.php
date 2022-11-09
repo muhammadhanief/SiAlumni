@@ -23,8 +23,9 @@ class VerifikasiAkunController extends Controller
     public function verif($id)
     {
         return view('admin.konfirmasi', [
-            'user' => User::role('alumni')->orderBy('statusAkun', 'asc')->where('id',$id)->get(),
-            'alumni' => User::role('alumni')->orderBy('statusAkun', 'asc')->get(),
+            'user' => User::role('alumni')->orderBy('statusAkun', 'asc')->where('id', $id)->get(),
+            // 'alumni' => User::role('alumni')->orderBy('statusAkun', 'asc')->get(),
+            'alumni' => dataalumni::all(),
         ]);
     }
 
