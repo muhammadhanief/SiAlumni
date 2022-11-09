@@ -133,10 +133,9 @@
                     <p>Metode Pengambilan</p>
 
                     <select id="metodePengambilan" name="pengambilan" class="form-select form-control bg-light border-0 small">
-                        <option value="1">Diemail ke alamat pemohon dalam bentuk hasil scan</option>
+                        <option value="1">Dikirimkan ke email pemohon dalam bentuk hasil scan</option>
                         <option value="2">Diambil di kampus Polstat STIS langsung oleh pemohon</option>
-                        <option value="3">Diambil di kampus Polstat STIS oleh orang lain yang telah diberi kuasa
-                        </option>
+                        <option value="3">Diambil di kampus Polstat STIS oleh orang lain yang telah diberi kuasa</option>
                         <option value="4">Dikirimkan via pos</option>
 
                     </select>
