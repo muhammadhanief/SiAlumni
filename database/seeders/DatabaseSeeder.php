@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\dataalumni;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -112,8 +113,29 @@ class DatabaseSeeder extends Seeder
         $alumni3->assignRole('alumni');
 
         // Buat seed untuk manajemen data alumni (add ijazah asli dan transkrip nilai)
-
-
-
+        $data1 = dataalumni::create([
+            'name' => 'M Zaki',
+            'nim' => '222011686',
+            'ijazahasli' => 'ijazahasli/contohijazah.pdf',
+            'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
+        ]);
+        $data1 = dataalumni::create([
+            'name' => 'M Zaki',
+            'nim' => '222011686',
+            'ijazahasli' => 'ijazahasli/contohijazah.pdf',
+            'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
+        ]);
+        $data1 = dataalumni::create([
+            'name' => 'M Zaki',
+            'nim' => '222011686',
+            'ijazahasli' => 'ijazahasli/contohijazah.pdf',
+            'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
+        ]);
+        $data1 = dataalumni::create([
+            'name' => 'M Zaki',
+            'nim' => '222011686',
+            'ijazahasli' => 'ijazahasli/contohijazah.pdf',
+            'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
+        ]);
     }
 }
