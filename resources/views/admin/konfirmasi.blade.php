@@ -98,7 +98,7 @@
 
                                         <button type="submit" class="btn btn-danger btn-circle btn-sm"
                                             onclick="return confirm('Apakah kamu yakin menolak akun?')"><span
-                                                data-feather="check"><i class="fas fa-ban"></i></span></button>
+                                                data-feather="check"><i class="fa-regular fa-hand"></i></span></button>
                                     </form>
                                     <form action="/pendingakun/{{ $data->id }}" method="post" class="d-inline">
                                         @csrf
@@ -138,13 +138,13 @@
                             <tr>
                                 <th>Nama</th>
                                 <th>NIM</th>
-                                <th>NIP</th>
-                                <th>Tahun Lulus</th>
+                                <!-- <th>NIP</th> -->
+                                <!-- <th>Tahun Lulus</th> -->
                                 <!-- <th>Email</th> -->
-                                <th>File SK Penempatan 1 BPS</th>
-                                <th>File SK Atasan BPS</th>
-                                <th>Status Akun</th>
-                                <th>Aksi</th>
+                                <th>Ijazah Asli</th>
+                                <th>Transkrip Nilai Asli</th>
+                                <!-- <th>Status Akun</th> -->
+                                <!-- <th>Aksi</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -152,17 +152,18 @@
                             <tr>
                                 <td>{{ $data->name  }}</td>
                                 <td>{{ $data->nim }}</td>
-                                <td>{{ $data->nip }}</td>
-                                <td>{{ $data->tahunLulus }}</td>
+                                <!-- <td>{{ $data->nip }}</td> -->
+                                <!-- <td>{{ $data->tahunLulus }}</td> -->
                                 <!-- <td>{{ $data->email }}</td> -->
                                 <!-- <td>{{ $data->jurusan }}</td> -->
-                                <td> <a href="{{ asset('storage/'). '/' . $data->skatasanbps}}" target="blank">Klik
+                                <td> <a href="{{ asset('storage/'). '/' . $data->ijazahasli}}" target="blank">Klik
                                         disini</a> </td>
-                                <td> <a href="{{ asset('storage/'). '/' . $data->skpenempatan1bps}}" target="blank">Klik
+                                <td> <a href="{{ asset('storage/'). '/' . $data->transkripnilaiasli}}"
+                                        target="blank">Klik
                                         disini</a> </td>
-                                <td>{{ $data->statusAkun }}</td>
-                                <td>
-                                    <!-- <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
+                                <!-- <td>{{ $data->statusAkun }}</td> -->
+                                <!-- <td> -->
+                                <!-- <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
 
@@ -186,7 +187,7 @@
                                             onclick="return confirm('Apakah kamu yakin pending akun?')"><span
                                                 data-feather="check"><i class="fas fa-pause"></i></span></button>
                                     </form> -->
-                                    <form action="/verifakun/{{ $data->id }}" method="post" class="d-inline">
+                                <!-- <form action="/verifakun/{{ $data->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
 
@@ -194,8 +195,8 @@
                                             onclick="return confirm('Apakah kamu yakin menyetujui akun?')"><span
                                                 data-feather="check"><i class="fas fa-link"></i></span>
                                         </button>
-                                    </form>
-                                </td>
+                                    </form> -->
+                                <!-- </td> -->
                             </tr>
                             @endforeach
                         </tbody>
