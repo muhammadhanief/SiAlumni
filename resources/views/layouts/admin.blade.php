@@ -98,7 +98,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('formulir') }}" data-toggle="collapse"
                     data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-clipboard-list"></i>
+                    <i class="fas fa-fw fa-align-justify"></i>
                     <span>{{ __('Verifikasi') }}</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -328,6 +328,9 @@
     <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
     <script src="https://kit.fontawesome.com/73dfd73928.js" crossorigin="anonymous"></script>
+
+    <!-- Metode Pengambilan -->
+    <script src="{{ asset('js/metode-ambil.js') }}"></script>
 
     <!-- modal untuk nampilin pdf -->
     <script>

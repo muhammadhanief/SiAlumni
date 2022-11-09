@@ -34,7 +34,7 @@ class FormulirController extends Controller
             'file_kuasa' => 'mimes:pdf', //required or not?
             'pengambilan' => 'required',
             'alamat_pengambilan' => 'nullable',
-            'email_pengambilan' => 'nullable',
+            'email_pengambilan' => 'email|nullable',
             // 'status' => 'Menunggu',
         ]);
 
