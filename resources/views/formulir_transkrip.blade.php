@@ -150,7 +150,7 @@
                                 <span class="text">Unduh Contoh</span>
                             </a>
                         </p>
-                        <input class="form-control" type="file" id="formFile" name="file_kuasa">
+                        <input class="form-control" type="file" id="formFileKuasa" name="file_kuasa">
                         <br>
                     </div>
 
@@ -219,7 +219,10 @@
                                 $("#alamat_pengambilan").removeAttr("required");
                                 $("#email_pengambilan").attr("required", true);
 
+                                $("#alamat_pengambilan").val("");
+
                                 $("#surat_kuasa").hide();
+                                $("#formFileKuasa").val("");
                             }
                             // diambil di kampus
                             else if (val == 2) {
@@ -229,7 +232,12 @@
                                 $("#alamat_pengambilan").removeAttr("required");
                                 $("#email_pengambilan").removeAttr("required");
 
+                                $("#alamat_pengambilan").val("");
+                                $("#email_pengambilan").val("");
+
                                 $("#surat_kuasa").hide();
+                                $("#formFileKuasa").val("");
+
                             }
                             // diambil di kampus oleh orang lain
                             else if (val == 3) {
@@ -238,6 +246,9 @@
 
                                 $("#alamat_pengambilan").removeAttr("required");
                                 $("#email_pengambilan").removeAttr("required");
+
+                                $("#alamat_pengambilan").val("");
+                                $("#email_pengambilan").val("");
 
                                 $("#surat_kuasa").show();
                             }
@@ -249,7 +260,11 @@
                                 $("#alamat_pengambilan").attr("required", true);
                                 $("#email_pengambilan").removeAttr("required");
 
+                                $("#email_pengambilan").val("");
+
                                 $("#surat_kuasa").hide();
+                                $("#formFileKuasa").val("");
+
                             }
                         });
                     </script>

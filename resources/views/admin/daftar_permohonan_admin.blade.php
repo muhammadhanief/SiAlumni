@@ -65,24 +65,19 @@
                             </td>
                             <td>
                                 @if ($item->file_permohonan != NULL)
-                                <a class="btn btn-primary btn-sm"
-                                    onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
+                                <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
                                 @endif
                                 @if ($item->file_eselon != NULL)
-                                <a class="btn btn-primary btn-sm"
-                                    onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
+                                <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
                                 @endif
                                 @if ($item->file_pusdiklat != NULL)
-                                <a class="btn btn-primary btn-sm"
-                                    onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
+                                <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
                                 @endif
                                 @if ($item->file_kampusln != NULL)
-                                <a class="btn btn-primary btn-sm"
-                                    onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
+                                <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
                                 @endif
                                 @if ($item->file_kuasa != NULL)
-                                <a class="btn btn-primary btn-sm"
-                                    onclick="openModalPDF(`{{ asset('storage/'.$item->file_file_kuasa) }}`);">Kuasa</a>
+                                <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
                                 @endif
                             </td>
                             <td>
@@ -194,16 +189,16 @@
 
 </div>
 <script>
-// function sleep(ms) {
-//     return new Promise(resolve => setTimeout(resolve, ms));
-// }
+    // function sleep(ms) {
+    //     return new Promise(resolve => setTimeout(resolve, ms));
+    // }
 
-async function openModalPDF(source) {
-    // wait after src changed then show modal
-    $('#modalpdf').attr('src', source);
-    // await sleep(1 * 1000);
-    $('#myModal').modal('show');
-}
+    async function openModalPDF(source) {
+        // wait after src changed then show modal
+        $('#modalpdf').attr('src', source);
+        // await sleep(1 * 1000);
+        $('#myModal').modal('show');
+    }
 </script>
 <!-- /.container-fluid -->
 
