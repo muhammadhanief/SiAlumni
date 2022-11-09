@@ -65,13 +65,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'alumni1@gmail.com',
             'password' => Hash::make('password'),
             'statusAkun' => 'Lolos',
-            'nim' => '222011686',
+            // 'nim' => '222011686',
             'nip' => '2019439294920230',
             'nomorPonsel' => '085376470953',
-            'statusAkun' => 'Lolos',
             'tanggalLahir' => '2022-11-08',
             'jurusan' => 'D-IV Komputasi Statistik',
-            'tahunLulus' => '2015',
+            // 'tahunLulus' => '2015',
             'skpenempatan1bps' => 'skpenempatan1bps/skpenempatan1bpsdummy.pdf',
             'skatasanbps' => 'skatasanbps/skatasanbpsdummy.pdf',
 
@@ -83,13 +82,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'alumni2@gmail.com',
             'password' => Hash::make('password'),
             'statusAkun' => 'Pending',
-            'nim' => '222011686',
+            // 'nim' => '222011686',
             'nip' => '2019439294920230',
             'nomorPonsel' => '085376470953',
-            'statusAkun' => 'Lolos',
             'tanggalLahir' => '2022-11-08',
             'jurusan' => 'D-IV Komputasi Statistik',
-            'tahunLulus' => '2015',
+            // 'tahunLulus' => '2015',
             'skpenempatan1bps' => 'skpenempatan1bps/skpenempatan1bpsdummy.pdf',
             'skatasanbps' => 'skatasanbps/skatasanbpsdummy.pdf',
         ]);
@@ -100,13 +98,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'alumni3@gmail.com',
             'password' => Hash::make('password'),
             'statusAkun' => 'Ditolak',
-            'nim' => '222011686',
+            // 'nim' => '222011686',
             'nip' => '2019439294920230',
             'nomorPonsel' => '085376470953',
-            'statusAkun' => 'Lolos',
             'tanggalLahir' => '2022-11-08',
             'jurusan' => 'D-IV Komputasi Statistik',
-            'tahunLulus' => '2015',
+            // 'tahunLulus' => '2015',
             'skpenempatan1bps' => 'skpenempatan1bps/skpenempatan1bpsdummy.pdf',
             'skatasanbps' => 'skatasanbps/skatasanbpsdummy.pdf',
         ]);
@@ -114,26 +111,26 @@ class DatabaseSeeder extends Seeder
 
         // Buat seed untuk manajemen data alumni (add ijazah asli dan transkrip nilai)
         $data1 = dataalumni::create([
-            'name' => 'M Zaki',
-            'nim' => '222011686',
+            'name' => 'Farkhan Abiyasa',
+            'nim' => '222011787',
             'ijazahasli' => 'ijazahasli/contohijazah.pdf',
             'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
         ]);
         $data1 = dataalumni::create([
-            'name' => 'M Zaki',
-            'nim' => '222011686',
+            'name' => 'Rayhan Ariyasa',
+            'nim' => '222011623',
             'ijazahasli' => 'ijazahasli/contohijazah.pdf',
             'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
         ]);
         $data1 = dataalumni::create([
-            'name' => 'M Zaki',
-            'nim' => '222011686',
+            'name' => 'Luthfil Hashim',
+            'nim' => '222011232',
             'ijazahasli' => 'ijazahasli/contohijazah.pdf',
             'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
         ]);
         $data1 = dataalumni::create([
-            'name' => 'M Zaki',
-            'nim' => '222011686',
+            'name' => 'Marsha Kamal',
+            'nim' => '222011341',
             'ijazahasli' => 'ijazahasli/contohijazah.pdf',
             'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
         ]);
