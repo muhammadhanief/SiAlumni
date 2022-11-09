@@ -34,11 +34,16 @@ class VerifikasiAkunController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function setujuiakun($id)
+    public function setujuiakun($name)
+    // id disini adalah tanggal lahir
     {
+        // $users = DB::table('dataalumni')->where('name', $name)->first();
+        $users = dataalumni::where('name', $name)->first();
+        // dd($users);
         DB::table('users')
-            ->where('id', $id)
-            ->update(['statusAkun' => 'Lolos']);
+            ->where('name', $name)
+            // ->update(['statusAkun' => 'Lolos', 'nim' => $users->nim]);
+            ->update(['statusAkun' => 'Lolos', 'nim' => $users->nim]);
         return redirect('/verifikasiindex')->with('success', 'Akun berhasil diverifikasi');
     }
 

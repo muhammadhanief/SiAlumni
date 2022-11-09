@@ -48,6 +48,8 @@
                                 </a> -->
                 </div>
             </div>
+
+            <!-- tabel user -->
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
@@ -58,7 +60,8 @@
                                 <th>Nama</th>
                                 <th>NIM</th>
                                 <th>NIP</th>
-                                <th>Tahun Lulus</th>
+                                <th>Tanggal Lahir</th>
+                                <!-- <th>Tahun Lulus</th> -->
                                 <!-- <th>Email</th> -->
                                 <th>File SK Penempatan 1 BPS</th>
                                 <th>File SK Atasan BPS</th>
@@ -68,31 +71,24 @@
                         </thead>
                         <tbody>
 
-                            @foreach($user as $data)
+                            @foreach($user as $user)
 
                             <tr>
                                 @once
-                                <td>{{ $data->name  }}</td>
-                                <td>{{ $data->nim }}</td>
-                                <td>{{ $data->nip }}</td>
-                                <td>{{ $data->tahunLulus }}</td>
-                                <!-- <td>{{ $data->email }}</td> -->
-                                <!-- <td>{{ $data->jurusan }}</td> -->
-                                <td> <a href="{{ asset('storage/'). '/' . $data->skatasanbps}}" target="blank">Klik
+                                <td>{{ $user->name  }}</td>
+                                <td>{{ $user->nim }}</td>
+                                <td>{{ $user->nip }}</td>
+                                <td>{{ $user->tanggalLahir }}</td>
+                                <!-- <td>{{ $user->tahunLulus }}</td> -->
+                                <!-- <td>{{ $user->email }}</td> -->
+                                <!-- <td>{{ $user->jurusan }}</td> -->
+                                <td> <a href="{{ asset('storage/'). '/' . $user->skatasanbps}}" target="blank">Klik
                                         disini</a> </td>
-                                <td> <a href="{{ asset('storage/'). '/' . $data->skpenempatan1bps}}" target="blank">Klik
+                                <td> <a href="{{ asset('storage/'). '/' . $user->skpenempatan1bps}}" target="blank">Klik
                                         disini</a> </td>
-                                <td>{{ $data->statusAkun }}</td>
+                                <td>{{ $user->statusAkun }}</td>
                                 <td>
-                                    <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
-                                        @csrf
-                                        @method('post')
-
-                                        <button type="submit" class="btn btn-success btn-circle btn-sm"
-                                            onclick="return confirm('Apakah kamu yakin menyetujui akun?')"><span
-                                                data-feather="check"><i class="fas fa-check"></i></span></button>
-                                    </form>
-                                    <form action="/tolakakun/{{ $data->id }}" method="post" class="d-inline">
+                                    <form action="/tolakakun/{{ $user->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
 
@@ -100,7 +96,7 @@
                                             onclick="return confirm('Apakah kamu yakin menolak akun?')"><span
                                                 data-feather="check"><i class="fa-regular fa-hand"></i></span></button>
                                     </form>
-                                    <form action="/pendingakun/{{ $data->id }}" method="post" class="d-inline">
+                                    <form action="/pendingakun/{{ $user->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
 
@@ -108,7 +104,7 @@
                                             onclick="return confirm('Apakah kamu yakin pending akun?')"><span
                                                 data-feather="check"><i class="fas fa-pause"></i></span></button>
                                     </form>
-                                    <!-- <form action="/verifakun/{{ $data->id }}" method="post" class="d-inline">
+                                    <!-- <form action="/verifakun/{{ $user->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
 
@@ -129,6 +125,7 @@
                 <h4 class="font-weight-bold text-primary">Database Mahasiswa</h4>
             </div>
 
+            <!-- tabel database -->
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -138,13 +135,14 @@
                             <tr>
                                 <th>Nama</th>
                                 <th>NIM</th>
+                                <th>Tanggal Lahir</th>
                                 <!-- <th>NIP</th> -->
                                 <!-- <th>Tahun Lulus</th> -->
                                 <!-- <th>Email</th> -->
                                 <th>Ijazah Asli</th>
                                 <th>Transkrip Nilai Asli</th>
                                 <!-- <th>Status Akun</th> -->
-                                <!-- <th>Aksi</th> -->
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -152,6 +150,7 @@
                             <tr>
                                 <td>{{ $data->name  }}</td>
                                 <td>{{ $data->nim }}</td>
+                                <td>{{ $data->tanggalLahir }}</td>
                                 <!-- <td>{{ $data->nip }}</td> -->
                                 <!-- <td>{{ $data->tahunLulus }}</td> -->
                                 <!-- <td>{{ $data->email }}</td> -->
@@ -162,6 +161,16 @@
                                         target="blank">Klik
                                         disini</a> </td>
                                 <!-- <td>{{ $data->statusAkun }}</td> -->
+                                <td>
+                                    <form action="/setujuiakun/{{ $data->name }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('post')
+
+                                        <button type="submit" class="btn btn-success btn-circle btn-sm"
+                                            onclick="return confirm('Apakah kamu yakin menyetujui akun?')"><span
+                                                data-feather="check"><i class="fas fa-check"></i></span></button>
+                                    </form>
+                                </td>
                                 <!-- <td> -->
                                 <!-- <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
                                         @csrf

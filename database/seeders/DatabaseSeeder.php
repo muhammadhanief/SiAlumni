@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'M Zikri',
             'email' => 'alumni1@gmail.com',
             'password' => Hash::make('password'),
-            'statusAkun' => 'Lolos',
+            'statusAkun' => 'Pending',
             // 'nim' => '222011686',
             'nip' => '2019439294920230',
             'nomorPonsel' => '085376470953',
@@ -77,9 +77,41 @@ class DatabaseSeeder extends Seeder
         ]);
         $alumni1->assignRole('alumni');
 
+        $data1 = dataalumni::create([
+            'name' => 'M Zikri',
+            'nim' => '222011623',
+            'tanggalLahir' => '2022-11-08',
+            'ijazahasli' => 'ijazahasli/contohijazah.pdf',
+            'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
+        ]);
+
         $alumni2 = User::create([
             'name' => 'M Hanief',
             'email' => 'alumni2@gmail.com',
+            'password' => Hash::make('password'),
+            'statusAkun' => 'Pending',
+            // 'nim' => '222011686',
+            'nip' => '2019439294920230',
+            'nomorPonsel' => '085376470953',
+            'tanggalLahir' => '2022-10-08',
+            'jurusan' => 'D-IV Komputasi Statistik',
+            // 'tahunLulus' => '2015',
+            'skpenempatan1bps' => 'skpenempatan1bps/skpenempatan1bpsdummy.pdf',
+            'skatasanbps' => 'skatasanbps/skatasanbpsdummy.pdf',
+        ]);
+        $alumni2->assignRole('alumni');
+
+        $data1 = dataalumni::create([
+            'name' => 'M Hanief',
+            'nim' => '222011787',
+            'tanggalLahir' => '2022-10-08',
+            'ijazahasli' => 'ijazahasli/contohijazah.pdf',
+            'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
+        ]);
+
+        $alumni3 = User::create([
+            'name' => 'M Zaki',
+            'email' => 'alumni3@gmail.com',
             'password' => Hash::make('password'),
             'statusAkun' => 'Pending',
             // 'nim' => '222011686',
@@ -91,46 +123,26 @@ class DatabaseSeeder extends Seeder
             'skpenempatan1bps' => 'skpenempatan1bps/skpenempatan1bpsdummy.pdf',
             'skatasanbps' => 'skatasanbps/skatasanbpsdummy.pdf',
         ]);
-        $alumni2->assignRole('alumni');
-
-        $alumni3 = User::create([
-            'name' => 'M Zaki',
-            'email' => 'alumni3@gmail.com',
-            'password' => Hash::make('password'),
-            'statusAkun' => 'Ditolak',
-            // 'nim' => '222011686',
-            'nip' => '2019439294920230',
-            'nomorPonsel' => '085376470953',
-            'tanggalLahir' => '2022-11-08',
-            'jurusan' => 'D-IV Komputasi Statistik',
-            // 'tahunLulus' => '2015',
-            'skpenempatan1bps' => 'skpenempatan1bps/skpenempatan1bpsdummy.pdf',
-            'skatasanbps' => 'skatasanbps/skatasanbpsdummy.pdf',
-        ]);
         $alumni3->assignRole('alumni');
 
-        // Buat seed untuk manajemen data alumni (add ijazah asli dan transkrip nilai)
+
         $data1 = dataalumni::create([
-            'name' => 'Farkhan Abiyasa',
-            'nim' => '222011787',
-            'ijazahasli' => 'ijazahasli/contohijazah.pdf',
-            'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
-        ]);
-        $data1 = dataalumni::create([
-            'name' => 'Rayhan Ariyasa',
-            'nim' => '222011623',
-            'ijazahasli' => 'ijazahasli/contohijazah.pdf',
-            'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
-        ]);
-        $data1 = dataalumni::create([
-            'name' => 'Luthfil Hashim',
+            'name' => 'M Zaki',
             'nim' => '222011232',
+            'tanggalLahir' => '2022-11-08',
             'ijazahasli' => 'ijazahasli/contohijazah.pdf',
             'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
         ]);
+
+
+        // Buat seed untuk manajemen data alumni (add ijazah asli dan transkrip nilai)
+
+
+
         $data1 = dataalumni::create([
             'name' => 'Marsha Kamal',
             'nim' => '222011341',
+            'tanggalLahir' => '2022-11-13',
             'ijazahasli' => 'ijazahasli/contohijazah.pdf',
             'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
         ]);
