@@ -2,7 +2,6 @@
 
 @section('main-content')
 
-@if (isset(\Auth::user()->nim) == TRUE)
 
 
 <!-- Page Heading -->
@@ -98,7 +97,8 @@
                     <b>Dokumen Wajib</b><br>
                     <br>
                     <p class="ms-auto">Surat Permohonan Legalisir
-                        <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                        <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank”
+                            class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                             <span class="icon text-light">
                                 <i class='fas fa-download'></i>
                             </span>
@@ -109,7 +109,8 @@
                     <br>
                     <!-- Hanya untuk legalisir Transkrip nilai < 4 tahun -->
                     <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Eselon II
-                        <a href="http://stis.ac.id/media/source/2.%20permohonan%20ijin%20belajar%20%20(eselon%202).pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                        <a href="http://stis.ac.id/media/source/2.%20permohonan%20ijin%20belajar%20%20(eselon%202).pdf"
+                            target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                             <span class="icon text-light">
                                 <i class='fas fa-download'></i>
                             </span>
@@ -119,7 +120,8 @@
                     <input class="form-control" type="file" id="formFile" name="file_eselon">
                     <br>
                     <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Kepala Pusdiklat
-                        <a href="http://stis.ac.id/media/source/3.%20surat%20ijin%20belajar%20dari%20pusdiklat.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                        <a href="http://stis.ac.id/media/source/3.%20surat%20ijin%20belajar%20dari%20pusdiklat.pdf"
+                            target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                             <span class="icon text-light">
                                 <i class='fas fa-download'></i>
                             </span>
@@ -140,7 +142,8 @@
                     <!-- Hanya untuk Diambil langsung oleh Orang lain -->
                     <div id="surat_kuasa">
                         <p class="ms-auto">Surat Kuasa
-                            <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                            <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank”
+                                class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                                 <span class="icon text-light">
                                     <i class='fas fa-download'></i>
                                 </span>
@@ -153,7 +156,8 @@
 
                     <p>Metode Pengambilan</p>
 
-                    <select id="metodePengambilan" name="pengambilan" class="form-select form-control bg-light border-0 small">
+                    <select id="metodePengambilan" name="pengambilan"
+                        class="form-select form-control bg-light border-0 small">
                         <option value="1">Diemail ke alamat pemohon dalam bentuk hasil scan</option>
                         <option value="2">Diambil di kampus Polstat STIS langsung oleh pemohon</option>
                         <option value="3">Diambil di kampus Polstat STIS oleh orang lain yang telah diberi kuasa
@@ -171,7 +175,9 @@
                     <div id="alamat-pengiriman">
                         <p>Alamat Pengiriman</p>
                         <div class="input-group">
-                            <input id="alamat_pengambilan" name=" alamat_pengambilan" type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                            <input id="alamat_pengambilan" name=" alamat_pengambilan" type="text"
+                                class="form-control bg-light border-0 small" placeholder="" aria-label="Search"
+                                aria-describedby="basic-addon2">
                         </div>
                     </div>
 
@@ -179,7 +185,9 @@
                     <div id="email-pengiriman">
                         <p>Email</p>
                         <div class="input-group">
-                            <input id="email_pengambilan" name="email_pengambilan" type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                            <input id="email_pengambilan" name="email_pengambilan" type="text"
+                                class="form-control bg-light border-0 small" placeholder="" aria-label="Search"
+                                aria-describedby="basic-addon2">
                         </div>
                     </div>
                     <br>
@@ -200,37 +208,37 @@
                     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
                     <script>
-                        $(document).ready(function() {
+                    $(document).ready(function() {
+                        $("#alamat-pengiriman").hide();
+                        $("#email_pengambilan").attr('required', true);
+                        $("#surat_kuasa").hide();
+                    });
+                    $('#metodePengambilan').change(function() {
+                        val = $(this).val();
+                        if (val == 1) {
                             $("#alamat-pengiriman").hide();
-                            $("#email_pengambilan").attr('required', true);
+                            $("#alamat_pengambilan").removeAttr("required");
+                            $("#email-pengiriman").show();
+                            $("#email_pengambilan").attr("required", true);
                             $("#surat_kuasa").hide();
-                        });
-                        $('#metodePengambilan').change(function() {
-                            val = $(this).val();
-                            if (val == 1) {
-                                $("#alamat-pengiriman").hide();
-                                $("#alamat_pengambilan").removeAttr("required");
-                                $("#email-pengiriman").show();
-                                $("#email_pengambilan").attr("required", true);
-                                $("#surat_kuasa").hide();
-                            } else if (val == 2) {
-                                $("#alamat-pengiriman").hide();
-                                $("#alamat_pengambilan").removeAttr("required");
-                                $("#email-pengiriman").hide();
-                                $("#email_pengambilan").removeAttr("required");
-                                $("#surat_kuasa").hide();
-                            } else if (val == 3) {
-                                $("#surat_kuasa").show();
-                                $("#alamat-pengiriman").hide();
-                                $("#email-pengiriman").hide();
-                            } else if (val == 4) {
-                                $("#alamat-pengiriman").show();
-                                $("#alamat_pengambilan").attr("required", true);
-                                $("#email-pengiriman").hide();
-                                $("#email_pengambilan").removeAttr("required");
-                                $("#surat_kuasa").hide();
-                            }
-                        });
+                        } else if (val == 2) {
+                            $("#alamat-pengiriman").hide();
+                            $("#alamat_pengambilan").removeAttr("required");
+                            $("#email-pengiriman").hide();
+                            $("#email_pengambilan").removeAttr("required");
+                            $("#surat_kuasa").hide();
+                        } else if (val == 3) {
+                            $("#surat_kuasa").show();
+                            $("#alamat-pengiriman").hide();
+                            $("#email-pengiriman").hide();
+                        } else if (val == 4) {
+                            $("#alamat-pengiriman").show();
+                            $("#alamat_pengambilan").attr("required", true);
+                            $("#email-pengiriman").hide();
+                            $("#email_pengambilan").removeAttr("required");
+                            $("#surat_kuasa").hide();
+                        }
+                    });
                     </script>
                 </div>
             </div>
@@ -238,6 +246,5 @@
         </div>
     </div>
 </form>
-@endif
 
 @endsection
