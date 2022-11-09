@@ -98,6 +98,7 @@
                     <b>Dokumen Wajib</b><br>
                     <br>
                     <p class="ms-auto">Surat Permohonan Legalisir
+                        <br>
                         <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                             <span class="icon text-light">
                                 <i class='fas fa-download'></i>
@@ -119,6 +120,7 @@
                     <!-- Hanya untuk Diambil langsung oleh Orang lain -->
                     <div id="surat_kuasa">
                         <p class="ms-auto">Surat Kuasa
+                            <br>
                             <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                                 <span class="icon text-light">
                                     <i class='fas fa-download'></i>

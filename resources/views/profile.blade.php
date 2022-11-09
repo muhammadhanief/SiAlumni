@@ -29,8 +29,7 @@
 
         <div class="card shadow mb-4">
             <div class="card-profile-image mt-4">
-                <figure class="rounded-circle avatar avatar font-weight-bold"
-                    style="font-size: 60px; height: 180px; width: 180px;" data-initial="{{ Auth::user()->name[0] }}">
+                <figure class="rounded-circle avatar avatar font-weight-bold" style="font-size: 60px; height: 180px; width: 180px;" data-initial="{{ Auth::user()->name[0] }}">
                 </figure>
                 <!-- <img class="" src="{{ Auth::user()->tanggalLahir }}" alt="..."> -->
 
@@ -93,10 +92,8 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="name">Name<span
-                                            class="small text-danger">*</span></label>
-                                    <input readonly type="text" id="name" class="form-control" name="name"
-                                        placeholder="Name" value="{{ old('name', Auth::user()->name) }}">
+                                    <label class="form-control-label" for="name">Name<span class="small text-danger">*</span></label>
+                                    <input readonly type="text" id="name" class="form-control" name="name" placeholder="Name" value="{{ old('name', Auth::user()->name) }}">
                                 </div>
                             </div>
                             <!-- <div class="col-lg-6"> -->
@@ -109,11 +106,8 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="email">Email address<span
-                                            class="small text-danger">*</span></label>
-                                    <input readonly type="email" id="email" name="email" class="form-control"
-                                        placeholder="example@example.com"
-                                        value="{{ old('email', Auth::user()->email) }}">
+                                    <label class="form-control-label" for="email">Email address<span class="small text-danger">*</span></label>
+                                    <input readonly type="email" id="email" name="email" class="form-control" placeholder="example@example.com" value="{{ old('email', Auth::user()->email) }}">
                                 </div>
                             </div>
 
@@ -121,10 +115,8 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="nip">NIP<span
-                                            class="small text-danger">*</span></label>
-                                    <input type="text" readonly id="nip" class="form-control" name="nip" placeholder=""
-                                        value="{{ old('nip', Auth::user()->nip) }}">
+                                    <label class="form-control-label" for="nip">NIP<span class="small text-danger">*</span></label>
+                                    <input type="text" readonly id="nip" class="form-control" name="nip" placeholder="" value="{{ old('nip', Auth::user()->nip) }}">
                                 </div>
                             </div>
 
@@ -132,21 +124,17 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="nim">NIM<span
-                                            class="small text-danger">*</span></label>
-                                    <input readonly type="text" id="nim" class="form-control" name="nim" placeholder=""
-                                        value="{{ old('nim', Auth::user()->nim) }}">
+                                    <label class="form-control-label" for="nim">NIM<span class="small text-danger">*</span></label>
+                                    <input readonly type="text" id="nim" class="form-control" name="nim" placeholder="" value="{{ old('nim', Auth::user()->nim) }}">
                                 </div>
                             </div>
 
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="jurusan">Jurusan<span
-                                            class="small text-danger">*</span></label>
+                                    <label class="form-control-label" for="jurusan">Jurusan<span class="small text-danger">*</span></label>
                                     <br>
-                                    <select id="jurusan" name="jurusan" class="form-select form-control-user"
-                                        value="{{ old('jurusan', Auth::user()->jurusan) }}">
+                                    <select id="jurusan" name="jurusan" class="form-select form-control bg-light border-1 small" value="{{ old('jurusan', Auth::user()->jurusan) }}">
                                         <option value="D-IV Komputasi Statistik">D-IV Komputasi Statistik</option>
                                         <option value="D-IV Statistika">D-IV Statistika</option>
                                         <option value="D-III Statistika">D-III Statistika</option>
@@ -155,11 +143,9 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="jeniskelamin">Jenis Kelamin<span
-                                            class="small text-danger">*</span></label>
+                                    <label class="form-control-label" for="jeniskelamin">Jenis Kelamin<span class="small text-danger">*</span></label>
                                     <br>
-                                    <select id="jeniskelamin" name="jeniskelamin" class="form-select form-control-user"
-                                        value="{{ old('jeniskelamin', Auth::user()->jeniskelamin) }}">
+                                    <select id="jeniskelamin" name="jeniskelamin" class="form-select form-control bg-light border-1 small" value="{{ old('jeniskelamin', Auth::user()->jeniskelamin) }}">
                                         <option value="Laki-laki">Laki-laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
@@ -170,10 +156,8 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="tahunLulus">Tahun Lulus<span
-                                            class="small text-danger">*</span></label>
-                                    <input type="text" class="form-control form-control-user" name="tahunLulus"
-                                        value="{{ old('tahunLulus', Auth::user()->tahunLulus) }}" required>
+                                    <label class="form-control-label" for="tahunLulus">Tahun Lulus<span class="small text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-user" name="tahunLulus" value="{{ old('tahunLulus', Auth::user()->tahunLulus) }}" required>
                                 </div>
                             </div>
 
@@ -181,10 +165,8 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="tempatLahir">Tempat Lahir<span
-                                            class="small text-danger">*</span></label>
-                                    <input type="text" class="form-control form-control-user" name="tempatLahir"
-                                        value="{{ old('tempatLahir', Auth::user()->tempatLahir) }}" required>
+                                    <label class="form-control-label" for="tempatLahir">Tempat Lahir<span class="small text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-user" name="tempatLahir" value="{{ old('tempatLahir', Auth::user()->tempatLahir) }}" required>
                                 </div>
                             </div>
 
@@ -192,11 +174,8 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="tanggalLahir">Tanggal Lahir<span
-                                            class="small text-danger">*</span></label>
-                                    <input type="date" class="form-control form-control-user" name="tanggalLahir"
-                                        value="{{ old('tanggalLahir', Auth::user()->tanggalLahir) }}" required
-                                        autofocus>
+                                    <label class="form-control-label" for="tanggalLahir">Tanggal Lahir<span class="small text-danger">*</span></label>
+                                    <input type="date" class="form-control form-control-user" name="tanggalLahir" value="{{ old('tanggalLahir', Auth::user()->tanggalLahir) }}" required autofocus>
                                 </div>
                             </div>
 
@@ -204,10 +183,8 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="nomorPonsel">Nomor Ponsel<span
-                                            class="small text-danger">*</span></label>
-                                    <input type="text" class="form-control form-control-user" name="nomorPonsel"
-                                        value="{{ old('nomorPonsel', Auth::user()->nomorPonsel) }}" required>
+                                    <label class="form-control-label" for="nomorPonsel">Nomor Ponsel<span class="small text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-user" name="nomorPonsel" value="{{ old('nomorPonsel', Auth::user()->nomorPonsel) }}" required>
                                 </div>
                             </div>
 
