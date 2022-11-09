@@ -24,6 +24,9 @@ use App\Http\Controllers\PermohonanController;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('/landing', function () {
+    return view('landingpage.home');
+});
 
 Route::group(['middleware' => ['auth']], function () {
 
