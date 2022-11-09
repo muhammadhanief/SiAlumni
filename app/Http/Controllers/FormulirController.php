@@ -35,7 +35,7 @@ class FormulirController extends Controller
             'pengambilan' => 'required',
             'alamat_pengambilan' => 'nullable',
             'email_pengambilan' => 'nullable',
-            'status' => '',
+            // 'status' => 'Menunggu',
         ]);
 
         $validate['user_id'] = Auth::user()->id;

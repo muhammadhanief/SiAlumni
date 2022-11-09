@@ -39,7 +39,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
                                     Permohonan Baru</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">5</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$permohonanbaru}}</div>
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     Permohonan Lolos Syarat</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$lolossyarat}}</div>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                     Permohonan Disetujui BAAK</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$disetujuikepalabaak}}</div>
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     Permohonan Selesai</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$selesai}}</div>
                             </div>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     Total Ijazah Asli yang Sudah di input</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data}}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$ijazahasli}}</div>
                             </div>
                         </div>
                     </div>

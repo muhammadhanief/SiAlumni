@@ -68,11 +68,17 @@
                                 <td>{{ $data->name  }}</td>
                                 <td>{{ $data->nim }}</td>
                                 <!-- <td>{{ "gada" }}</td> -->
-                                <td> <a href="{{ asset('storage/'). '/' . $data->ijazahasli}}" target="blank">Klik
-                                        disini</a> </td>
-                                <td> <a href="{{ asset('storage/'). '/' . $data->transkripnilaiasli}}"
-                                        target="blank">Klik
-                                        disini</a> </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">Klik Untuk
+                                        Melihat</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">Klik
+                                        Untuk
+                                        Melihat</a>
+                                </td>
                                 <!-- <td>{{ "gada"}}</td> -->
                             </tr>
                             @endforeach
@@ -89,4 +95,5 @@
 <!-- End of Main Content -->
 <!-- End of Content Wrapper -->
 <!-- </html> -->
+
 @endsection

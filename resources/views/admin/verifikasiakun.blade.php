@@ -74,10 +74,18 @@
                                 <td>{{ $data->tahunLulus }}</td>
                                 <!-- <td>{{ $data->email }}</td> -->
                                 <!-- <td>{{ $data->jurusan }}</td> -->
-                                <td> <a href="{{ asset('storage/'). '/' . $data->skatasanbps}}" target="blank">Klik
-                                        disini</a> </td>
-                                <td> <a href="{{ asset('storage/'). '/' . $data->skpenempatan1bps}}" target="blank">Klik
-                                        disini</a> </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$data->skpenempatan1bps) }}`);">Klik
+                                        Untuk
+                                        Melihat</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanbps) }}`);">Klik
+                                        Untuk
+                                        Melihat</a>
+                                </td>
                                 <td>{{ $data->statusAkun }}</td>
                                 <td>
                                     <form action="/konfirmasi/{{$data->id}}" method="post" class="d-inline">

@@ -170,8 +170,11 @@
                                     @role('wadir1')
                                     Wakil Direktur 1
                                     @endrole
-                                    @role('superadmin')
-                                    Superadmin
+                                    @role('kepalabaak')
+                                    Kepala BAAK
+                                    @endrole
+                                    @role('petugasbaak')
+                                    Petugas BAAK
                                     @endrole
                                 </th>
                             </tr>

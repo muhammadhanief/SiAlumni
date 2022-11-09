@@ -47,7 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::POST('/setujuiakun/{id}', 'setujuiakun');
         Route::POST('/tolakakun/{id}', 'tolakakun');
         Route::POST('/pendingakun/{id}', 'pendingakun');
-        Route::get('/konfirmasi/{id}','verif')->name('konfirmasi');
+        Route::get('/konfirmasi/{id}', 'verif')->name('konfirmasi');
         // Route::post('/storeaddalumni', 'store')->name('storeaddalumni');
         // Route::get('/admin/manajemenalumni', 'indexsemuaalumni')->name('manajemen_alumni');
     });
@@ -58,11 +58,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/formulir', 'store')->name('formulir.store');
     });
 
-    // formulir
-
-
-    // daftar permohonan
-    // Route::get('/permohonan', 'PermohonanController@index')->name('permohonan');
 
     // // daftar permohonan
     Route::controller(PermohonanController::class)->group(function () {
@@ -86,11 +81,7 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('about');
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-    // Route::get('/home', 'HomeController@index')->name('home');
 
-    // Route::get('/admin/manajemenalumni', function () {
-    //     return view('admin.manajemen_alumni');
-    // })->name('manajemen_alumni');
 
     Route::get('/dashboard', function () {
         return view('dashboard');

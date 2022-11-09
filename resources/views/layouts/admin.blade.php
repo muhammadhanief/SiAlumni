@@ -61,7 +61,7 @@
             <hr class="sidebar-divider">
 
 
-            @role('superadmin|wadir1|baak')
+            @role('superadmin|wadir1|kepalabaak|petugasbaak')
             <!-- Heading -->
             <div class="sidebar-heading">
                 {{ __('Admin') }}
@@ -328,6 +328,44 @@
     <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
     <script src="https://kit.fontawesome.com/73dfd73928.js" crossorigin="anonymous"></script>
+
+    <!-- modal untuk nampilin pdf -->
+    <script>
+    // function sleep(ms) {
+    //     return new Promise(resolve => setTimeout(resolve, ms));
+    // }
+
+    async function openModalPDF(source) {
+        // wait after src changed then show modal
+        $('#modalpdf').attr('src', source);
+        // await sleep(1 * 1000);
+        $('#myModal').modal('show');
+    }
+    </script>
+    <!-- /.container-fluid -->
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-xl">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Header</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                    <embed id="modalpdf" src="" frameborder="0" width="100%" height="720px">
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 </body>
 

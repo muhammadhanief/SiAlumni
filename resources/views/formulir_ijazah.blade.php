@@ -99,11 +99,12 @@
                     <br>
                     <p class="ms-auto">Surat Permohonan Legalisir
                         <br>
-                        <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                        <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank”
+                            class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                             <span class="icon text-light">
                                 <i class='fas fa-download'></i>
                             </span>
-                            <span class="text">Unduh Contoh</span>
+                            <span class="text">Unduh Formulir</span>
                         </a>
                     </p>
                     <input class="form-control" type="file" id="formFile" name="file_permohonan">
@@ -121,11 +122,12 @@
                     <div id="surat_kuasa">
                         <p class="ms-auto">Surat Kuasa
                             <br>
-                            <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                            <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank”
+                                class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                                 <span class="icon text-light">
                                     <i class='fas fa-download'></i>
                                 </span>
-                                <span class="text">Unduh Contoh</span>
+                                <span class="text">Unduh Formulir</span>
                             </a>
                         </p>
                         <input class="form-control" type="file" id="formFileKuasa" name="file_kuasa">
@@ -134,10 +136,12 @@
 
                     <p>Metode Pengambilan</p>
 
-                    <select id="metodePengambilan" name="pengambilan" class="form-select form-control bg-light border-0 small">
+                    <select id="metodePengambilan" name="pengambilan"
+                        class="form-select form-control bg-light border-0 small">
                         <option value="1">Dikirimkan ke email pemohon dalam bentuk hasil scan</option>
                         <option value="2">Diambil di kampus Polstat STIS langsung oleh pemohon</option>
-                        <option value="3">Diambil di kampus Polstat STIS oleh orang lain yang telah diberi kuasa</option>
+                        <option value="3">Diambil di kampus Polstat STIS oleh orang lain yang telah diberi kuasa
+                        </option>
                         <option value="4">Dikirimkan via pos</option>
 
                     </select>
@@ -151,7 +155,9 @@
                     <div id="alamat-pengiriman">
                         <p>Alamat Pengiriman</p>
                         <div class="input-group">
-                            <input id="alamat_pengambilan" name=" alamat_pengambilan" type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                            <input id="alamat_pengambilan" name=" alamat_pengambilan" type="text"
+                                class="form-control bg-light border-0 small" placeholder="" aria-label="Search"
+                                aria-describedby="basic-addon2">
                         </div>
                     </div>
 
@@ -159,7 +165,9 @@
                     <div id="email-pengiriman">
                         <p>Email</p>
                         <div class="input-group">
-                            <input id="email_pengambilan" name="email_pengambilan" type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                            <input id="email_pengambilan" name="email_pengambilan" type="text"
+                                class="form-control bg-light border-0 small" placeholder="" aria-label="Search"
+                                aria-describedby="basic-addon2">
                         </div>
                     </div>
                     <br>
@@ -180,70 +188,70 @@
                     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
                     <script>
-                        $(document).ready(function() {
+                    $(document).ready(function() {
+                        $("#alamat-pengiriman").hide();
+                        $("#email_pengambilan").attr('required', true);
+                        $("#surat_kuasa").hide();
+                    });
+
+                    $('#metodePengambilan').change(function() {
+                        val = $(this).val();
+                        // kirim ke email
+                        if (val == 1) {
                             $("#alamat-pengiriman").hide();
-                            $("#email_pengambilan").attr('required', true);
+                            $("#email-pengiriman").show();
+
+                            $("#alamat_pengambilan").removeAttr("required");
+                            $("#email_pengambilan").attr("required", true);
+
+                            $("#alamat_pengambilan").val("");
+
                             $("#surat_kuasa").hide();
-                        });
+                            $("#formFileKuasa").val("");
+                        }
+                        // diambil di kampus
+                        else if (val == 2) {
+                            $("#alamat-pengiriman").hide();
+                            $("#email-pengiriman").hide();
 
-                        $('#metodePengambilan').change(function() {
-                            val = $(this).val();
-                            // kirim ke email
-                            if (val == 1) {
-                                $("#alamat-pengiriman").hide();
-                                $("#email-pengiriman").show();
+                            $("#alamat_pengambilan").removeAttr("required");
+                            $("#email_pengambilan").removeAttr("required");
 
-                                $("#alamat_pengambilan").removeAttr("required");
-                                $("#email_pengambilan").attr("required", true);
+                            $("#alamat_pengambilan").val("");
+                            $("#email_pengambilan").val("");
 
-                                $("#alamat_pengambilan").val("");
+                            $("#surat_kuasa").hide();
+                            $("#formFileKuasa").val("");
 
-                                $("#surat_kuasa").hide();
-                                $("#formFileKuasa").val("");
-                            }
-                            // diambil di kampus
-                            else if (val == 2) {
-                                $("#alamat-pengiriman").hide();
-                                $("#email-pengiriman").hide();
+                        }
+                        // diambil di kampus oleh orang lain
+                        else if (val == 3) {
+                            $("#alamat-pengiriman").hide();
+                            $("#email-pengiriman").hide();
 
-                                $("#alamat_pengambilan").removeAttr("required");
-                                $("#email_pengambilan").removeAttr("required");
+                            $("#alamat_pengambilan").removeAttr("required");
+                            $("#email_pengambilan").removeAttr("required");
 
-                                $("#alamat_pengambilan").val("");
-                                $("#email_pengambilan").val("");
+                            $("#alamat_pengambilan").val("");
+                            $("#email_pengambilan").val("");
 
-                                $("#surat_kuasa").hide();
-                                $("#formFileKuasa").val("");
+                            $("#surat_kuasa").show();
+                        }
+                        // dikirimkan via pos
+                        else if (val == 4) {
+                            $("#alamat-pengiriman").show();
+                            $("#email-pengiriman").hide();
 
-                            }
-                            // diambil di kampus oleh orang lain
-                            else if (val == 3) {
-                                $("#alamat-pengiriman").hide();
-                                $("#email-pengiriman").hide();
+                            $("#alamat_pengambilan").attr("required", true);
+                            $("#email_pengambilan").removeAttr("required");
 
-                                $("#alamat_pengambilan").removeAttr("required");
-                                $("#email_pengambilan").removeAttr("required");
+                            $("#email_pengambilan").val("");
 
-                                $("#alamat_pengambilan").val("");
-                                $("#email_pengambilan").val("");
+                            $("#surat_kuasa").hide();
+                            $("#formFileKuasa").val("");
 
-                                $("#surat_kuasa").show();
-                            }
-                            // dikirimkan via pos
-                            else if (val == 4) {
-                                $("#alamat-pengiriman").show();
-                                $("#email-pengiriman").hide();
-
-                                $("#alamat_pengambilan").attr("required", true);
-                                $("#email_pengambilan").removeAttr("required");
-
-                                $("#email_pengambilan").val("");
-
-                                $("#surat_kuasa").hide();
-                                $("#formFileKuasa").val("");
-
-                            }
-                        });
+                        }
+                    });
                     </script>
                 </div>
             </div>

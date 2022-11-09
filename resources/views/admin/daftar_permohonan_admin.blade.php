@@ -55,12 +55,16 @@
                             <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</td>
                             <td>{{ $item->jenis }}</td>
                             <!-- Warnanya berbeda sesuai status pengajuan legalisir -->
-                            <td>@if($item->status == 1)
-                                <div class="p-2 bg-secondary text-light rounded">Pengajuan</div>
-                                @elseif($item->status == 2)
-                                <div class="p-2 bg-success text-light rounded">Disetujui</div>
-                                @elseif($item->status == 3)
-                                <div class="p-2 bg-danger text-light rounded">Ditolak</div>
+                            <td>@if($item->status == 'Menunggu' )
+                                <div class="p-2 bg-secondary text-light rounded">{{ $item->status }}</div>
+                                @elseif($item->status == 'Disetujui Kepala BAAK')
+                                <div class="p-2 bg-primary text-light rounded">{{ $item->status }}</div>
+                                @elseif($item->status == 'Disetujui Petugas BAAK')
+                                <div class="p-2 bg-primary text-light rounded">{{ $item->status }}</div>
+                                @elseif($item->status == 'Disetujui Wakil Direktur 1')
+                                <div class="p-2 bg-primary text-light rounded">{{ $item->status }}</div>
+                                @elseif($item->status == 'Selesai')
+                                <div class="p-2 bg-success text-light rounded">{{ $item->status }}</div>
                                 @endif
                             </td>
                             <td>
@@ -162,28 +166,7 @@
                 <!-- @foreach ($data as $item) -->
                 <!-- Trigger the modal with a button -->
                 <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
-                <!-- Modal -->
-                <div id="myModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog modal-xl">
 
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Modal Header</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-
-                                <embed id="modalpdf" src="" frameborder="0" width="100%" height="720px">
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
                 <!-- @endforeach -->
 
 
@@ -193,18 +176,7 @@
     </div>
 
 </div>
-<script>
-// function sleep(ms) {
-//     return new Promise(resolve => setTimeout(resolve, ms));
-// }
 
-async function openModalPDF(source) {
-    // wait after src changed then show modal
-    $('#modalpdf').attr('src', source);
-    // await sleep(1 * 1000);
-    $('#myModal').modal('show');
-}
-</script>
-<!-- /.container-fluid -->
+<!-- script udah dipindahin ke layout.admin -->
 
 @endsection
