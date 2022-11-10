@@ -90,7 +90,8 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="/admin/daftar_permohonan/{{ $item->id }}" class="btn btn-primary">Aksi</a>
+                                <a href="#" class="btn btn-success">Loloskan</a>
+                                <a href="#" class="btn btn-danger">Tolak</a>
                             </td>
 
 

@@ -98,11 +98,12 @@
                     <br>
                     <p class="ms-auto">Surat Permohonan Legalisir
                         <br>
-                        <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                        <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank”
+                            class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                             <span class="icon text-light">
                                 <i class='fas fa-download'></i>
                             </span>
-                            <span class="text">Unduh Contoh</span>
+                            <span class="text">Unduh Formulir</span>
                         </a>
                     </p>
                     <input class="form-control" type="file" id="formFile" name="file_permohonan">
@@ -110,22 +111,24 @@
                     <!-- Hanya untuk legalisir Transkrip nilai < 4 tahun -->
                     <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Eselon II
                         <br>
-                        <a href="http://stis.ac.id/media/source/2.%20permohonan%20ijin%20belajar%20%20(eselon%202).pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                        <a href="http://stis.ac.id/media/source/2.%20permohonan%20ijin%20belajar%20%20(eselon%202).pdf"
+                            target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                             <span class="icon text-light">
                                 <i class='fas fa-download'></i>
                             </span>
-                            <span class="text">Unduh Contoh</span>
+                            <span class="text">Unduh Formulir</span>
                         </a>
                     </p>
                     <input class="form-control" type="file" id="formFile" name="file_eselon">
                     <br>
                     <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Kepala Pusdiklat
                         <br>
-                        <a href="http://stis.ac.id/media/source/3.%20surat%20ijin%20belajar%20dari%20pusdiklat.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                        <a href="http://stis.ac.id/media/source/3.%20surat%20ijin%20belajar%20dari%20pusdiklat.pdf"
+                            target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                             <span class="icon text-light">
                                 <i class='fas fa-download'></i>
                             </span>
-                            <span class="text">Unduh Contoh</span>
+                            <span class="text">Unduh Formulir</span>
                         </a>
                     </p>
                     <input class="form-control" type="file" id="formFile" name="file_pusdiklat">
@@ -143,11 +146,12 @@
                     <div id="surat_kuasa">
                         <p class="ms-auto">Surat Kuasa
                             <br>
-                            <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                            <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank”
+                                class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                                 <span class="icon text-light">
                                     <i class='fas fa-download'></i>
                                 </span>
-                                <span class="text">Unduh Contoh</span>
+                                <span class="text">Unduh Formulir</span>
                             </a>
                         </p>
                         <input class="form-control" type="file" id="formFileKuasa" name="file_kuasa">
@@ -156,10 +160,12 @@
 
                     <p>Metode Pengambilan</p>
 
-                    <select id="metodePengambilan" name="pengambilan" class="form-select form-control bg-light border-0 small">
+                    <select id="metodePengambilan" name="pengambilan"
+                        class="form-select form-control bg-light border-0 small">
                         <option value="1">Dikirimkan ke email pemohon dalam bentuk hasil scan</option>
                         <option value="2">Diambil di kampus Polstat STIS langsung oleh pemohon</option>
-                        <option value="3">Diambil di kampus Polstat STIS oleh orang lain yang telah diberi kuasa</option>
+                        <option value="3">Diambil di kampus Polstat STIS oleh orang lain yang telah diberi kuasa
+                        </option>
                         <option value="4">Dikirimkan via pos</option>
 
                     </select>
@@ -173,7 +179,9 @@
                     <div id="alamat-pengiriman">
                         <p>Alamat Pengiriman</p>
                         <div class="input-group">
-                            <input id="alamat_pengambilan" name=" alamat_pengambilan" type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                            <input id="alamat_pengambilan" name=" alamat_pengambilan" type="text"
+                                class="form-control bg-light border-0 small" placeholder="" aria-label="Search"
+                                aria-describedby="basic-addon2">
                         </div>
                     </div>
 
@@ -181,7 +189,9 @@
                     <div id="email-pengiriman">
                         <p>Email</p>
                         <div class="input-group">
-                            <input id="email_pengambilan" name="email_pengambilan" type="email" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                            <input id="email_pengambilan" name="email_pengambilan" type="email"
+                                class="form-control bg-light border-0 small" placeholder="" aria-label="Search"
+                                aria-describedby="basic-addon2">
                         </div>
                     </div>
                     <br>
