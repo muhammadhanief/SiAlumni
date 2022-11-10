@@ -8,6 +8,7 @@ use App\Http\Controllers\AddAlumniController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\VerifikasiAkunController;
 use App\Http\Controllers\PermohonanController;
+use App\Http\Controllers\HistoriPermohonanAlumniController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::controller(ProfileController::class)->group(function () {
         Route::get('/profile', 'index')->name('profile');
         Route::put('/profile', 'update')->name('profile.update');
+    });
+
+    Route::controller(HistoriPermohonanAlumniController::class)->group(function () {
+        Route::get('/historialumni/index', 'index');
+        // Route::put('/profile', 'update')->name('profile.update');
     });
 
     Route::get('/formulir', [FormulirController::class, 'index'])->name('formulir');

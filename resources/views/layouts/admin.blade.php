@@ -135,6 +135,12 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/historialumni/index">
+                    <i class="fas fa-fw fa-align-justify"></i>
+                    <span>{{ __('Histori Permohonan') }}</span>
+                </a>
+            </li>
             @endrole
 
             <!-- Nav Item - Formulir -->
