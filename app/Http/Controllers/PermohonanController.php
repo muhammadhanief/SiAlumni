@@ -13,7 +13,7 @@ class PermohonanController extends Controller
     {
         // get data from database and pass it to the view
         $data = Permohonan::all();
-        $user = Auth::user()->roles->name;
+        $user = Auth::user()->roles->first()->name;
         // dd($data);
         return view(
             'admin.daftar_permohonan_admin',
