@@ -43,6 +43,7 @@
                             <th>Jenis Pengajuan</th>
                             <th>Status</th>
                             <th>Lampiran</th>
+                            <th>Download Hasil</th>
                             <!-- <th>Aksi</th> -->
                         </tr>
                     </thead>
@@ -87,6 +88,17 @@
                                 @if ($item->file_kuasa != NULL)
                                 <a class="btn btn-primary btn-sm"
                                     onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
+                                @endif
+                            </td>
+                            <td>
+                                @if ($item->file_hasil_legalisir != NULL)
+                                <a class="btn btn-primary btn-sm"
+                                    onclick="openModalPDF(`{{ asset('storage/'.$item->file_hasil_legalisir) }}`);">Klik
+                                    Untuk
+                                    Download</a>
+                                @else
+                                <p class="p-2 bg-dark text-light rounded">
+                                    Belum ada</p>
                                 @endif
                             </td>
                             <!-- <td>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('jenis');
+            $table->string('file_hasil_legalisir')->nullable();
             $table->string('file_permohonan')->nullable();
             $table->string('file_eselon')->nullable();
             $table->string('file_pusdiklat')->nullable();
