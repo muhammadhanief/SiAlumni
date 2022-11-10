@@ -2,6 +2,8 @@
 
 @section('main-content')
 
+
+
 <!-- Page Heading -->
 <h1 class="h3 mb-4 text-gray-800">{{ __('Dashboard') }}</h1>
 
@@ -19,72 +21,62 @@
     {{ session('status') }}
 </div>
 @endif
-
-
+<!-- <h1 class="h3 mb-4 text-gray-800">Home</h1> -->
 
 <!-- Main Content -->
-<div id="content">
+<div class="row">
 
-
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-
-        <!-- Page Heading -->
-        <!-- <h1 class="h3 mb-4 text-gray-800">Home</h1> -->
-
-        <div class="row">
-
-            @role('alumni')
-            <div class="col-lg-6">
-                <!-- Circle Buttons -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Data Diri</h6>
-                    </div>
-                    <div class="card-body">
-                        <table class="table">
-                            <tr>
-                                <th>Nama</th>
-                                <th>{{ Auth::user()->name }}</th>
-                            </tr>
-                            <tr>
-                                <th>NIM</th>
-                                <th>{{ Auth::user()->nim }}</th>
-                            </tr>
-                            <tr>
-                                <th>NIP</th>
-                                <th>{{ Auth::user()->nip }}</th>
-                            </tr>
-                            <tr>
-                                <th>Nomor Ponsel</th>
-                                <th>{{ Auth::user()->nomorPonsel }}</th>
-                            </tr>
-                            <tr>
-                                <th>Email</th>
-                                <th>{{ Auth::user()->email }}</th>
-                            </tr>
-                            <tr>
-                                <th>TTL</th>
-                                <th>{{ Auth::user()->tempatLahir }} {{ Auth::user()->tanggalLahir }}</th>
-                            </tr>
-                            <tr>
-                                <th>Jurusan</th>
-                                <th>{{ Auth::user()->jurusan }}</th>
-                            </tr>
-                            <tr>
-                                <th>Tahun Lulus</th>
-                                <th>{{ Auth::user()->tahunLulus }}</th>
-                            </tr>
-                            <tr>
-                                <th>Status Aktivasi Akun</th>
-                                <th>{{ Auth::user()->statusAkun }}</th>
-                            </tr>
-                        </table>
+    @role('alumni')
+    <div class="col-lg-6">
+        <!-- Circle Buttons -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Data Diri</h6>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <th>Nama</th>
+                        <th>{{ Auth::user()->name }}</th>
+                    </tr>
+                    <tr>
+                        <th>NIM</th>
+                        <th>{{ Auth::user()->nim }}</th>
+                    </tr>
+                    <tr>
+                        <th>NIP</th>
+                        <th>{{ Auth::user()->nip }}</th>
+                    </tr>
+                    <tr>
+                        <th>Nomor Ponsel</th>
+                        <th>{{ Auth::user()->nomorPonsel }}</th>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <th>{{ Auth::user()->email }}</th>
+                    </tr>
+                    <tr>
+                        <th>TTL</th>
+                        <th>{{ Auth::user()->tempatLahir }} {{ Auth::user()->tanggalLahir }}</th>
+                    </tr>
+                    <tr>
+                        <th>Jurusan</th>
+                        <th>{{ Auth::user()->jurusan }}</th>
+                    </tr>
+                    <tr>
+                        <th>Tahun Lulus</th>
+                        <th>{{ Auth::user()->tahunLulus }}</th>
+                    </tr>
+                    <tr>
+                        <th>Status Aktivasi Akun</th>
+                        <th>{{ Auth::user()->statusAkun }}</th>
+                    </tr>
+                </table>
 
 
 
-                        <!-- Circle Buttons (Default) -->
-                        <!-- <div class="mb-2">
+                <!-- Circle Buttons (Default) -->
+                <!-- <div class="mb-2">
                                         <code>.btn-circle</code>
                                     </div>
                                     <a href="#" class="btn btn-primary btn-circle">
@@ -102,8 +94,8 @@
                                     <a href="#" class="btn btn-danger btn-circle">
                                         <i class="fas fa-trash"></i>
                                     </a> -->
-                        <!-- Circle Buttons (Small) -->
-                        <!-- <div class="mt-4 mb-2">
+                <!-- Circle Buttons (Small) -->
+                <!-- <div class="mt-4 mb-2">
                                         <code>.btn-circle .btn-sm</code>
                                     </div>
                                     <a href="#" class="btn btn-primary btn-circle btn-sm">
@@ -121,8 +113,8 @@
                                     <a href="#" class="btn btn-danger btn-circle btn-sm">
                                         <i class="fas fa-trash"></i>
                                     </a> -->
-                        <!-- Circle Buttons (Large) -->
-                        <!-- <div class="mt-4 mb-2">
+                <!-- Circle Buttons (Large) -->
+                <!-- <div class="mt-4 mb-2">
                                         <code>.btn-circle .btn-lg</code>
                                     </div>
                                     <a href="#" class="btn btn-primary btn-circle btn-lg">
@@ -140,47 +132,47 @@
                                     <a href="#" class="btn btn-danger btn-circle btn-lg">
                                         <i class="fas fa-trash"></i>
                                     </a> -->
-                    </div>
-                </div>
-                <!-- Brand Buttons -->
             </div>
-            @else
-            <div class="col-lg-6">
-                <!-- Circle Buttons -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Data Diri</h6>
-                    </div>
-                    <div class="card-body">
-                        <table class="table">
-                            <tr>
-                                <th>Nama</th>
-                                <th>{{ Auth::user()->name }}</th>
-                            </tr>
-                            <tr>
-                                <th>Email</th>
-                                <th>{{ Auth::user()->email }}</th>
-                            </tr>
-                            <tr>
-                                <th>Role</th>
-                                <th>
-                                    @role('baak')
-                                    BAAK
-                                    @endrole
-                                    @role('wadir1')
-                                    Wakil Direktur 1
-                                    @endrole
-                                    @role('kepalabaak')
-                                    Kepala BAAK
-                                    @endrole
-                                    @role('petugasbaak')
-                                    Petugas BAAK
-                                    @endrole
-                                </th>
-                            </tr>
-                        </table>
-                        <!-- Circle Buttons (Default) -->
-                        <!-- <div class="mb-2">
+        </div>
+        <!-- Brand Buttons -->
+    </div>
+    @else
+    <div class="col-lg-6">
+        <!-- Circle Buttons -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Data Diri</h6>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <th>Nama</th>
+                        <th>{{ Auth::user()->name }}</th>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <th>{{ Auth::user()->email }}</th>
+                    </tr>
+                    <tr>
+                        <th>Role</th>
+                        <th>
+                            @role('baak')
+                            BAAK
+                            @endrole
+                            @role('wadir1')
+                            Wakil Direktur 1
+                            @endrole
+                            @role('kepalabaak')
+                            Kepala BAAK
+                            @endrole
+                            @role('petugasbaak')
+                            Petugas BAAK
+                            @endrole
+                        </th>
+                    </tr>
+                </table>
+                <!-- Circle Buttons (Default) -->
+                <!-- <div class="mb-2">
                                         <code>.btn-circle</code>
                                     </div>
                                     <a href="#" class="btn btn-primary btn-circle">
@@ -198,8 +190,8 @@
                                     <a href="#" class="btn btn-danger btn-circle">
                                         <i class="fas fa-trash"></i>
                                     </a> -->
-                        <!-- Circle Buttons (Small) -->
-                        <!-- <div class="mt-4 mb-2">
+                <!-- Circle Buttons (Small) -->
+                <!-- <div class="mt-4 mb-2">
                                         <code>.btn-circle .btn-sm</code>
                                     </div>
                                     <a href="#" class="btn btn-primary btn-circle btn-sm">
@@ -217,8 +209,8 @@
                                     <a href="#" class="btn btn-danger btn-circle btn-sm">
                                         <i class="fas fa-trash"></i>
                                     </a> -->
-                        <!-- Circle Buttons (Large) -->
-                        <!-- <div class="mt-4 mb-2">
+                <!-- Circle Buttons (Large) -->
+                <!-- <div class="mt-4 mb-2">
                                         <code>.btn-circle .btn-lg</code>
                                     </div>
                                     <a href="#" class="btn btn-primary btn-circle btn-lg">
@@ -236,13 +228,13 @@
                                     <a href="#" class="btn btn-danger btn-circle btn-lg">
                                         <i class="fas fa-trash"></i>
                                     </a> -->
-                    </div>
-                </div>
-                <!-- Brand Buttons -->
             </div>
-            @endrole
+        </div>
+        <!-- Brand Buttons -->
+    </div>
+    @endrole
 
-            <!-- @if (isset(\Auth::user()->nim) == FALSE)
+    <!-- @if (isset(\Auth::user()->nim) == FALSE)
             <div class="col-lg-6">
                 <div class="alert alert-danger alert-dismissible fade show card-shadow mb-4">
                     <h4 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Akun anda belum terverifikasi
@@ -259,7 +251,7 @@
                 </div>
             </div>
             @else -->
-            <!-- <div class="col-lg-6">
+    <!-- <div class="col-lg-6">
                 <div class="alert alert-success alert-dismissible fade show card-shadow mb-4">
                     <h4 class="info-heading"><i class="fas fa-check"></i> Akun anda sudah terverifikasi
                     </h4>
@@ -276,7 +268,7 @@
                 </div>
             </div>
             @endif -->
-            <!-- <div class="col-lg-12">
+    <!-- <div class="col-lg-12">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Progress</h6>
@@ -346,11 +338,9 @@
                 </div>
 
             </div> -->
-            <!-- /.container-fluid -->
+    <!-- /.container-fluid -->
 
-        </div>
-        <!-- End of Main Content -->
+</div>
+<!-- End of Main Content -->
 
-
-        </html>
-        @endsection
+@endsection
