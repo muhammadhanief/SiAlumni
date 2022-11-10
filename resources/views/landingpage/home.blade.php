@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SiAlumni</title>
+    <title>SiAlumni Politeknik Statistika STIS</title>
 
     <link rel="stylesheet" href="{{ asset('css/styles.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/timelinelanding.css') }}">
@@ -16,7 +16,7 @@
     <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Poppins:400,500,600,700" rel="stylesheet">
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('img/stis.png') }}" rel="icon" type="image/png">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
                         </button>
 
                         <ul class="navbar-links">
-                            <li><a class="btn btn-secondary" href="/" target="_blank">Log In</a>
+                            <li><a class="btn btn-secondary" href="/">Log In</a>
                             </li>
                             <!-- <li><a href="#">Company</a></li>
                             <li><a href="#">Features</a></li>

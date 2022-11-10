@@ -46,6 +46,9 @@
                                     <span class="text">Tambah Alumni</span>
                                 </a> -->
                 </div>
+                <p class="card-title-desc">Klik tombol <span
+                        class="btn btn-success btn-circle btn-sm fas fa-external-link-alt" data-feather="check"></span>
+                    untuk melakukan konfrimasi lanjutan ke akun tersebut</p>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

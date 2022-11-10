@@ -30,25 +30,17 @@
             <div class="card-header py-3">
                 <div class="row justify-content-end">
                     <h4 class="m-0 font-weight-bold text-primary col">Data Akun</h4>
-                    <!-- <a href="/addalumni" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-plus-lg" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-                        </svg>
-                        Tambah Data Alumni
-                    </a> -->
-                    <!-- <a href="#" class="btn btn-primary btn-icon-split btn-sm">
-                                    <span class="icon text-white-50">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                                            </svg>
-                                    </span>
-                                    <span class="text">Tambah Alumni</span>
-                                </a> -->
                 </div>
+                <!-- <div class="row justify-content-first"> -->
+                <!-- <br> -->
+                <p class="card-title-desc">Klik tombol <span class="btn btn-success btn-circle btn-sm fas fa-check"
+                        data-feather="check"></span>
+                    untuk menyetujui dan <span class="btn btn-info btn-circle btn-sm fas fa-pause"
+                        data-feather="check"></span> untuk Pending dan <span
+                        class="btn btn-danger btn-circle btn-sm fas fa-hand" data-feather="check"></span>
+                    untuk menolak aktivasi akun</p>
+                <!-- </div> -->
             </div>
-
             <!-- tabel user -->
             <div class="card-body">
                 <div class="table-responsive">
@@ -88,14 +80,6 @@
                                         disini</a> </td>
                                 <td>{{ $user->statusAkun }}</td>
                                 <td>
-                                    <form action="/tolakakun/{{ $user->id }}" method="post" class="d-inline">
-                                        @csrf
-                                        @method('post')
-
-                                        <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                            onclick="return confirm('Apakah kamu yakin menolak akun?')"><span
-                                                data-feather="check"><i class="fa-regular fa-hand"></i></span></button>
-                                    </form>
                                     <form action="/pendingakun/{{ $user->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
@@ -103,6 +87,14 @@
                                         <button type="submit" class="btn btn-info btn-circle btn-sm"
                                             onclick="return confirm('Apakah kamu yakin pending akun?')"><span
                                                 data-feather="check"><i class="fas fa-pause"></i></span></button>
+                                    </form>
+                                    <form action="/tolakakun/{{ $user->id }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('post')
+
+                                        <button type="submit" class="btn btn-danger btn-circle btn-sm"
+                                            onclick="return confirm('Apakah kamu yakin menolak akun?')"><span
+                                                data-feather="check"><i class="fa-regular fa-hand"></i></span></button>
                                     </form>
                                     <!-- <form action="/verifakun/{{ $user->id }}" method="post" class="d-inline">
                                         @csrf
@@ -121,10 +113,9 @@
                     </table>
                 </div>
             </div>
-            <div class="card-header py-3">
+            <div class="card-header py-0">
                 <h4 class="font-weight-bold text-primary">Database Mahasiswa</h4>
             </div>
-
             <!-- tabel database -->
             <div class="card-body">
                 <div class="table-responsive">
