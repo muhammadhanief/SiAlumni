@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Permohonan;
 use Faker\Provider\ar_JO\Person;
+use Illuminate\Support\Facades\Auth;
 
 class PermohonanController extends Controller
 {
@@ -12,9 +13,14 @@ class PermohonanController extends Controller
     {
         // get data from database and pass it to the view
         $data = Permohonan::all();
-
-
+        $user = Auth::user()->roles->name;
         // dd($data);
-        return view('admin.daftar_permohonan_admin', compact('data'));
+        return view(
+            'admin.daftar_permohonan_admin',
+            [
+                'data' => $data,
+                'user' => $user,
+            ]
+        );
     }
 }

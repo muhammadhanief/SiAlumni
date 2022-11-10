@@ -49,6 +49,7 @@
                     <tbody>
                         @foreach ($data as $item)
                         <tr>
+                            <td>{{$user}}</td>
                             <td>{{ User::find($item->user_id)->name }}</td>
                             <td>{{ User::find($item->user_id)->tahunLulus }}</td>
                             <td>{{ User::find($item->user_id)->jurusan }}</td>
