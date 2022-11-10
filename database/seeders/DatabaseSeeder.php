@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
         $wadir1->assignRole('wadir1');
 
         $kepalabaak = User::create([
-            'name' => 'Dwy Bagus Cahyono',
+            'name' => 'Nama Kepala BAAK',
             'email' => 'kepalabaak@gmail.com',
             'password' => Hash::make('password'),
             'statusAkun' => 'Lolos',
@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
         $kepalabaak->assignRole('kepalabaak');
 
         $petugasbaak = User::create([
-            'name' => 'Kepala BAAK',
+            'name' => 'Nama Petugas BAAK',
             'email' => 'petugasbaak@gmail.com',
             'password' => Hash::make('password'),
             'statusAkun' => 'Lolos',
