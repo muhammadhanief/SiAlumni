@@ -79,7 +79,8 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::controller(HistoriPermohonanAlumniController::class)->group(function () {
-        Route::get('/historialumni/index', 'index');
+        Route::get('/historialumni', 'index');
+        Route::get('/historialumni/detail/{id}', 'detail');
         // Route::put('/profile', 'update')->name('profile.update');
     });
 

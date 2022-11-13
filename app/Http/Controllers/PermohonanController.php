@@ -27,13 +27,15 @@ class PermohonanController extends Controller
             $data = DB::table('permohonan')
                 ->where('status', "Disetujui Kepala BAAK")
                 ->get();
-        } else {
+        } elseif ($user == 'petugasbaak') {
             $data = DB::table('permohonan')
                 ->where('status', "Menunggu")
                 ->orWhere('status', 'Ditolak Petugas BAAK')
                 ->orWhere('status', 'Ditolak Kepala BAAK')
                 ->orWhere('status', 'Ditolak Kepala Wakil Direktur 1')
                 ->get();
+        } else {
+            $data = Permohonan::all();
         }
         // if ($user == 'petugasbaak') {
         //     $data = DB::table('permohonan')

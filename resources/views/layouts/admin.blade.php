@@ -26,9 +26,12 @@
     <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel=" stylesheet">
     <script src="https://kit.fontawesome.com/73dfd73928.js" crossorigin="anonymous"></script>
 
+    <!-- CSS tambahan untuk Detail Monitoring Permohonan -->
+    <link rel="stylesheet" href="{{ asset('css/style-monitoring.css') }}">
+
 </head>
 
-<body id=" page-top">
+<body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -131,7 +134,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/historialumni/index">
+                <a class="nav-link collapsed" href="/historialumni">
                     <i class="fas fa-fw fa-align-justify"></i>
                     <span>{{ __('Histori Permohonan') }}</span>
                 </a>
@@ -182,7 +185,7 @@
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column ">
+        <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
             <div id="content">

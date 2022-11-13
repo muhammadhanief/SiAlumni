@@ -20,7 +20,20 @@ class HistoriPermohonanAlumniController extends Controller
             ->where('user_id', '=', Auth::user()->id)
             ->get();
 
-        return view('historialumni.index', [
+        return view('alumni.histori', [
+            'data' => $data,
+        ]);
+    }
+
+    public function detail($id)
+    {
+        //
+        $data = DB::table('permohonan')
+            ->where('id', '=', $id)
+            ->get();
+
+        $data = $data[0];
+        return view('alumni.detail_permohonan', [
             'data' => $data,
         ]);
     }

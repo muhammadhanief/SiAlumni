@@ -106,7 +106,7 @@
                             <span class="text">Unduh Formulir</span>
                         </a>
                     </p>
-                    <input class="form-control" type="file" id="formFile" name="file_permohonan">
+                    <input class="form-control" type="file" id="formFile" name="file_permohonan" required>
                     <br>
 
                     <!-- Hanya untuk legalisir Ijazah atau Transkrip > 4 tahun -->
@@ -152,7 +152,7 @@
                     <div id="alamat-pengiriman">
                         <p>Alamat Pengiriman</p>
                         <div class="input-group">
-                            <input id="alamat_pengambilan" name=" alamat_pengambilan" type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                            <input id="alamat_pengambilan" name=" alamat_pengambilan" type="text" class="form-control bg-light border-1 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
                         </div>
                     </div>
 
@@ -160,7 +160,7 @@
                     <div id="email-pengiriman">
                         <p>Email</p>
                         <div class="input-group">
-                            <input id="email_pengambilan" name="email_pengambilan" type="email" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                            <input id="email_pengambilan" name="email_pengambilan" type="email" class="form-control bg-light border-1 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
                         </div>
                     </div>
                     <br>
