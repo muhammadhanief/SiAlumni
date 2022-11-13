@@ -76,29 +76,35 @@
                         </td>
                         <td>
                             @if ($item->file_permohonan != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
+                            <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
                             @endif
                             @if ($item->file_eselon != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
+                            <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
                             @endif
                             @if ($item->file_pusdiklat != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
+                            <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
                             @endif
                             @if ($item->file_kampusln != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
+                            <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
                             @endif
                             @if ($item->file_kuasa != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
+                            <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
                             @endif
                         </td>
                         <td>
                             @if ($item->file_hasil_legalisir != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_hasil_legalisir) }}`);">Klik
+                            <button class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_hasil_legalisir) }}`);">Klik
                                 Untuk
-                                Download</a>
+                                Download</button>
                             @else
-                            <p class="p-2 bg-dark text-light rounded">
-                                Belum ada</p>
+                            <button class="btn btn-dark">
+                                Belum ada</button>
                             @endif
                         </td>
                         <!-- <td>
@@ -190,9 +196,9 @@
 
 
 <script>
-    function gotoPage(url) {
-        window.location.href = url;
-    }
+function gotoPage(url) {
+    window.location.href = url;
+}
 </script>
 <!-- script udah dipindahin ke layout.admin -->
 
