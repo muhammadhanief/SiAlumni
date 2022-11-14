@@ -65,15 +65,22 @@
                         <td>{{ $data->nim }}</td>
                         <!-- <td>{{ "gada" }}</td> -->
                         <td>
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">Klik Untuk
-                                Melihat
+                            @if ($data->ijazahasli != null)
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">
+                                Klik Untuk Melihat
                             </a>
+                            @else
+                            <a class="btn btn-secondary btn-sm" disabled>Belum Upload</a>
+                            @endif
                         </td>
                         <td>
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">Klik
-                                Untuk
-                                Melihat
+                            @if ($data->transkripnilaiasli != null)
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">
+                                Klik Untuk Melihat
                             </a>
+                            @else
+                            <a class="btn btn-secondary btn-sm" disabled>Belum Upload</a>
+                            @endif
                         </td>
                         <td><a class="btn btn-primary btn-sm" onclick="openModalInput(`{{ $data->id }}`);">
                                 Aksi
