@@ -32,7 +32,7 @@
         </div> -->
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <!-- <th>Nama</th> -->
@@ -41,6 +41,7 @@
                         <th>Tanggal Pengajuan</th>
                         <th>Jenis Pengajuan</th>
                         <th>Status</th>
+                        <th>Detail</th>
                         <th>Lampiran</th>
                         <th>Download Hasil</th>
                         <!-- <th>Aksi</th> -->
@@ -48,7 +49,7 @@
                 </thead>
                 <tbody>
                     @foreach ($data as $item)
-                    <tr onclick="gotoPage('historialumni/detail/{{ $item->id }}')">
+                    <tr>
 
                         <!-- <td>{{ User::find($item->user_id)->name }}</td>
                             <td>{{ User::find($item->user_id)->tahunLulus }}</td>
@@ -75,31 +76,28 @@
                             @endif
                         </td>
                         <td>
+                            <a href="historialumni/detail/{{ $item->id }}" class="btn btn-primary btn-sm">Detail Status</a>
+                        </td>
+                        <td>
                             @if ($item->file_permohonan != NULL)
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
                             @endif
                             @if ($item->file_eselon != NULL)
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
                             @endif
                             @if ($item->file_pusdiklat != NULL)
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
                             @endif
                             @if ($item->file_kampusln != NULL)
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
                             @endif
                             @if ($item->file_kuasa != NULL)
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
                             @endif
                         </td>
                         <td>
                             @if ($item->file_hasil_legalisir != NULL)
-                            <button class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_hasil_legalisir) }}`);">Klik
+                            <button class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_hasil_legalisir) }}`);">Klik
                                 Untuk
                                 Download</button>
                             @else
@@ -195,11 +193,6 @@
 
 
 
-<script>
-function gotoPage(url) {
-    window.location.href = url;
-}
-</script>
 <!-- script udah dipindahin ke layout.admin -->
 
 @endsection
