@@ -87,12 +87,12 @@
                 </a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href=" {{ route('addalumni') }}">
                     <i class="fas fa-fw fa-align-justify"></i>
                     <span>{{ __('Tambah Data Alumni') }}</span>
                 </a>
-            </li>
+            </li> -->
 
             <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('formulir') }}" data-toggle="collapse"
@@ -318,11 +318,7 @@
 
     <!-- modal untuk nampilin pdf -->
     <script>
-        // function sleep(ms) {
-        //     return new Promise(resolve => setTimeout(resolve, ms));
-        // }
-
-        async function openModalPDF(source) {
+        function openModalPDF(source) {
             // wait after src changed then show modal
             $('#modalpdf').attr('src', source);
             // await sleep(1 * 1000);
@@ -334,7 +330,6 @@
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-xl">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -349,11 +344,11 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
-
             </div>
+            <!-- End of Modal content -->
         </div>
     </div>
-
+    <!-- End of Modal -->
 </body>
 
 </html>

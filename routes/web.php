@@ -42,8 +42,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::controller(AddAlumniController::class)->group(function () {
         Route::get('/addalumni', 'index')->name('addalumni');
-        Route::post('/storeaddalumni', 'store')->name('storeaddalumni');
+        Route::post('/admin/storealumni', 'store')->name('store.alumni');
         Route::get('/admin/manajemenalumni', 'indexsemuaalumni')->name('manajemen_alumni');
+        Route::get('/admin/manajemenalumni/{id}', 'get_alumni')->name('get_alumni');
     });
 
     Route::controller(VerifikasiAkunController::class)->group(function () {

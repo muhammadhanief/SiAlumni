@@ -55,7 +55,7 @@
                         <!-- <th>Nomor Ijazah</th> -->
                         <th>File Ijazah</th>
                         <th>File Transkrip Nilai</th>
-                        <!-- <th>Aksi</th> -->
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -66,14 +66,19 @@
                         <!-- <td>{{ "gada" }}</td> -->
                         <td>
                             <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">Klik Untuk
-                                Melihat</a>
+                                Melihat
+                            </a>
                         </td>
                         <td>
                             <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">Klik
                                 Untuk
-                                Melihat</a>
+                                Melihat
+                            </a>
                         </td>
-                        <!-- <td>{{ "gada"}}</td> -->
+                        <td><a class="btn btn-primary btn-sm" onclick="openModalInput(`{{ $data->id }}`);">
+                                Aksi
+                            </a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -81,6 +86,47 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div id="modal-input" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Tambah Dokumen</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="storealumni" autocomplete="off" enctype="multipart/form-data">
+                    @csrf {{ csrf_field() }}
+                    <div class="pl-lg-6 data">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- End of Modal content -->
+    </div>
+</div>
+<!-- End of Modal -->
+
+<script>
+    function openModalInput(id) {
+        $.ajax({
+            url: '/admin/manajemenalumni/' + id,
+            type: 'GET',
+            success: function(data) {
+                $('#modal-input').modal('show');
+                $('#modal-input .data').html(data);
+            }
+        })
+    }
+</script>
+
 <!-- End of Main Content -->
 <!-- End of Content Wrapper -->
 <!-- </html> -->
