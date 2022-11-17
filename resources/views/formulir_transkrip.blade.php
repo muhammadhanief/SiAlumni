@@ -139,20 +139,7 @@
                     <br>
                     @endif
 
-                    <!-- Hanya untuk Diambil langsung oleh Orang lain -->
-                    <div id="surat_kuasa">
-                        <p class="ms-auto">Surat Kuasa
-                            <br>
-                            <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
-                                <span class="icon text-light">
-                                    <i class='fas fa-download'></i>
-                                </span>
-                                <span class="text">Unduh Formulir</span>
-                            </a>
-                        </p>
-                        <input class="form-control" type="file" id="formFileKuasa" name="file_kuasa">
-                        <br>
-                    </div>
+
 
                     <p>Metode Pengambilan</p>
 
@@ -185,6 +172,23 @@
                             <input id="email_pengambilan" name="email_pengambilan" type="email" class="form-control bg-light border-1 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
                         </div>
                     </div>
+
+
+                    <!-- Hanya untuk Diambil langsung oleh Orang lain -->
+                    <div id="surat_kuasa">
+                        <p class="ms-auto">Surat Kuasa
+                            <br>
+                            <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                                <span class="icon text-light">
+                                    <i class='fas fa-download'></i>
+                                </span>
+                                <span class="text">Unduh Formulir</span>
+                            </a>
+                        </p>
+                        <input class="form-control" type="file" id="formFileKuasa" name="file_kuasa">
+                        <br>
+                    </div>
+
                     <br>
 
                     <!-- Hiden value jenis permohonan -->
