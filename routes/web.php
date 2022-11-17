@@ -23,11 +23,18 @@ use App\Http\Controllers\HistoriPermohonanAlumniController;
 
 
 Route::get('/', function () {
-    return view('auth.login');
-});
-Route::get('/landing', function () {
+    // return view('auth.login');
     return view('landingpage.home');
 });
+
+Route::get('/login', function () {
+    return view('auth.login');
+    // return view('landingpage.home');
+});
+
+// Route::get('/landing', function () {
+//     return view('landingpage.home');
+// });
 
 Route::group(['middleware' => ['auth']], function () {
 

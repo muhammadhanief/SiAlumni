@@ -12,6 +12,14 @@
                             <div class="text-center pt-5">
                                 <h1 class="h1 text-gray-900 mb-4">{{ __('Registrasi Akun') }}</h1>
                             </div>
+                            <div class="row px-4 justify-content-center">
+                                <button class="btn btn-success m-2"> BPS
+
+                                </button>
+                                <button class="btn btn-secondary m-2"> Non-BPS
+
+                                </button>
+                            </div>
                             <div class="row p-2">
                                 @if ($errors->any())
                                 <div class="alert alert-danger border-left-danger" role="alert">
@@ -40,10 +48,15 @@
                                         </div>
                                         <!-- <hr> -->
                                         <p class="font-weight-bold">Detail Pengguna</p>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <input type="text" class="form-control form-control-user" name="nip"
                                                 placeholder="{{ __('NIP') }}" value="{{ old('nip') }}" required
                                                 autofocus>
+                                        </div> -->
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" name="perusahaan"
+                                                placeholder="{{ __('Nama Perusahaan') }}"
+                                                value="{{ old('perusahaan') }}" required autofocus>
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" name="tempatLahir"
@@ -66,13 +79,20 @@
                                                 <option value="D-III Statistika">D-III Statistika</option>
                                             </select>
                                         </div>
+
                                         <!-- <hr> -->
 
-                                        <div class="form-group py-1">
+                                        <!-- <div class="form-group py-1">
                                             <label class="font-weight-bold">SK Atasan BPS</label>
                                             <input type="file" class="form-control form-control-user py-2"
                                                 name="skatasanbps" placeholder=" {{ __('SK Atasan BPS') }}"
                                                 value="{{ old('skatasanbps') }}" required>
+                                        </div> -->
+                                        <div class="form-group">
+                                            <label class="font-weight-bold">SK Atasan Langsung</label>
+                                            <input type="file" class="form-control form-control-user py-2"
+                                                name="skatasanlangsung" placeholder=" {{ __('SK Atasan Langsung') }}"
+                                                value="{{ old('skatasanlangsung') }}" required>
                                         </div>
 
                                     </div>
@@ -97,6 +117,11 @@
                                                 placeholder="{{ __('NIM') }}" value="{{ old('nim') }}" required
                                                 autofocus>
                                         </div> -->
+                                        <!-- <div class="form-group">
+                                            <input type="tel" class="form-control form-control-user" name="Instansi"
+                                                placeholder="{{ __('Instansi') }}" value="{{ old('Instansi') }}"
+                                                required>
+                                        </div> -->
                                         <div class="form-group">
                                             <input type="date" class="form-control form-control-user"
                                                 name="tanggalLahir" placeholder="{{ __('Tanggal Lahir') }}"
@@ -107,6 +132,7 @@
                                                 placeholder="{{ __('Nomor Ponsel') }}" value="{{ old('nomorPonsel') }}"
                                                 required>
                                         </div>
+
                                         <!-- <div class="form-group">
                                             <select id="jenisKelamin" name="jenisKelamin"
                                                 aria-placeholder="{{ __('Jenis Kelamin') }}"
@@ -116,17 +142,22 @@
                                             </select>
                                         </div> -->
                                         <!-- <hr> -->
-                                        <p></p>
+                                        <br>
+                                        <br>
 
-                                        <div class="form-group py-1">
+                                        <div class="form-group pt-4">
+                                            <label class="font-weight-bold text-center">SK Lunas TGR (Tuntutan Ganti
+                                                Rugi)</label>
+                                            <input type="file" class="form-control form-control-user pt-2"
+                                                name="sklunastgr" placeholder=" {{ __('SK Lunas TGR ') }}"
+                                                value="{{ old('sklunastgr') }}" required>
+                                        </div>
+                                        <!-- <div class="form-group py-1">
                                             <label class="font-weight-bold text-center">SK Penempatan 1 BPS</label>
                                             <input type="file" class="form-control form-control-user pt-2"
                                                 name="skpenempatan1bps" placeholder=" {{ __('SK Penempatan 1 BPS') }}"
                                                 value="{{ old('skpenempatan1bps') }}" required>
-                                        </div>
-
-
-
+                                        </div> -->
 
 
                                     </div>
