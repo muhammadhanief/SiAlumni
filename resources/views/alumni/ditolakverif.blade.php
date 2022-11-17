@@ -41,7 +41,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-6 col-xl-6">
                 <div class="card o-hidden border-0 shadow-lg text-center">
-                    <div class="card-body alert-danger">
+                    <div class="card-body">
                         <div class="row-6 m-5 ">
                             <div class="col-6 d-flex d-lg-block my-4 mx-auto">
                                 <img src="{{ asset('img/block.svg') }}" class="img-fluid justify-content-center">
