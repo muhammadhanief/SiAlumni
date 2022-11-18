@@ -153,10 +153,10 @@
                                         disini</a> </td>
                                 <!-- <td>{{ $data->statusAkun }}</td> -->
                                 <td>
-                                    <form action="/setujuiakun/{{ $data->name }}" method="post" class="d-inline">
+                                    <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
-
+                                        <input type="hidden" name="id_user" value="{{ $user->id }}">
                                         <button type="submit" class="btn btn-success btn-circle btn-sm"
                                             onclick="return confirm('Apakah kamu yakin menyetujui akun?')"><span
                                                 data-feather="check"><i class="fas fa-check"></i></span></button>

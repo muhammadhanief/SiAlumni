@@ -13,9 +13,9 @@
                                 <h1 class="h1 text-gray-900 mb-4">{{ __('Registrasi Akun') }}</h1>
                             </div>
 
-
+                            @if ($errors->any())
                             <div class="row p-2">
-                                @if ($errors->any())
+
                                 <div class="alert alert-danger border-left-danger" role="alert">
                                     <ul class="pl-4 my-2">
                                         @foreach ($errors->all() as $error)
@@ -23,25 +23,25 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                                @endif
-                            </div>
 
+                            </div>
+                            @endif
 
 
                             <form method="POST" action="{{ route('register') }}" class="user" enctype="multipart/form-data">
 
                                 <div class="row px-4 justify-content-center">
-                                    <div class="btn-group btn-group-toggle btn-block " data-toggle="buttons">
-                                        <label class="btn btn-light w-50 active">
+                                    <div class="btn-group btn-group-toggle btn-block" data-toggle="buttons">
+                                        <label class="btn btn-light w-50 btn-user active">
                                             <input type="radio" name="options" id="option1" autocomplete="off" value="bps" checked> BPS
                                         </label>
-                                        <label class="btn btn-light w-50">
+                                        <label class="btn btn-light w-50 btn-user">
                                             <input type="radio" name="options" id="option2" autocomplete="off" value="nonbps"> Non-BPS
                                         </label>
                                     </div>
                                 </div>
 
-                                <div class="row p-2">
+                                <div class="row p-2 mt-3">
                                     <div class="col-md-6">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <p class="font-weight-bold">Informasi Pengguna</p>
@@ -168,6 +168,7 @@
                                         <!-- End of -->
                                     </div>
                                 </div>
+                                <br>
                                 <div class="justify-content-md-center">
                                     <div class="form-group col-md-auto">
                                         <button type="submit" class="btn btn-primary btn-user btn-block">

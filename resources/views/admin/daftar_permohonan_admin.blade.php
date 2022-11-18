@@ -46,9 +46,9 @@
                 <tbody>
                     @foreach ($data as $item)
                     <tr>
-                        <td>{{ User::find($item->user_id)->name }}</td>
-                        <td>{{ User::find($item->user_id)->tahunLulus }}</td>
-                        <td>{{ User::find($item->user_id)->jurusan }}</td>
+                        <td>{{ $users[$item->user_id-1]->name }}</td>
+                        <td>{{ $users[$item->user_id-1]->tahunLulus }}</td>
+                        <td>{{ $users[$item->user_id-1]->jurusan }}</td>
                         <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</td>
                         <td>{{ $item->jenis }}</td>
                         <!-- Warnanya berbeda sesuai status pengajuan legalisir -->

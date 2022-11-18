@@ -17,6 +17,7 @@ class PermohonanController extends Controller
         // get data from database and pass it to the view
         $datasemua = Permohonan::all();
         $user = Auth::user()->roles->first()->name;
+        $users = User::all();
 
 
         if ($user == 'kepalabaak') {
@@ -50,6 +51,7 @@ class PermohonanController extends Controller
             [
                 'data' => $data,
                 'user' => $user,
+                'users' => $users
             ]
         );
     }
