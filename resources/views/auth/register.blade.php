@@ -82,7 +82,8 @@
                                         </div> -->
 
                                         <div class="form-group">
-                                            <select id="jurusan" name="jurusan" aria-placeholder="{{ __('Jurusan') }}" class="form-select form-control-user w-100 py-3">
+                                            <select id="jurusan" name="jurusan" aria-placeholder="{{ __('Jurusan') }}" class="form-control form-control-user py-0" style="height: 50.21px;">
+                                                <option hidden selected disabled value="opt1">Jurusan</option>
                                                 <option value="D-IV Komputasi Statistik">D-IV Komputasi Statistik
                                                 </option>
                                                 <option value="D-IV Statistika">D-IV Statistika</option>
