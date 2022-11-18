@@ -24,6 +24,10 @@ function hideNonBPS() {
     $('#skatasan-inp').removeAttr("required");
     $('#instansi-inp').removeAttr("required");
     $('#sklunas-inp').removeAttr("required");
+
+    $('#skatasan-inp').val("");
+    $('#instansi-inp').val("");
+    $('#sklunas-inp').val("");
 }
 
 function showBPS() {
@@ -44,6 +48,10 @@ function hideBPS() {
     $('#nip-inp').removeAttr("required");
     $('#skbps-inp').removeAttr("required");
     $('#sktmpt-inp').removeAttr("required");
+
+    $('#nip-inp').val("");
+    $('#skbps-inp').val("");
+    $('#sktmpt-inp').val("");
 }
 
 $(document).ready(function() {
