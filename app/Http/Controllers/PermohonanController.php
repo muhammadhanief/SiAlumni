@@ -71,7 +71,7 @@ class PermohonanController extends Controller
         } elseif ($data->status == "Disetujui Wakil Direktur 1") {
             $data->status = "Disetujui Wakil Direktur 1";
         } elseif ($user == 'superadmin') {
-            $data->status = "Disetujui Wakil Direktur 1";
+            $data->status = "Disetujui Petugas BAAK";
         }
 
         $data->save();
@@ -90,7 +90,7 @@ class PermohonanController extends Controller
         } elseif ($user == 'kepalabaak') {
             $data->status = "Ditolak Kepala BAAK";
         } elseif ($user == 'wadir1') {
-            $data->status = "Ditolak Kepala Wakil Direktur 1";
+            $data->status = "Ditolak Wakil Direktur 1";
         } elseif ($user == 'superadmin') {
             $data->status = "Ditolak Petugas BAAK";
         }

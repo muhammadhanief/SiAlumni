@@ -188,7 +188,7 @@
                 })
 
             } else if (result.isDenied) {
-                Swal.fire('Permohonan ditolak', '', 'info').then((result) => {
+                Swal.fire('Permohonan ditolak', '', 'error').then((result) => {
                     window.location = "/permohonan/tolak/" + id;
                 })
 
