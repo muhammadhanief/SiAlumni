@@ -88,11 +88,8 @@
                             @endif
                         </td>
                         <td>
-                            <a href="/admin/daftar_permohonan/{{ $item->id }}" class="btn btn-primary">Aksi</a>
+                            <a onclick="konfirmasi('{{ $item->id }}')" class="btn btn-primary">Aksi</a>
                         </td>
-
-
-
                     </tr>
                     @endforeach
 
@@ -172,7 +169,33 @@
 </div>
 
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script>
+    function konfirmasi(id) {
+        Swal.fire({
+            title: 'Apakah anda menyetujui permohonan ini?',
+            icon: 'warning',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Setuju',
+            denyButtonText: `Tolak`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire('Permohonan disetujui', '', 'success').then((result) => {
+                    window.location = "/permohonan/setuju/" + id;
+                })
+
+            } else if (result.isDenied) {
+                Swal.fire('Permohonan ditolak', '', 'info').then((result) => {
+                    window.location = "/permohonan/tolak/" + id;
+                })
+
+            }
+        })
+    }
+</script>
 <!-- script udah dipindahin ke layout.admin -->
 
 @endsection

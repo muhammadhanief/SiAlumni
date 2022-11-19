@@ -55,4 +55,48 @@ class PermohonanController extends Controller
             ]
         );
     }
+
+    public function setuju($id)
+    {
+        $data = Permohonan::find($id);
+
+        $user = Auth::user()->roles->first()->name;
+
+        if ($data->status == "Menunggu" || $user == 'petugasbaak') {
+            $data->status = "Disetujui Petugas BAAK";
+        } elseif ($data->status == "Disetujui Petugas BAAK" || $user == 'kepalabaak') {
+            $data->status = "Disetujui Kepala BAAK";
+        } elseif ($data->status == "Disetujui Kepala BAAK" || $user == 'wadir1') {
+            $data->status = "Disetujui Wakil Direktur 1";
+        } elseif ($data->status == "Disetujui Wakil Direktur 1") {
+            $data->status = "Disetujui Wakil Direktur 1";
+        } elseif ($user == 'superadmin') {
+            $data->status = "Disetujui Wakil Direktur 1";
+        }
+
+        $data->save();
+
+        return redirect('/permohonan')->with('success', 'Permohonan berhasil disetujui');
+    }
+
+    public function tolak($id)
+    {
+        $data = Permohonan::find($id);
+
+        // cek role user
+        $user = Auth::user()->roles->first()->name;
+        if ($user == 'petugasbaak') {
+            $data->status = "Ditolak Petugas BAAK";
+        } elseif ($user == 'kepalabaak') {
+            $data->status = "Ditolak Kepala BAAK";
+        } elseif ($user == 'wadir1') {
+            $data->status = "Ditolak Kepala Wakil Direktur 1";
+        } elseif ($user == 'superadmin') {
+            $data->status = "Ditolak Petugas BAAK";
+        }
+
+        $data->save();
+
+        return redirect('/permohonan')->with('success', 'Permohonan berhasil ditolak');
+    }
 }

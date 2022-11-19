@@ -74,6 +74,8 @@ Route::group(['middleware' => ['auth']], function () {
     // // daftar permohonan
     Route::controller(PermohonanController::class)->group(function () {
         Route::get('/permohonan', 'index')->name('permohonan');
+        Route::get('/permohonan/setuju/{id}', 'setuju')->name('setuju');
+        Route::get('/permohonan/tolak/{id}', 'tolak')->name('tolak');
     });
 
     Route::controller(DashboardAdminController::class)->group(function () {
