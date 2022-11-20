@@ -88,12 +88,13 @@
                             @endif
                         </td>
                         <td>
+                            @if ($item->status != "Disetujui Wakil Direktur 1" && $item->status != "Selesai")
                             <a onclick="konfirmasi('{{ $item->id }}')" class="btn btn-primary btn-sm">Aksi</a>
-                            @if ($item->status == 'Disetujui Wakil Direktur 1' && !isset($legalisir[$item->id]))
+                            @elseif ($item->status == 'Disetujui Wakil Direktur 1' && !isset($legalisir[$item->id]))
                             <a onclick="openModalInput('{{ $item->id }}')" class="btn btn-primary btn-sm">Upload</a>
                             @elseif (isset($legalisir[$item->id]) && $item->status != 'Selesai')
                             <a onclick="openModalPDFpublish(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`, `{{ $item->id }}`);" class="btn btn-warning btn-sm">Publish</a>
-                            @elseif ($item->status == 'Selesai')
+                            @elseif ($item->status == 'Selesai' && isset($item->file_legalisir))
                             <a onclick="openModalPDF(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`);" class="btn btn-success btn-sm">Hasil</a>
                             @endif
 
@@ -213,7 +214,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Tambah Dokumen</h4>
+                <h4 class="modal-title">Upload Dokumen</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">

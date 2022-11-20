@@ -131,6 +131,20 @@ class PermohonanController extends Controller
 
             <div class="col-lg-6">
                 <div class="form-group focused">
+                    <label class="form-control-label" for="nama">Nama</label>
+                    <input type="text" id="nama" class="form-control bg-light border-0" nama="nama" value="' . User::find($data->user_id)->name . '" readonly>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="form-group focused">
+                    <label class="form-control-label" for="nim">Nim</label>
+                    <input type="text" id="nim" class="form-control bg-light border-0" nama="nim" value="' . User::find($data->user_id)->nim . '" readonly>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="form-group focused">
                     <label class="form-control-label" for="status">Status</label>
                     <input type="text" id="status" class="form-control bg-light border-0" nama="status" value="' . $data->status . '" disabled>
                 </div>
@@ -138,7 +152,7 @@ class PermohonanController extends Controller
 
             <div class="col-lg-6">
                 <div class="form-group">
-                    <label class="form-control-label" for="jenis">jenis</label>
+                    <label class="form-control-label" for="jenis">Jenis</label>
                                     <input type="text" id="jenis" class="form-control bg-light border-0" name="jenis" value="' . $data->jenis . '" disabled>
                 </div>
             </div>
