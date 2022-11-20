@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Legalisir;
 use Illuminate\Http\Request;
 use App\Models\Permohonan;
 use Faker\Provider\ar_JO\Person;
@@ -15,10 +16,21 @@ class PermohonanController extends Controller
     public function index()
     {
         // get data from database and pass it to the view
-        $datasemua = Permohonan::all();
+        // $datasemua = Permohonan::all();
         $user = Auth::user()->roles->first()->name;
-        $users = User::all();
+        $users_all = User::all();
+        $legalisir_all = Legalisir::all();
 
+        // make user id as a key
+        $users = [];
+        foreach ($users_all as $u) {
+            $users[$u->id] = $u;
+        }
+
+        $legalisir = [];
+        foreach ($legalisir_all as $l) {
+            $legalisir[$l->permohonan_id] = $l;
+        }
 
         if ($user == 'kepalabaak') {
             $data = DB::table('permohonan')
@@ -51,7 +63,8 @@ class PermohonanController extends Controller
             [
                 'data' => $data,
                 'user' => $user,
-                'users' => $users
+                'users' => $users,
+                'legalisir' => $legalisir,
             ]
         );
     }
@@ -98,5 +111,82 @@ class PermohonanController extends Controller
         $data->save();
 
         return redirect('/permohonan')->with('success', 'Permohonan berhasil ditolak');
+    }
+
+    public function preupload($id)
+    {
+        $data = Permohonan::find($id);
+
+        $content = '
+        <div class="row">
+            <!-- hidden id -->
+            <input type="hidden" name="permohonan_id" id="id" value="' . $data->id . '">
+
+            <div class="col-lg-6">
+                <div class="form-group focused">
+                    <label class="form-control-label" for="status">Status</label>
+                    <input type="text" id="status" class="form-control bg-light border-0" nama="status" value="' . $data->status . '" disabled>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="form-control-label" for="jenis">jenis</label>
+                                    <input type="text" id="jenis" class="form-control bg-light border-0" name="jenis" value="' . $data->jenis . '" disabled>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="form-control-label" for="">Dokumen Legalisir<span class="small text-danger">*</span></label>
+                    <input type="file" class="form-control form-control-user pt-2" name="file_legalisir" placeholder="" required>
+                    <br>
+                </div>
+            </div>
+
+        </div>
+        ';
+
+        return $content;
+    }
+
+    public function upload(Request $request)
+    {
+
+        $validate = $request->validate([
+            'permohonan_id' => 'required',
+            'file_legalisir' => 'required|mimes:pdf',
+        ]);
+
+        $validate['file_legalisir'] = $request->file('file_legalisir')->store('file_legalisir');
+
+        $legalisir = Legalisir::create($validate);
+
+        return redirect('/permohonan')->with('success', 'File berhasil diupload');
+    }
+
+    public function publish($id)
+    {
+        $data = Permohonan::find($id);
+        $legalisir = Legalisir::where('permohonan_id', $id)->first();
+
+        $data->status = "Selesai";
+        $data->file_legalisir = $legalisir->file_legalisir;
+
+        $data->save();
+
+        return redirect('/permohonan')->with('success', 'Permohonan berhasil dipublish');
+    }
+
+    public function download($id)
+    {
+        $data = Permohonan::find($id);
+        // public path 
+        $filePath = public_path() . '/storage/' . $data->file_legalisir;
+
+        $headers = ['Content-Type: application/pdf'];
+        $fileName =  'Legalisir_' . $data->jenis . '_' . $data->nim . '_' . time() . '.pdf';
+
+        return response()->download($filePath, $fileName, $headers);
     }
 }

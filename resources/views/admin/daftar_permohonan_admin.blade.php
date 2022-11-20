@@ -46,9 +46,9 @@
                 <tbody>
                     @foreach ($data as $item)
                     <tr>
-                        <td>{{ $users[$item->user_id-1]->name }}</td>
-                        <td>{{ $users[$item->user_id-1]->tahunLulus }}</td>
-                        <td>{{ $users[$item->user_id-1]->jurusan }}</td>
+                        <td>{{ $users[$item->user_id]->name }}</td>
+                        <td>{{ $users[$item->user_id]->tahunLulus }}</td>
+                        <td>{{ $users[$item->user_id]->jurusan }}</td>
                         <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</td>
                         <td>{{ $item->jenis }}</td>
                         <!-- Warnanya berbeda sesuai status pengajuan legalisir -->
@@ -88,7 +88,14 @@
                             @endif
                         </td>
                         <td>
-                            <a onclick="konfirmasi('{{ $item->id }}')" class="btn btn-primary">Aksi</a>
+                            @if ($item->status == 'Disetujui Wakil Direktur 1' && !isset($legalisir[$item->id]))
+                            <a onclick="openModalInput('{{ $item->id }}')" class="btn btn-success btn-sm">Upload</a>
+                            @elseif (isset($legalisir[$item->id]))
+                            <a onclick="openModalPDFpublish(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`, `{{ $item->id }}`);" class="btn btn-warning btn-sm">Publish</a>
+                            @endif
+                            <a onclick="konfirmasi('{{ $item->id }}')" class="btn btn-primary btn-sm">Aksi</a>
+
+
                         </td>
                     </tr>
                     @endforeach
@@ -167,6 +174,86 @@
         </div>
     </div>
 </div>
+
+<!-- modal untuk nampilin pdf sebelum publish -->
+<script>
+    function openModalPDFpublish(source, id) {
+        // wait after src changed then show modal
+        $('#modalpublish').attr('src', source);
+        $('#form-publish').attr('action', '/permohonan/publish/' + id);
+        // await sleep(1 * 1000);
+        $('#myModalPublish').modal('show');
+    }
+</script>
+<!-- /.container-fluid -->
+
+<!-- Modal -->
+<div id="myModalPublish" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-xl">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Preview</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+
+                <embed id="modalpublish" src="" frameborder="0" width="100%" height="720px">
+
+                <div class="modal-footer">
+                    <form id="form-publish" action="" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Publish</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End of Modal content -->
+    </div>
+</div>
+<!-- End of Modal -->
+
+<!-- Modal -->
+<div id="modal-input" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Tambah Dokumen</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="permohonan/upload" autocomplete="off" enctype="multipart/form-data">
+                    @csrf {{ csrf_field() }}
+                    <div class="pl-lg-6 data">
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- End of Modal content -->
+    </div>
+</div>
+<!-- End of Modal -->
+
+<script>
+    function openModalInput(id) {
+        $.ajax({
+            url: '/permohonan/preupload/' + id,
+            type: 'GET',
+            success: function(data) {
+                $('#modal-input').modal('show');
+                $('#modal-input .data').html(data);
+            }
+        })
+    }
+</script>
 
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

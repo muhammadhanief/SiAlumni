@@ -23,5 +23,6 @@ class Permohonan extends Model
         'alamat_pengambilan',
         'email_pengambilan',
         'status',
+        'file_legalisir',
     ];
 }

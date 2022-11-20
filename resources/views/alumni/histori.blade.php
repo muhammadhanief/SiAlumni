@@ -96,9 +96,8 @@
                             @endif
                         </td>
                         <td>
-                            @if ($item->file_hasil_legalisir != NULL)
-                            <button class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_hasil_legalisir) }}`);">Klik
-                                Untuk
+                            @if ($item->file_legalisir != NULL)
+                            <button class="btn btn-success" onclick="openModalPDF(`{{ asset('storage/'.$item->file_legalisir) }}`);">
                                 Download</button>
                             @else
                             <button class="btn btn-dark">

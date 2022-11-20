@@ -131,7 +131,7 @@
                     <p class="text-muted">
                         Permohonan legalisir telah selesai diproses.
                     </p>
-                    <a href="#" class="btn btn-primary btn-icon-split">
+                    <a href="{{ route('download', $data->id) }}" class="btn btn-success btn-icon-split">
                         <span class="text">Unduh Dokumen</span>
                     </a>
                 </li>
@@ -163,5 +163,4 @@
 <!-- End of Content Wrapper -->
 
 
-</html>
 @endsection

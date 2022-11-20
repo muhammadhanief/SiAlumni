@@ -26,9 +26,7 @@ class AddAlumniController extends Controller
     {
         $alumni = dataalumni::find($id);
 
-        $htmlcontent = '
-
-                    
+        $htmlcontent = ' 
                         <div class="row">
 
                             <!-- hidden id -->
@@ -65,10 +63,7 @@ class AddAlumniController extends Controller
                                     <input type="file" class="form-control form-control-user pt-2" name="transkripnilaiasli" placeholder=" {{ __(\'SK Penempatan 1 BPS\') }}" required>
                                 </div>
                             </div>
-                           
                         </div>
-                   
-
                     ';
         // dd($htmlcontent);
         echo $htmlcontent;

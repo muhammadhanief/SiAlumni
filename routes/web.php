@@ -76,6 +76,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/permohonan', 'index')->name('permohonan');
         Route::get('/permohonan/setuju/{id}', 'setuju')->name('setuju');
         Route::get('/permohonan/tolak/{id}', 'tolak')->name('tolak');
+        Route::get('/permohonan/preupload/{id}', 'preupload')->name('preupload');
+        Route::post('/permohonan/upload', 'upload')->name('upload');
+        Route::post('/permohonan/publish/{id}', 'publish')->name('publish');
+        Route::get('/permohonan/download/{id}', 'download')->name('download');
     });
 
     Route::controller(DashboardAdminController::class)->group(function () {
