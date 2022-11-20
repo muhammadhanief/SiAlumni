@@ -132,7 +132,7 @@
                     <br>
 
                     <!-- Hanya untuk legalisir Ijazah atau Transkrip > 4 tahun -->
-                    @if ((date('Y') - Auth::user()->tahunLulus) > 4)
+                    @if ($eligible)
                     <b>Dokumen Bahasa Inggris</b> (Opsional)<br>
                     <p class="ms-auto">Bukti Pendaftaran Kampus Luar Negeri</p>
                     <input class="form-control" type="file" id="formFile" name="file_kampusln">

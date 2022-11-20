@@ -14,12 +14,47 @@ class FormulirController extends Controller
     //
     public function index()
     {
-        return view('formulir_ijazah');
+
+        $user = Auth::user();
+
+        $tahun = substr($user->nip, 8, 4);
+        $bulan = substr($user->nip, 12, 2);
+        $tahunsekarang = date("Y");
+        $bulansekaran = date("m");
+        $selisihdalambulan = ($tahunsekarang - $tahun) * 12 + ($bulansekaran - $bulan);
+
+        if ($selisihdalambulan > 48 || $user->tipe_alumni == "Non-BPS") {
+            $eligible = true;
+        } else {
+            $eligible = false;
+        }
+
+        return view('formulir_ijazah', [
+            'user' => $user,
+            'eligible' => $eligible,
+        ]);
     }
 
     public function indexTrans()
     {
-        return view('formulir_transkrip');
+        $user = Auth::user();
+
+        $tahun = substr($user->nip, 8, 4);
+        $bulan = substr($user->nip, 12, 2);
+        $tahunsekarang = date("Y");
+        $bulansekaran = date("m");
+        $selisihdalambulan = ($tahunsekarang - $tahun) * 12 + ($bulansekaran - $bulan);
+
+        if ($selisihdalambulan > 48 || $user->tipe_alumni == "Non-BPS") {
+            $eligible = true;
+        } else {
+            $eligible = false;
+        }
+
+        return view('formulir_transkrip', [
+            'user' => $user,
+            'eligible' => $eligible,
+        ]);
     }
 
     public function store(Request $request)
