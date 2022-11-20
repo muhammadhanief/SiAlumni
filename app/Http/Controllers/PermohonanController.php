@@ -45,7 +45,8 @@ class PermohonanController extends Controller
                 ->where('status', "Menunggu")
                 ->orWhere('status', 'Ditolak Petugas BAAK')
                 ->orWhere('status', 'Ditolak Kepala BAAK')
-                ->orWhere('status', 'Ditolak Kepala Wakil Direktur 1')
+                ->orWhere('status', 'Ditolak Wakil Direktur 1')
+                ->orWhere('status', 'Disetujui Wakil Direktur 1')
                 ->get();
         } else {
             $data = Permohonan::all();
