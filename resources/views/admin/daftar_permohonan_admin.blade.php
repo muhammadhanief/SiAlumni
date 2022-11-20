@@ -88,12 +88,15 @@
                             @endif
                         </td>
                         <td>
-                            @if ($item->status == 'Disetujui Wakil Direktur 1' && !isset($legalisir[$item->id]))
-                            <a onclick="openModalInput('{{ $item->id }}')" class="btn btn-success btn-sm">Upload</a>
-                            @elseif (isset($legalisir[$item->id]))
-                            <a onclick="openModalPDFpublish(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`, `{{ $item->id }}`);" class="btn btn-warning btn-sm">Publish</a>
-                            @endif
                             <a onclick="konfirmasi('{{ $item->id }}')" class="btn btn-primary btn-sm">Aksi</a>
+                            @if ($item->status == 'Disetujui Wakil Direktur 1' && !isset($legalisir[$item->id]))
+                            <a onclick="openModalInput('{{ $item->id }}')" class="btn btn-primary btn-sm">Upload</a>
+                            @elseif (isset($legalisir[$item->id]) && $item->status != 'Selesai')
+                            <a onclick="openModalPDFpublish(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`, `{{ $item->id }}`);" class="btn btn-warning btn-sm">Publish</a>
+                            @elseif ($item->status == 'Selesai')
+                            <a onclick="openModalPDF(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`);" class="btn btn-success btn-sm">Hasil</a>
+                            @endif
+
 
 
                         </td>
@@ -175,19 +178,8 @@
     </div>
 </div>
 
-<!-- modal untuk nampilin pdf sebelum publish -->
-<script>
-    function openModalPDFpublish(source, id) {
-        // wait after src changed then show modal
-        $('#modalpublish').attr('src', source);
-        $('#form-publish').attr('action', '/permohonan/publish/' + id);
-        // await sleep(1 * 1000);
-        $('#myModalPublish').modal('show');
-    }
-</script>
-<!-- /.container-fluid -->
 
-<!-- Modal -->
+<!-- Modal publish -->
 <div id="myModalPublish" class="modal fade" role="dialog">
     <div class="modal-dialog modal-xl">
         <!-- Modal content-->
@@ -204,6 +196,7 @@
                     <form id="form-publish" action="" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-primary">Publish</button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" id="btn-reupload">Reupload</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </form>
                 </div>
@@ -214,7 +207,7 @@
 </div>
 <!-- End of Modal -->
 
-<!-- Modal -->
+<!-- Modal upload -->
 <div id="modal-input" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
         <!-- Modal content-->
@@ -242,6 +235,8 @@
 </div>
 <!-- End of Modal -->
 
+
+
 <script>
     function openModalInput(id) {
         $.ajax({
@@ -253,7 +248,20 @@
             }
         })
     }
+
+    //modal untuk nampilin pdf sebelum publish
+    function openModalPDFpublish(source, id) {
+        // wait after src changed then show modal
+        $('#modalpublish').attr('src', source);
+        $('#form-publish').attr('action', '/permohonan/publish/' + id);
+        $('#btn-reupload').attr('onclick', 'openModalInput(' + id + ')');
+        // await sleep(1 * 1000);
+        $('#myModalPublish').modal('show');
+    }
 </script>
+
+
+
 
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

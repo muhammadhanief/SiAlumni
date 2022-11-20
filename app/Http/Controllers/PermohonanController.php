@@ -108,7 +108,13 @@ class PermohonanController extends Controller
             $data->status = "Ditolak Petugas BAAK";
         }
 
+        // hapus data legalisir
+        if ($data->file_legalisir) {
+            $data->file_legalisir = null;
+        }
+
         $data->save();
+
 
         return redirect('/permohonan')->with('success', 'Permohonan berhasil ditolak');
     }
@@ -160,7 +166,10 @@ class PermohonanController extends Controller
 
         $validate['file_legalisir'] = $request->file('file_legalisir')->store('file_legalisir');
 
-        $legalisir = Legalisir::create($validate);
+        Legalisir::updateOrCreate(
+            ['permohonan_id' => $validate['permohonan_id']],
+            ['file_legalisir' => $validate['file_legalisir']]
+        );
 
         return redirect('/permohonan')->with('success', 'File berhasil diupload');
     }
