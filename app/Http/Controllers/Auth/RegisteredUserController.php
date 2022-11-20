@@ -34,30 +34,60 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $validate =  $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'nip' => ['required', 'string', 'max:255'],
-            // 'nim' => ['required', 'string', 'max:255'],
-            'jurusan' => ['required', 'string', 'max:255'],
-            // 'tahunLulus' => ['required', 'string', 'max:255'],
-            'tempatLahir' => ['required', 'string', 'max:255'],
-            'tanggalLahir' => ['required', 'string', 'max:255'],
-            'nomorPonsel' => ['required', 'string', 'max:255'],
-            // 'jenisKelamin' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
-            'skpenempatan1bps' => 'required|mimes:pdf',
-            'skatasanbps' => 'required|mimes:pdf',
-        ]);
 
-        $validate['skpenempatan1bps'] = $request->file('skpenempatan1bps')->store('skpenempatan1bps');
-        $validate['skatasanbps'] = $request->file('skatasanbps')->store('skatasanbps');
-        $validate['password'] = Hash::make($request->password);
+        $tipe_alumni = $request->tipe_alumni;
+
+        if ($tipe_alumni == "BPS") {
+            $validate =  $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+                'nip' => ['required', 'string', 'max:255'],
+                // 'nim' => ['required', 'string', 'max:255'],
+                'jurusan' => ['required', 'string', 'max:255'],
+                // 'tahunLulus' => ['required', 'string', 'max:255'],
+                'tempatLahir' => ['required', 'string', 'max:255'],
+                'tanggalLahir' => ['required', 'string', 'max:255'],
+                'nomorPonsel' => ['required', 'string', 'max:255'],
+                // 'jenisKelamin' => ['required', 'string', 'max:255'],
+                'name' => ['required', 'string', 'max:255'],
+                'skpenempatan1bps' => 'required|mimes:pdf',
+                'skatasanbps' => 'required|mimes:pdf',
+                'tipe_alumni' => 'required',
+            ]);
+
+            $validate['skpenempatan1bps'] = $request->file('skpenempatan1bps')->store('skpenempatan1bps');
+            $validate['skatasanbps'] = $request->file('skatasanbps')->store('skatasanbps');
+            $validate['password'] = Hash::make($request->password);
+        }
+
+        if ($tipe_alumni == "Non-BPS") {
+            $validate =  $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+                // 'nip' => ['required', 'string', 'max:255'],
+                'instansi' => ['required', 'string', 'max:255'],
+
+                'jurusan' => ['required', 'string', 'max:255'],
+
+                'tempatLahir' => ['required', 'string', 'max:255'],
+                'tanggalLahir' => ['required', 'string', 'max:255'],
+                'nomorPonsel' => ['required', 'string', 'max:255'],
+
+                'name' => ['required', 'string', 'max:255'],
+                'skatasanlangsung' => 'required|mimes:pdf',
+                'sklunastgr' => 'required|mimes:pdf',
+                'tipe_alumni' => 'required',
+            ]);
+
+            $validate['skatasanlangsung'] = $request->file('skatasanlangsung')->store('skatasanlangsung');
+            $validate['sklunastgr'] = $request->file('sklunastgr')->store('sklunastgr');
+            $validate['password'] = Hash::make($request->password);
+        }
+
         $user = User::create($validate);
         $user->assignRole('alumni');
-
-
         // $user = User::create([
         //     'name' => $request->name,
         //     'email' => $request->email,

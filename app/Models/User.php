@@ -32,7 +32,11 @@ class User extends Authenticatable
         'jenisKelamin',
         'skpenempatan1bps',
         'skatasanbps',
-        'statusAkun'
+        'statusAkun',
+        'tipe_alumni',
+        'instansi',
+        'skatasanlangsung',
+        'sklunastgr'
     ];
 
     /**

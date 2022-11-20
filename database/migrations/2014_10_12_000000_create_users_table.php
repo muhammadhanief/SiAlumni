@@ -26,8 +26,12 @@ return new class extends Migration
             $table->string('jenisKelamin')->nullable();
             // $table->enum('jenisKelamin', ['Laki-laki', 'Perempuan'])->default('Pending');
             $table->string('email')->unique();
+            $table->enum('tipe_alumni', ['BPS', 'Non-BPS'])->nullable();
+            $table->string('instansi')->nullable();
             $table->string('skpenempatan1bps')->nullable();
             $table->string('skatasanbps')->nullable();
+            $table->string('skatasanlangsung')->nullable();
+            $table->string('sklunastgr')->nullable();
             $table->string('password')->nullable();
             $table->enum('statusAkun', ['Pending', 'Ditolak', 'Lolos'])->default('Pending');
             $table->timestamp('email_verified_at')->nullable();

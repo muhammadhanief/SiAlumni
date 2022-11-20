@@ -33,10 +33,10 @@
                                 <div class="row px-4 justify-content-center">
                                     <div class="btn-group btn-group-toggle btn-block" data-toggle="buttons">
                                         <label class="btn btn-light w-50 btn-user active">
-                                            <input type="radio" name="options" id="option1" autocomplete="off" value="bps" checked> BPS
+                                            <input type="radio" name="tipe_alumni" id="option1" autocomplete="off" value="BPS" checked> BPS
                                         </label>
                                         <label class="btn btn-light w-50 btn-user">
-                                            <input type="radio" name="options" id="option2" autocomplete="off" value="nonbps"> Non-BPS
+                                            <input type="radio" name="tipe_alumni" id="option2" autocomplete="off" value="Non-BPS"> Non-BPS
                                         </label>
                                     </div>
                                 </div>
@@ -55,7 +55,6 @@
                                         <p class="font-weight-bold">Detail Pengguna</p>
 
                                         <!-- BPS -->
-                                        <!-- Non-BPS -->
                                         <div class="form-group" id="nip">
                                             <input id="nip-inp" type="text" class="form-control form-control-user" name="nip" placeholder="{{ __('NIP') }}" value="{{ old('nip') }}" required autofocus>
                                         </div>
@@ -63,7 +62,7 @@
 
                                         <!-- Non-BPS -->
                                         <div class="form-group" id="instansi">
-                                            <input id="instansi-inp" type="tel" class="form-control form-control-user" name="Instansi" placeholder="{{ __('Instansi') }}" value="{{ old('Instansi') }}" required>
+                                            <input id="instansi-inp" type="text" class="form-control form-control-user" name="instansi" placeholder="{{ __('Instansi') }}" value="{{ old('Instansi') }}" required>
                                         </div>
                                         <!-- End of -->
 

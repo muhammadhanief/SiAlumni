@@ -58,12 +58,12 @@ $(document).ready(function() {
     hideNonBPS();
 
     $("input[type='radio']").click(function() {
-        var radioValue = $("input[name='options']:checked").val();
-        if (radioValue == "bps") {
+        var radioValue = $("input[name='tipe_alumni']:checked").val();
+        if (radioValue == "BPS") {
             hideNonBPS();
             setTimeout(showBPS, 500);
 
-        } else if (radioValue == "nonbps") {
+        } else if (radioValue == "Non-BPS") {
             hideBPS();
             setTimeout(showNonBPS, 500);
         }

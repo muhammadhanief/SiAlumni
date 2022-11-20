@@ -57,8 +57,7 @@
                         <th>NIP</th>
                         <th>Tahun Lulus</th>
                         <!-- <th>Email</th> -->
-                        <th>File SK Penempatan 1 BPS</th>
-                        <th>File SK Atasan BPS</th>
+                        <th>File Lamppiran</th>
                         <th>Status Akun</th>
                         <th>Aksi</th>
                     </tr>
@@ -73,16 +72,23 @@
                         <!-- <td>{{ $data->email }}</td> -->
                         <!-- <td>{{ $data->jurusan }}</td> -->
                         <td>
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skpenempatan1bps) }}`);">Klik
-                                Untuk
-                                Melihat</a>
+                            @if ($data->tipe_alumni == 'BPS')
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skpenempatan1bps) }}`);">SK Penempatan 1 BPS</a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanbps) }}`);">SK Atasan BPS</a>
+                            @elseif ($data->tipe_alumni == 'Non-BPS')
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanlangsung) }}`);">SK Atasan Langsung</a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->sklunastgr) }}`);">SK Lunas TGR</a>
+                            @endif
                         </td>
                         <td>
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanbps) }}`);">Klik
-                                Untuk
-                                Melihat</a>
+                            @if ($data->statusAkun == 'Lolos')
+                            <span class="badge badge-success">Lolos</span>
+                            @elseif ($data->statusAkun == 'Pending')
+                            <span class="badge badge-warning">Pending</span>
+                            @else
+                            <span class="badge badge-danger">Ditolak</span>
+                            @endif
                         </td>
-                        <td>{{ $data->statusAkun }}</td>
                         <td>
                             <form action="/konfirmasi/{{$data->id}}" method="post" class="d-inline">
                                 @csrf
