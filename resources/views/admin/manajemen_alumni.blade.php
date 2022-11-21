@@ -28,11 +28,15 @@
         <div class="row justify-content-end">
             <h4 class="m-0 font-weight-bold text-primary col">Data Alumni</h4>
             <a href="/addalumni" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
                 </svg>
                 Tambah Data Alumni
             </a>
+
+
             <!-- <a href="#" class="btn btn-primary btn-icon-split btn-sm">
                                     <span class="icon text-white-50">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
@@ -41,6 +45,19 @@
                                     </span>
                                     <span class="text">Tambah Alumni</span>
                                 </a> -->
+        </div>
+        <div class="row justify-content-end">
+            <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
+
+                @csrf
+
+                <input type="file" name="file" class="form-control">
+
+                <br>
+
+                <button class="btn btn-success">Import User Data</button>
+
+            </form>
         </div>
     </div>
     <div class="card-body">
@@ -66,7 +83,8 @@
                         <!-- <td>{{ "gada" }}</td> -->
                         <td>
                             @if ($data->ijazahasli != null)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">
+                            <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">
                                 Klik Untuk Melihat
                             </a>
                             @else
@@ -75,7 +93,8 @@
                         </td>
                         <td>
                             @if ($data->transkripnilaiasli != null)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">
+                            <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">
                                 Klik Untuk Melihat
                             </a>
                             @else
@@ -122,16 +141,16 @@
 <!-- End of Modal -->
 
 <script>
-    function openModalInput(id) {
-        $.ajax({
-            url: '/admin/manajemenalumni/' + id,
-            type: 'GET',
-            success: function(data) {
-                $('#modal-input').modal('show');
-                $('#modal-input .data').html(data);
-            }
-        })
-    }
+function openModalInput(id) {
+    $.ajax({
+        url: '/admin/manajemenalumni/' + id,
+        type: 'GET',
+        success: function(data) {
+            $('#modal-input').modal('show');
+            $('#modal-input .data').html(data);
+        }
+    })
+}
 </script>
 
 <!-- End of Main Content -->

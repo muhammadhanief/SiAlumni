@@ -8,6 +8,7 @@ use App\Http\Controllers\AddAlumniController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\VerifikasiAkunController;
 use App\Http\Controllers\PermohonanController;
+use App\Http\Controllers\ImportExportController;
 use App\Http\Controllers\HistoriPermohonanAlumniController;
 
 /*
@@ -110,6 +111,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
+
+    Route::controller(ImportExportController::class)->group(function () {
+        // Route::get('users', 'index');
+        // Route::get('users-export', 'export')->name('users.export');
+        Route::post('users-import', 'import')->name('users.import');
+    });
 });
 
 

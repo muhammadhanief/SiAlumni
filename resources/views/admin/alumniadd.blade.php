@@ -39,6 +39,7 @@
 
             <div class="card-body">
 
+
                 <form method="POST" action="{{ route('storeaddalumni') }}" autocomplete="off"
                     enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
