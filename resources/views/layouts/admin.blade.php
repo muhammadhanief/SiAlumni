@@ -135,7 +135,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/historialumni">
-                    <i class="fas fa-fw fa-align-justify"></i>
+                    <i class="fas fa-fw fas fa-clipboard-list"></i>
                     <span>{{ __('Histori Permohonan') }}</span>
                 </a>
             </li>
@@ -165,7 +165,7 @@
             <!-- Nav Item - About -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('about') }}">
-                    <i class="fas fa-fw fa-hands-helping"></i>
+                    <i class="fa fa-fw fa-info-circle" style="font-size:15px;"></i>
                     <span>{{ __('About') }}</span>
                 </a>
             </li>
@@ -225,14 +225,18 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     {{ __('Profile') }}
                                 </a>
-                                <a class="dropdown-item" href="javascript:void(0)">
+                                <a class="dropdown-item" href="{{ route('about') }}">
+                                    <i class="fa fa-sm fa-fw fa-info-circle mr-1 text-gray-400" style="font-size: 14px;"></i>
+                                    <span>{{ __('About') }}</span>
+                                </a>
+                                <!-- <a class="dropdown-item" href="javascript:void(0)">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     {{ __('Settings') }}
                                 </a>
                                 <a class="dropdown-item" href="javascript:void(0)">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     {{ __('Activity Log') }}
-                                </a>
+                                </a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

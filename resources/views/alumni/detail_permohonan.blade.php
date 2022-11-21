@@ -57,7 +57,7 @@
                     </span>
 
                     <h5 class="fw-bold">Permohonan Diajukan</h5>
-                    <p class="text-muted mb-2 fw-bold">10 September 2015</p>
+                    <p class="text-muted mb-2 fw-bold">{{ \Carbon\Carbon::parse($data->created_at)->format('d F Y') }}</p>
                     <p class="text-muted">
                         Formulir permohonan dan kelengkapannya sudah diajukan dan akan diperiksa oleh
                         petugas.
@@ -78,7 +78,7 @@
                         </svg>
                     </span>
                     <h5 class="fw-bold">Permohonan Lolos Syarat</h5>
-                    <p class="text-muted mb-2 fw-bold">15 September 2015</p>
+                    <p class="text-muted mb-2 fw-bold">{{ \Carbon\Carbon::parse($data->updated_at)->format('d F Y') }}</p>
                     <p class="text-muted">
                         Permohonan dan kelengkapan dokumen telah diperiksa oleh petugas.
                     </p>
@@ -96,7 +96,7 @@
                         </svg>
                     </span>
                     <h5 class="fw-bold">Permohonan Disetujui Kepala BAAK</h5>
-                    <p class="text-muted mb-2 fw-bold">16 September 2015</p>
+                    <p class="text-muted mb-2 fw-bold">{{ \Carbon\Carbon::parse($data->updated_at)->format('d F Y') }}</p>
                     <p class="text-muted">
                         Permohonan telah disetujui oleh Kepala BAAK.
                     </p>
@@ -112,7 +112,7 @@
                         </svg>
                     </span>
                     <h5 class="fw-bold">Permohonan Disetujui Wakil Direktur 1</h5>
-                    <p class="text-muted mb-2 fw-bold">16 September 2015</p>
+                    <p class="text-muted mb-2 fw-bold">{{ \Carbon\Carbon::parse($data->updated_at)->format('d F Y') }}</p>
                     <p class="text-muted">
                         Permohonan telah disetujui oleh Wakil Direktur 1.
                     </p>
@@ -127,7 +127,7 @@
                         </svg>
                     </span>
                     <h5 class="fw-bold">Legalisir Siap</h5>
-                    <p class="text-muted mb-2 fw-bold">18 September 2015</p>
+                    <p class="text-muted mb-2 fw-bold">{{ \Carbon\Carbon::parse($data->updated_at)->format('d F Y') }}</p>
                     <p class="text-muted">
                         Permohonan legalisir telah selesai diproses.
                     </p>
@@ -147,7 +147,7 @@
                         </svg>
                     </span>
                     <h5 class="fw-bold text-danger">Permohonan Ditolak</h5>
-                    <p class="text-muted mb-2 fw-bold">16 September 2015</p>
+                    <p class="text-muted mb-2 fw-bold">{{ \Carbon\Carbon::parse($data->updated_at)->format('d F Y') }}</p>
                     <p class="text-muted">
                         Permohonan {{ $data->status }}.
                     </p>
