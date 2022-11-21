@@ -159,6 +159,9 @@
                             @role('baak')
                             BAAK
                             @endrole
+                            @role('superadmin')
+                            Super Admin
+                            @endrole
                             @role('wadir1')
                             Wakil Direktur 1
                             @endrole
