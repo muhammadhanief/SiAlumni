@@ -74,10 +74,18 @@
                                 <!-- <td>{{ $user->tahunLulus }}</td> -->
                                 <!-- <td>{{ $user->email }}</td> -->
                                 <!-- <td>{{ $user->jurusan }}</td> -->
-                                <td> <a href="{{ asset('storage/'). '/' . $user->skatasanbps}}" target="blank">Klik
-                                        disini</a> </td>
-                                <td> <a href="{{ asset('storage/'). '/' . $user->skpenempatan1bps}}" target="blank">Klik
-                                        disini</a> </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanbps) }}`);">
+                                        Klik Untuk Melihat
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$user->skpenempatan1bps) }}`);">
+                                        Klik Untuk Melihat
+                                    </a>
+                                </td>
                                 <td>{{ $user->statusAkun }}</td>
                                 <td>
                                     <form action="/pendingakun/{{ $user->id }}" method="post" class="d-inline">
@@ -146,11 +154,17 @@
                                 <!-- <td>{{ $data->tahunLulus }}</td> -->
                                 <!-- <td>{{ $data->email }}</td> -->
                                 <!-- <td>{{ $data->jurusan }}</td> -->
-                                <td> <a href="{{ asset('storage/'). '/' . $data->ijazahasli}}" target="blank">Klik
-                                        disini</a> </td>
-                                <td> <a href="{{ asset('storage/'). '/' . $data->transkripnilaiasli}}"
-                                        target="blank">Klik
-                                        disini</a> </td>
+
+                                <td> <a class="btn btn-primary btn-sm"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">
+                                        Klik Untuk Melihat
+                                    </a> </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">
+                                        Klik Untuk Melihat
+                                    </a>
+                                </td>
                                 <!-- <td>{{ $data->statusAkun }}</td> -->
                                 <td>
                                     <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
@@ -209,6 +223,8 @@
     <!-- /.container-fluid -->
 
 </div>
+
+
 <!-- End of Main Content -->
 <!-- End of Content Wrapper -->
 <!-- </html> -->
