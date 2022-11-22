@@ -13,8 +13,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Popper -->
-    <script src="{{ asset('vendor/popper.js/popper.min.js') }}"></script>
 
     <!-- Fonts -->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
@@ -310,8 +308,7 @@
     <div class="rightbar-overlay"></div>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-
+    <script src="{{ asset('vendor/popper.js/popper.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
@@ -321,7 +318,6 @@
     <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
     <script src="https://kit.fontawesome.com/73dfd73928.js" crossorigin="anonymous"></script>
-    <!-- <script src="{{ asset('vendor/popper.js/popper.min.js') }}"></script> -->
 
 
     <!-- Metode Pengambilan -->
