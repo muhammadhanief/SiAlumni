@@ -48,15 +48,10 @@
         </div>
         <div class="row justify-content-end">
             <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
-
                 @csrf
-
                 <input type="file" name="file" class="form-control">
-
-                <br>
-
+                <!-- <br> -->
                 <button class="btn btn-success">Import User Data</button>
-
             </form>
             <a href="{{ route('users.export') }}">Test export</a>
         </div>
