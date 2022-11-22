@@ -114,7 +114,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::controller(ImportExportController::class)->group(function () {
         // Route::get('users', 'index');
-        // Route::get('users-export', 'export')->name('users.export');
+        Route::get('users-export', 'export')->name('users.export');
         Route::post('users-import', 'import')->name('users.import');
     });
 });

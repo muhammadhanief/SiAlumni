@@ -55,10 +55,10 @@ class DataAlumniImport implements ToModel, WithHeadingRow
             'noHp' => $row['nohp'],
             'kabDomisiliPmb' => $row['kab_domisili_pmb'],
             'provDomisiliPmb' => $row['prov_domisili_pmb'],
-            'provDomisiliPmb' => $row['prov_daftar_pmb'],
+            'provDaftarPmb' => $row['prov_daftar_pmb'],
             // 'tahunLulus' => $row['tahunLulus'],
-            // 'transkripnilaiasli',
-            // 'ijazahasli',
+            'transkripnilaiasli' => "ijazahasli/contohijazah.pdf",
+            'ijazahasli' => "transkripnilaiasli/contohtranskrip.pdf",
         ]);
     }
 }

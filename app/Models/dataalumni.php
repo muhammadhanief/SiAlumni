@@ -27,6 +27,7 @@ class dataalumni extends Model
         'noHp',
         'kabDomisiliPmb',
         'provDomisiliPmb',
+        'provDaftarPmb',
         'tahunLulus',
         'transkripnilaiasli',
         'ijazahasli',

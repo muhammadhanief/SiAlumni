@@ -55,7 +55,7 @@
                         <th>Nama</th>
                         <th>NIM</th>
                         <th>NIP</th>
-                        <th>Tahun Lulus</th>
+                        <!-- <th>Tahun Lulus</th> -->
                         <!-- <th>Email</th> -->
                         <th>File Lamppiran</th>
                         <th>Status Akun</th>
@@ -68,16 +68,22 @@
                         <td>{{ $data->name  }}</td>
                         <td>{{ $data->nim }}</td>
                         <td>{{ $data->nip }}</td>
-                        <td>{{ $data->tahunLulus }}</td>
+                        <!-- <td>{{ $data->tahunLulus }}</td> -->
                         <!-- <td>{{ $data->email }}</td> -->
                         <!-- <td>{{ $data->jurusan }}</td> -->
                         <td>
                             @if ($data->tipe_alumni == 'BPS')
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skpenempatan1bps) }}`);">SK Penempatan 1 BPS</a>
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanbps) }}`);">SK Atasan BPS</a>
+                            <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$data->skpenempatan1bps) }}`);">SK Penempatan
+                                1 BPS</a>
+                            <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanbps) }}`);">SK Atasan BPS</a>
                             @elseif ($data->tipe_alumni == 'Non-BPS')
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanlangsung) }}`);">SK Atasan Langsung</a>
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->sklunastgr) }}`);">SK Lunas TGR</a>
+                            <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanlangsung) }}`);">SK Atasan
+                                Langsung</a>
+                            <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$data->sklunastgr) }}`);">SK Lunas TGR</a>
                             @endif
                         </td>
                         <td>
@@ -93,7 +99,8 @@
                             <form action="/konfirmasi/{{$data->id}}" method="post" class="d-inline">
                                 @csrf
                                 @method('post')
-                                <a href="{{route('konfirmasi', $data->id)}}" class="btn btn-success btn-circle btn-sm"> <i class="fas fa-external-link-alt"></i></a>
+                                <a href="{{route('konfirmasi', $data->id)}}" class="btn btn-success btn-circle btn-sm">
+                                    <i class="fas fa-external-link-alt"></i></a>
                             </form>
 
                             <!-- <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">

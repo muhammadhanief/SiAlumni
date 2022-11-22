@@ -8,6 +8,8 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Faker\Provider\id_ID\Person;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -77,7 +79,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'statusAkun' => 'Lolos',
             'nim' => '222011623',
-            'nip' => '2019439294920230',
+            'nip' => '222019439294920230',
             'tipe_alumni' => 'BPS',
             'nomorPonsel' => '085376470953',
             'tanggalLahir' => '2022-11-08',
@@ -90,10 +92,25 @@ class DatabaseSeeder extends Seeder
         $alumni1->assignRole('alumni');
 
         $data1 = dataalumni::create([
-            'name' => 'M Zikri',
+            "tahunMasuk" => "2019",
             'nim' => '222011623',
+            'name' => 'M Zikri',
+            "noIjazahNasional" => "1000000000000000",
+            "nik" => "1304032508010003",
+            "agama" => "Islam",
+            // "email" => $this->faker->safeEmail,
+            "tempatLahir" => "Padang",
             'tanggalLahir' => '2022-11-08',
-            'tahunLulus' => '2014',
+            "prodi" => "DIII Statistika",
+            "peminatan" => "DIII Statistika",
+            "kelas" => "4SI1",
+            "status" => "Tugas Belajar",
+            "ipk" => "3,14",
+            "peringkat" => "25",
+            "noHp" => "085376470953",
+            "kabDomisiliPmb" => "Jakarta",
+            "provDomisiliPmb" => "DKI Jakarta",
+            "provDaftarPmb" => "Papua",
             'ijazahasli' => 'ijazahasli/contohijazah.pdf',
             'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
         ]);
@@ -104,7 +121,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'statusAkun' => 'Pending',
             // 'nim' => '222011686',
-            'nip' => '2019439294920230',
+            'nip' => '222019439294920230',
             'tipe_alumni' => 'BPS',
             'nomorPonsel' => '085376470953',
             'tanggalLahir' => '2022-10-08',
@@ -116,10 +133,25 @@ class DatabaseSeeder extends Seeder
         $alumni2->assignRole('alumni');
 
         $data1 = dataalumni::create([
-            'name' => 'M Hanief',
+            "tahunMasuk" => "2019",
             'nim' => '222011787',
+            'name' => 'M Hanief',
+            "noIjazahNasional" => "1000000000000000",
+            "nik" => "1304032508010003",
+            "agama" => "Islam",
+            // "email" => $this->faker->safeEmail,
+            "tempatLahir" => "Padang",
             'tanggalLahir' => '2022-10-08',
-            'tahunLulus' => '2014',
+            "prodi" => "DIII Statistika",
+            "peminatan" => "DIII Statistika",
+            "kelas" => "4SI1",
+            "status" => "Tugas Belajar",
+            "ipk" => "3,14",
+            "peringkat" => "25",
+            "noHp" => "085376470953",
+            "kabDomisiliPmb" => "Jakarta",
+            "provDomisiliPmb" => "DKI Jakarta",
+            "provDaftarPmb" => "Papua",
             'ijazahasli' => 'ijazahasli/contohijazah.pdf',
             'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
         ]);
@@ -130,7 +162,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'statusAkun' => 'Pending',
             // 'nim' => '222011686',
-            'nip' => '2019439294920230',
+            'nip' => '222019439294920230',
             'tipe_alumni' => 'BPS',
             'nomorPonsel' => '085376470953',
             'tanggalLahir' => '2022-11-08',
@@ -143,23 +175,38 @@ class DatabaseSeeder extends Seeder
 
 
         $data1 = dataalumni::create([
-            'name' => 'M Zaki',
+            "tahunMasuk" => "2019",
             'nim' => '222011232',
+            'name' => 'M Zaki',
+            "noIjazahNasional" => "1000000000000000",
+            "nik" => "1304032508010003",
+            "agama" => "Islam",
+            // "email" => $this->faker->safeEmail,
+            "tempatLahir" => "Padang",
             'tanggalLahir' => '2022-11-08',
-            'tahunLulus' => '2014',
+            "prodi" => "DIII Statistika",
+            "peminatan" => "DIII Statistika",
+            "kelas" => "4SI1",
+            "status" => "Tugas Belajar",
+            "ipk" => "3,14",
+            "peringkat" => "25",
+            "noHp" => "085376470953",
+            "kabDomisiliPmb" => "Jakarta",
+            "provDomisiliPmb" => "DKI Jakarta",
+            "provDaftarPmb" => "Papua",
             'ijazahasli' => 'ijazahasli/contohijazah.pdf',
             'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
         ]);
 
 
         // Buat seed untuk manajemen data alumni (add ijazah asli dan transkrip nilai)
-        $data1 = dataalumni::create([
-            'name' => 'Marsha Kamal',
-            'nim' => '222011341',
-            'tanggalLahir' => '2022-11-13',
-            'ijazahasli' => 'ijazahasli/contohijazah.pdf',
-            'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
-        ]);
+        // $data1 = dataalumni::create([
+        //     'name' => 'Marsha Kamal',
+        //     'nim' => '222011341',
+        //     'tanggalLahir' => '2022-11-13',
+        //     'ijazahasli' => 'ijazahasli/contohijazah.pdf',
+        //     'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
+        // ]);
 
 
         // Seed untuk permohonan

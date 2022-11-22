@@ -32,7 +32,7 @@ class ProfileController extends Controller
             'nip' => ['required', 'numeric', 'digits:18'],
             'nim' => ['required', 'string'],
             'nomorPonsel' => ['required', 'numeric', 'digits_between:11,13'],
-            'tahunLulus' => ['required', 'numeric', 'digits:4']
+            // 'tahunLulus' => ['required', 'numeric', 'digits:4']
         ]);
 
 

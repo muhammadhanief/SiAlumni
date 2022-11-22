@@ -63,10 +63,10 @@
                         <th>Jurusan</th>
                         <th>{{ Auth::user()->jurusan }}</th>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <th>Tahun Lulus</th>
                         <th>{{ Auth::user()->tahunLulus }}</th>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <th>Status Aktivasi Akun</th>
                         <th>{{ Auth::user()->statusAkun }}</th>

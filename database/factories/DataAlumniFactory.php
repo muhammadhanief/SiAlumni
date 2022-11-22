@@ -50,11 +50,16 @@ class DataAlumniFactory extends Factory
                 "4SE3",
                 "4SD1",
             ]),
+            "status" => $this->faker->randomElement([
+                "Tugas Belajar",
+                "Ikatan Dinas",
+            ]),
             "ipk" => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 2, $max = 4),
             "peringkat" => $this->faker->randomDigit,
             "noHp" => $this->faker->e164PhoneNumber,
             "kabDomisiliPmb" => $this->faker->city,
             "provDomisiliPmb" => $this->faker->state,
+            "provDaftarPmb" => $this->faker->state,
             "ijazahasli" => 'ijazahasli/contohijazah.pdf',
             "transkripnilaiasli" => 'transkripnilaiasli/contohtranskrip.pdf',
         ];

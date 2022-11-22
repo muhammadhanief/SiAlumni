@@ -128,7 +128,7 @@
                                 <th>NIM</th>
                                 <th>Tanggal Lahir</th>
                                 <!-- <th>NIP</th> -->
-                                <th>Tahun Lulus</th>
+                                <!-- <th>Tahun Lulus</th> -->
                                 <!-- <th>Email</th> -->
                                 <th>Ijazah Asli</th>
                                 <th>Transkrip Nilai Asli</th>
@@ -143,7 +143,7 @@
                                 <td>{{ $data->nim }}</td>
                                 <td>{{ $data->tanggalLahir }}</td>
                                 <!-- <td>{{ $data->nip }}</td> -->
-                                <td>{{ $data->tahunLulus }}</td>
+                                <!-- <td>{{ $data->tahunLulus }}</td> -->
                                 <!-- <td>{{ $data->email }}</td> -->
                                 <!-- <td>{{ $data->jurusan }}</td> -->
                                 <td> <a href="{{ asset('storage/'). '/' . $data->ijazahasli}}" target="blank">Klik

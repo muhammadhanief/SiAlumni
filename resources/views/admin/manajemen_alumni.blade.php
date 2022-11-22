@@ -58,6 +58,7 @@
                 <button class="btn btn-success">Import User Data</button>
 
             </form>
+            <a href="{{ route('users.export') }}">Test export</a>
         </div>
     </div>
     <div class="card-body">
