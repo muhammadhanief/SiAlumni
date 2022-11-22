@@ -216,5 +216,7 @@ class DatabaseSeeder extends Seeder
             'pengambilan' => '2',
             'status' => 'Selesai',
         ]);
+
+        \App\Models\dataalumni::factory(40)->create();
     }
 }
