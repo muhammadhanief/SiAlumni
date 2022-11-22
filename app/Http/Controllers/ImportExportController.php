@@ -23,6 +23,6 @@ class ImportExportController extends Controller
 
     public function export()
     {
-        return Excel::download(new DataAlumniExport, 'users.xlsx');
+        return Excel::download(new DataAlumniExport, 'DATA IJAZAH 2021_untuk kepegawaian_export.xlsx');
     }
 }
