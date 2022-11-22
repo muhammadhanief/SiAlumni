@@ -310,6 +310,8 @@
     <div class="rightbar-overlay"></div>
 
     <!-- Scripts -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
@@ -338,6 +340,8 @@
             $('[data-toggle="popover"]').popover()
         })
     </script>
+
+
     <!-- /.container-fluid -->
 
     <!-- Modal -->
