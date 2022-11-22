@@ -20,7 +20,7 @@ class DataAlumniFactory extends Factory
         return [
             //
             "tahunMasuk" => $this->faker->year($max = 'now'),
-            "nim" => $this->faker->numberBetween($min = 100000000, $max = 999999999),
+            "nim" => "2220" . $this->faker->numberBetween($min = 10000, $max = 99999),
             "name" => $this->faker->name,
             "noIjazahNasional" => $this->faker->numberBetween($min = 1000000000000000, $max = 9999999999999999),
             "nik" => $this->faker->nik,
@@ -54,7 +54,7 @@ class DataAlumniFactory extends Factory
             "peringkat" => $this->faker->randomDigit,
             "noHp" => $this->faker->e164PhoneNumber,
             "kabDomisiliPmb" => $this->faker->city,
-            "provDomisiliPmb" => $this->faker->country,
+            "provDomisiliPmb" => $this->faker->state,
             "ijazahasli" => 'ijazahasli/contohijazah.pdf',
             "transkripnilaiasli" => 'transkripnilaiasli/contohtranskrip.pdf',
         ];
