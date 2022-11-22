@@ -46,14 +46,20 @@
                                     <span class="text">Tambah Alumni</span>
                                 </a> -->
         </div>
-        <div class="row justify-content-end">
+        <div class="row justify-content-start">
             <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="file" name="file" class="form-control">
-                <!-- <br> -->
+                <br>
                 <button class="btn btn-success">Import User Data</button>
             </form>
-            <a href="{{ route('users.export') }}">Test export</a>
+        </div>
+        <br>
+        <div class="row justify-content-start">
+            <button class="btn btn-success">
+
+                <a href="{{ route('users.export') }}">Test export</a>
+            </button>
         </div>
     </div>
     <div class="card-body">
