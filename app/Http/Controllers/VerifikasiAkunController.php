@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailVerifikasi;
+use App\Mail\MailVerifikasiTolak;
+use App\Mail\MyTestMail;
 use Illuminate\Http\Request;
 use App\Models\dataalumni;
 use App\Models\User;
+use Dflydev\DotAccessData\Data;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class VerifikasiAkunController extends Controller
 {
@@ -40,19 +45,41 @@ class VerifikasiAkunController extends Controller
         $id_user = $_POST['id_user'];
         // $users = DB::table('dataalumni')->where('name', $name)->first();
         $users = dataalumni::where('id', $id)->first();
-        // dd($users);
+
         DB::table('users')
             ->where('id', $id_user)
-            // ->update(['statusAkun' => 'Lolos', 'nim' => $users->nim]);
             ->update(['statusAkun' => 'Lolos', 'nim' => $users->nim, 'tahunLulus' => $users->tahunLulus]);
+        $user = DB::table('users')->where('id', $id_user)->first();
+        $email = $user->email;
+        $data = ([
+            'name' => $users->name,
+            'email' => $users->email,
+            'nim' => $users->nim,
+        ]);
+        Mail::to($email)->send(new MailVerifikasi($data));
         return redirect('/verifikasiindex')->with('success', 'Akun berhasil diverifikasi');
     }
 
     public function tolakakun($id)
     {
+        $users = dataalumni::where('id', $id)->first();
+        $email = $users->email;
+        $data = ([
+            'name' => $users->name,
+            'email' => $users->email,
+            'nim' => $users->nim,
+        ]);
         DB::table('users')
             ->where('id', $id)
             ->update(['statusAkun' => 'Ditolak']);
+        $user = DB::table('users')->where('id', $id)->first();
+        $email = $user->email;
+        $data = ([
+            'name' => $users->name,
+            'email' => $users->email,
+            'nim' => $users->nim,
+            ]);
+        Mail::to($email)->send(new MailVerifikasiTolak($data));
         return redirect('/verifikasiindex')->with('success', 'Akun berhasil ditolak');
     }
 

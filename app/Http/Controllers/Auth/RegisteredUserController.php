@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailRegistrasi;
+use App\Mail\MyTestMail;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Login;
@@ -11,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Mail;
 
 class RegisteredUserController extends Controller
 {
@@ -58,7 +61,6 @@ class RegisteredUserController extends Controller
 
             $validate['skpenempatan1bps'] = $request->file('skpenempatan1bps')->store('skpenempatan1bps');
             $validate['skatasanbps'] = $request->file('skatasanbps')->store('skatasanbps');
-            $validate['password'] = Hash::make($request->password);
         }
 
         if ($tipe_alumni == "Non-BPS") {
@@ -83,9 +85,18 @@ class RegisteredUserController extends Controller
 
             $validate['skatasanlangsung'] = $request->file('skatasanlangsung')->store('skatasanlangsung');
             $validate['sklunastgr'] = $request->file('sklunastgr')->store('sklunastgr');
-            $validate['password'] = Hash::make($request->password);
         }
+        
+        
+        $email = $validate['email'];
+        $data = ([
+            'name'=> $validate['name'],
+            'email'=> $validate['email'],
+            'password'=> $validate['password'],
+        ]);
+        Mail::to($email)->send(new MailRegistrasi($data));
 
+        $validate['password'] = Hash::make($request->password);
         $user = User::create($validate);
         $user->assignRole('alumni');
         // $user = User::create([
