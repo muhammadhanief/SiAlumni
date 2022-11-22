@@ -95,18 +95,22 @@
                 <div class="card-body">
                     <!-- Wajib -->
 
-                    <b>Dokumen Wajib</b><br>
-                    <br>
-                    <p class="ms-auto">Surat Permohonan Legalisir
+                    <!-- <b>Lampiran</b> -->
+                    <!-- <br>
+                    <br> -->
+                    <p class="ms-auto">Catatan Tambahan
+                        <i class="far fa-question-circle" data-toggle="popover" data-placement="right" title="Catatan Tambahan" data-content="Tuliskan permintaan tambahan, misalnya permintaan legalisir ijazah/ transkrip nilai dalam Bahasa Inggris"></i>
                         <br>
-                        <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                        <!-- <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                             <span class="icon text-light">
                                 <i class='fas fa-download'></i>
                             </span>
                             <span class="text">Unduh Formulir</span>
-                        </a>
+                        </a> -->
                     </p>
-                    <input class="form-control" type="file" id="formFile" name="file_permohonan" required>
+                    <!-- <input class="form-control" type="file" id="formFile" name="file_permohonan" required> -->
+
+                    <textarea class="form-control" name="catatan" id="catatan" rows="3" placeholder="Catatan"></textarea>
                     <br>
 
                     <!-- Hanya untuk legalisir Ijazah atau Transkrip > 4 tahun -->

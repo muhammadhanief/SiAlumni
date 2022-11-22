@@ -11,7 +11,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "maatwebsite/excel": "^3.1",
-        "psr/simple-cache": "^2.0",
+        "psr/simple-cache": "2.0",
         "spatie/laravel-permission": "^5.5",
         "yajra/laravel-datatables": "^9.0",
         "yajra/laravel-datatables-buttons": "^9.0",

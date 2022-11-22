@@ -30,10 +30,10 @@
         <h6 class="m-0 font-weight-bold text-primary">Detail Permohonan</h6>
     </div>
     <div class="card-body">
-        <p>Tanggal Pengajuan</p>
+        <p><b>Tanggal Pengajuan</b></p>
         <p>{{ \Carbon\Carbon::parse($data->created_at)->format('d F Y') }}</p>
-        <p>Jenis Pengajuan</p>
-        <p>{{ $data->jenis }}</p>
+        <p><b>Jenis Pengajuan</b></p>
+        <p style="text-transform:capitalize">{{ $data->jenis }}</p>
         <hr>
         <p>Progress Pengajuan</p>
         <!-- Section: Monitoring Progress -->
