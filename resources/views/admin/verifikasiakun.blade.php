@@ -74,14 +74,16 @@
                         <td>
                             @if ($data->tipe_alumni == 'BPS')
                             <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanbps) }}`);">Surat Pernyataan
+                                Atasan Langsung</a>
+                            <a class="btn btn-primary btn-sm"
                                 onclick="openModalPDF(`{{ asset('storage/'.$data->skpenempatan1bps) }}`);">SK Penempatan
                                 1 BPS</a>
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanbps) }}`);">SK Atasan BPS</a>
                             @elseif ($data->tipe_alumni == 'Non-BPS')
+
                             <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanlangsung) }}`);">SK Atasan
-                                Langsung</a>
+                                onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanlangsung) }}`);">Surat
+                                Pernyataan Atasan Langsung</a>
                             <a class="btn btn-primary btn-sm"
                                 onclick="openModalPDF(`{{ asset('storage/'.$data->sklunastgr) }}`);">SK Lunas TGR</a>
                             @endif

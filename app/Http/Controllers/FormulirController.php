@@ -62,7 +62,7 @@ class FormulirController extends Controller
         $validate = $request->validate([
             'user_id' => '',
             'jenis' => 'required',
-            'file_permohonan' => 'mimes:pdf', //required or not?
+            // 'file_permohonan' => 'mimes:pdf', //required or not?
             'file_eselon' => 'mimes:pdf', //required or not?
             'file_pusdiklat' => 'mimes:pdf', //required or not?
             'file_kampusln' => 'mimes:pdf', //required or not?
@@ -74,7 +74,7 @@ class FormulirController extends Controller
         ]);
 
         $validate['user_id'] = Auth::user()->id;
-        $validate['file_permohonan'] = $request->file('file_permohonan')->store('permohonan');
+        // $validate['file_permohonan'] = $request->file('file_permohonan')->store('permohonan');
         if ($request->file('file_eselon')) {
             $validate['file_eselon'] = $request->file('file_eselon')->store('permohonan');
         }
