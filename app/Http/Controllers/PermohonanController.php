@@ -212,7 +212,6 @@ class PermohonanController extends Controller
     {
         $data = Permohonan::find($id);
         $legalisir = Legalisir::where('permohonan_id', $id)->first();
-
         $data->status = "Selesai";
         $data->file_legalisir = $legalisir->file_legalisir;
 
