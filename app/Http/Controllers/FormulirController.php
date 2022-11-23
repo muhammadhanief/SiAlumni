@@ -69,6 +69,7 @@ class FormulirController extends Controller
         $validate = $request->validate([
             'user_id' => '',
             'jenis' => 'required',
+            'catatan' => '',
             // 'file_permohonan' => 'mimes:pdf', //required or not?
             'file_eselon' => 'mimes:pdf', //required or not?
             'file_pusdiklat' => 'mimes:pdf', //required or not?

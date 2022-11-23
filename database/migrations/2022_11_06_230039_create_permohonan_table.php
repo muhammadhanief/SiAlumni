@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('jenis');
+            $table->string('catatan')->nullable();
             $table->string('file_hasil_legalisir')->nullable();
             $table->string('file_permohonan')->nullable();
             $table->string('file_eselon')->nullable();
@@ -31,6 +32,11 @@ return new class extends Migration
             $table->string('alasan_tolak')->nullable();
             $table->string('file_legalisir')->nullable();
             $table->timestamps();
+            $table->timestamp('time_petugas_baak')->nullable();
+            $table->timestamp('time_kepala_baak')->nullable();
+            $table->timestamp('time_wadir_1')->nullable();
+            $table->timestamp('time_tolak')->nullable();
+            $table->timestamp('time_selesai')->nullable();
         });
     }
 

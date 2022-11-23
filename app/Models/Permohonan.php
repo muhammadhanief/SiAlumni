@@ -14,7 +14,8 @@ class Permohonan extends Model
     protected $fillable = [
         'user_id',
         'jenis',
-        'file_permohonan',
+        // 'file_permohonan',
+        'catatan',
         'file_eselon',
         'file_pusdiklat',
         'file_kampusln',
@@ -24,5 +25,10 @@ class Permohonan extends Model
         'email_pengambilan',
         'status',
         'file_legalisir',
+        'time_petugas_baak',
+        'time_kepala_baak',
+        'time_wadir_1',
+        'time_tolak',
+        'time_selesai',
     ];
 }

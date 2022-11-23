@@ -22,6 +22,7 @@ class PermohonanController extends Controller
         $users_all = User::all();
         $legalisir_all = Legalisir::all();
 
+        $ispetugasbaak = false;
         // make user id as a key
         $users = [];
         foreach ($users_all as $u) {
@@ -42,13 +43,15 @@ class PermohonanController extends Controller
                 ->where('status', "Disetujui Kepala BAAK")
                 ->get();
         } elseif ($user == 'petugasbaak') {
-            $data = DB::table('permohonan')
-                ->where('status', "Menunggu")
-                ->orWhere('status', 'Ditolak Petugas BAAK')
-                ->orWhere('status', 'Ditolak Kepala BAAK')
-                ->orWhere('status', 'Ditolak Wakil Direktur 1')
-                ->orWhere('status', 'Disetujui Wakil Direktur 1')
-                ->get();
+            $data = Permohonan::all();
+            $ispetugasbaak = true;
+            // $data = DB::table('permohonan')
+            //     ->where('status', "Menunggu")
+            //     ->orWhere('status', 'Ditolak Petugas BAAK')
+            //     ->orWhere('status', 'Ditolak Kepala BAAK')
+            //     ->orWhere('status', 'Ditolak Wakil Direktur 1')
+            //     ->orWhere('status', 'Disetujui Wakil Direktur 1')
+            //     ->get();
         } else {
             $data = Permohonan::all();
         }
@@ -67,6 +70,7 @@ class PermohonanController extends Controller
                 'user' => $user,
                 'users' => $users,
                 'legalisir' => $legalisir,
+                'ispetugasbaak' => $ispetugasbaak,
             ]
         );
     }
@@ -79,14 +83,19 @@ class PermohonanController extends Controller
 
         if ($data->status == "Menunggu" || $user == 'petugasbaak') {
             $data->status = "Disetujui Petugas BAAK";
+            $data->time_petugas_baak = date("Y-m-d H:i:s");
         } elseif ($data->status == "Disetujui Petugas BAAK" || $user == 'kepalabaak') {
             $data->status = "Disetujui Kepala BAAK";
+            $data->time_kepala_baak = date("Y-m-d H:i:s");
         } elseif ($data->status == "Disetujui Kepala BAAK" || $user == 'wadir1') {
             $data->status = "Disetujui Wakil Direktur 1";
+            $data->time_wadir_1 = date("Y-m-d H:i:s");
         } elseif ($data->status == "Disetujui Wakil Direktur 1") {
             $data->status = "Disetujui Wakil Direktur 1";
+            $data->time_wadir_1 = date("Y-m-d H:i:s");
         } elseif ($user == 'superadmin') {
             $data->status = "Disetujui Petugas BAAK";
+            $data->time_petugas_baak = date("Y-m-d H:i:s");
         }
 
         $data->save();
@@ -102,12 +111,16 @@ class PermohonanController extends Controller
         $user = Auth::user()->roles->first()->name;
         if ($user == 'petugasbaak') {
             $data->status = "Ditolak Petugas BAAK";
+            $data->time_tolak = date("Y-m-d H:i:s");
         } elseif ($user == 'kepalabaak') {
             $data->status = "Ditolak Kepala BAAK";
+            $data->time_tolak = date("Y-m-d H:i:s");
         } elseif ($user == 'wadir1') {
             $data->status = "Ditolak Wakil Direktur 1";
+            $data->time_tolak = date("Y-m-d H:i:s");
         } elseif ($user == 'superadmin') {
             $data->status = "Ditolak Petugas BAAK";
+            $data->time_tolak = date("Y-m-d H:i:s");
         }
 
         // hapus data legalisir
@@ -214,6 +227,7 @@ class PermohonanController extends Controller
         $data = Permohonan::find($id);
         $legalisir = Legalisir::where('permohonan_id', $id)->first();
         $data->status = "Selesai";
+        $data->time_selesai = date("Y-m-d H:i:s");
         $data->file_legalisir = $legalisir->file_legalisir;
 
         $data->save();
@@ -224,11 +238,14 @@ class PermohonanController extends Controller
     public function download($id)
     {
         $data = Permohonan::find($id);
+        $user = User::find($data->user_id);
         // public path 
         $filePath = public_path() . '/storage/' . $data->file_legalisir;
 
+
+
         $headers = ['Content-Type: application/pdf'];
-        $fileName =  'Legalisir_' . $data->jenis . '_' . $data->nim . '_' . time() . '.pdf';
+        $fileName =  'Legalisir_' . $data->jenis . '_' . $user->nim . '_' . time() . '.pdf';
 
         return response()->download($filePath, $fileName, $headers);
     }

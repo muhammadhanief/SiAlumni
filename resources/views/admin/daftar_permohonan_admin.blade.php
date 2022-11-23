@@ -39,6 +39,7 @@
                         <th>Tanggal Pengajuan</th>
                         <th>Jenis Pengajuan</th>
                         <th>Status</th>
+                        <th>Catatan</th>
                         <th>Lampiran</th>
                         <th>Aksi</th>
                     </tr>
@@ -70,42 +71,47 @@
                             <div class="p-2 bg-danger text-light rounded">{{ $item->status }}</div>
                             @endif
                         </td>
+                        <td>{{ $item->catatan }}</td>
                         <td>
                             @if ($item->file_permohonan != NULL)
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
                             @endif
                             @if ($item->file_eselon != NULL)
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
                             @endif
                             @if ($item->file_pusdiklat != NULL)
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
                             @endif
                             @if ($item->file_kampusln != NULL)
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
                             @endif
                             @if ($item->file_kuasa != NULL)
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
                             @endif
                         </td>
                         <td>
+                            @if ($ispetugasbaak)
+                            <!-- Jika user adalah petugas BAAK -->
+                            @if ($item->status == "Menunggu")
+                            <a onclick="konfirmasi('{{ $item->id }}')" class="btn btn-primary btn-sm">Aksi</a>
+                            @elseif ($item->status == 'Disetujui Wakil Direktur 1' && !isset($legalisir[$item->id]))
+                            <a onclick="openModalInput('{{ $item->id }}')" class="btn btn-primary btn-sm">Upload</a>
+                            @elseif (isset($legalisir[$item->id]) && $item->status != 'Selesai')
+                            <a onclick="openModalPDFpublish(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`, `{{ $item->id }}`);" class="btn btn-warning btn-sm">Publish</a>
+                            @elseif ($item->status == 'Selesai' && isset($item->file_legalisir))
+                            <a onclick="openModalPDF(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`);" class="btn btn-success btn-sm">Hasil</a>
+                            @endif
+                            @else
                             @if ($item->status != "Disetujui Wakil Direktur 1" && $item->status != "Selesai")
                             <a onclick="konfirmasi('{{ $item->id }}')" class="btn btn-primary btn-sm">Aksi</a>
                             @elseif ($item->status == 'Disetujui Wakil Direktur 1' && !isset($legalisir[$item->id]))
                             <a onclick="openModalInput('{{ $item->id }}')" class="btn btn-primary btn-sm">Upload</a>
                             @elseif (isset($legalisir[$item->id]) && $item->status != 'Selesai')
-                            <a onclick="openModalPDFpublish(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`, `{{ $item->id }}`);"
-                                class="btn btn-warning btn-sm">Publish</a>
+                            <a onclick="openModalPDFpublish(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`, `{{ $item->id }}`);" class="btn btn-warning btn-sm">Publish</a>
                             @elseif ($item->status == 'Selesai' && isset($item->file_legalisir))
-                            <a onclick="openModalPDF(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`);"
-                                class="btn btn-success btn-sm">Hasil</a>
+                            <a onclick="openModalPDF(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`);" class="btn btn-success btn-sm">Hasil</a>
                             @endif
-
-
+                            @endif
 
                         </td>
                     </tr>
@@ -204,8 +210,7 @@
                     <form id="form-publish" action="" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-primary">Publish</button>
-                        <button type="button" class="btn btn-warning" data-dismiss="modal"
-                            id="btn-reupload">Reupload</button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" id="btn-reupload">Reupload</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </form>
                 </div>
@@ -247,26 +252,26 @@
 
 
 <script>
-function openModalInput(id) {
-    $.ajax({
-        url: '/permohonan/preupload/' + id,
-        type: 'GET',
-        success: function(data) {
-            $('#modal-input').modal('show');
-            $('#modal-input .data').html(data);
-        }
-    })
-}
+    function openModalInput(id) {
+        $.ajax({
+            url: '/permohonan/preupload/' + id,
+            type: 'GET',
+            success: function(data) {
+                $('#modal-input').modal('show');
+                $('#modal-input .data').html(data);
+            }
+        })
+    }
 
-//modal untuk nampilin pdf sebelum publish
-function openModalPDFpublish(source, id) {
-    // wait after src changed then show modal
-    $('#modalpublish').attr('src', source);
-    $('#form-publish').attr('action', '/permohonan/publish/' + id);
-    $('#btn-reupload').attr('onclick', 'openModalInput(' + id + ')');
-    // await sleep(1 * 1000);
-    $('#myModalPublish').modal('show');
-}
+    //modal untuk nampilin pdf sebelum publish
+    function openModalPDFpublish(source, id) {
+        // wait after src changed then show modal
+        $('#modalpublish').attr('src', source);
+        $('#form-publish').attr('action', '/permohonan/publish/' + id);
+        $('#btn-reupload').attr('onclick', 'openModalInput(' + id + ')');
+        // await sleep(1 * 1000);
+        $('#myModalPublish').modal('show');
+    }
 </script>
 
 
@@ -276,29 +281,29 @@ function openModalPDFpublish(source, id) {
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-function konfirmasi(id) {
-    Swal.fire({
-        title: 'Apakah anda menyetujui permohonan ini?',
-        icon: 'warning',
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: 'Setuju',
-        denyButtonText: `Tolak`,
-    }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-            Swal.fire('Permohonan disetujui', '', 'success').then((result) => {
-                window.location = "/permohonan/setuju/" + id;
-            })
+    function konfirmasi(id) {
+        Swal.fire({
+            title: 'Apakah anda menyetujui permohonan ini?',
+            icon: 'warning',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Setuju',
+            denyButtonText: `Tolak`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire('Permohonan disetujui', '', 'success').then((result) => {
+                    window.location = "/permohonan/setuju/" + id;
+                })
 
-        } else if (result.isDenied) {
-            Swal.fire('Permohonan ditolak', '', 'error').then((result) => {
-                window.location = "/permohonan/tolak/" + id;
-            })
+            } else if (result.isDenied) {
+                Swal.fire('Permohonan ditolak', '', 'error').then((result) => {
+                    window.location = "/permohonan/tolak/" + id;
+                })
 
-        }
-    })
-}
+            }
+        })
+    }
 </script>
 <!-- script udah dipindahin ke layout.admin -->
 
