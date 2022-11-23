@@ -39,13 +39,20 @@ class FormulirController extends Controller
     {
         $user = Auth::user();
 
-        $tahun = substr($user->nip, 8, 4);
-        $bulan = substr($user->nip, 12, 2);
-        $tahunsekarang = date("Y");
-        $bulansekaran = date("m");
-        $selisihdalambulan = ($tahunsekarang - $tahun) * 12 + ($bulansekaran - $bulan);
+        if ($user->tipe_alumni == "BPS") {
 
-        if ($selisihdalambulan > 48 || $user->tipe_alumni == "Non-BPS") {
+            $tahun = substr($user->nip, 8, 4);
+            $bulan = substr($user->nip, 12, 2);
+            $tahunsekarang = date("Y");
+            $bulansekaran = date("m");
+            $selisihdalambulan = ($tahunsekarang - $tahun) * 12 + ($bulansekaran - $bulan);
+
+            if ($selisihdalambulan > 48) {
+                $eligible = true;
+            } else {
+                $eligible = false;
+            }
+        } elseif ($user->tipe_alumni == "Non-BPS") {
             $eligible = true;
         } else {
             $eligible = false;

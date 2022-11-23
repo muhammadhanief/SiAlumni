@@ -137,7 +137,7 @@
                     </p>
                     <input class="form-control" type="file" id="formFile" name="file_eselon">
                     <br>
-                    <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Kepala Pusdiklat
+                    <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Kepala Pusdiklat (Opsional)
                         <br>
                         <a href="http://stis.ac.id/media/source/3.%20surat%20ijin%20belajar%20dari%20pusdiklat.pdf"
                             target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
