@@ -90,7 +90,7 @@
         <div class="col-lg-6">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Lampiran Dokumen Tambahan</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Detail Lainnya</h6>
                 </div>
                 <div class="card-body">
                     <!-- Wajib -->
