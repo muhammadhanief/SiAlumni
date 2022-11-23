@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class MailRegistrasi extends Mailable
+class MailKepalaBaak extends Mailable
 {
     use Queueable, SerializesModels;
     public $data;
@@ -21,6 +21,7 @@ class MailRegistrasi extends Mailable
     public function __construct($data)
     {
         $this->data = $data;
+        $this->jenis = $data['jenis'];
     }
 
     /**
@@ -31,37 +32,33 @@ class MailRegistrasi extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Registrasi akun SiAlumni Anda telah berhasil.',
+            subject: 'Konfirmasi Permohonan Legalisir '.$this->jenis,
         );
     }
 
     /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
+    * Get the message content definition.
+    *
+    * @return \Illuminate\Mail\Mailables\Content
+    */
     public function content()
     {
         return new Content(
-            markdown: 'emails.user.registrasi',
+            markdown: 'emails.admin.kepalabaak',
             with: [
-                'data' => $this->data,
-            ],
-        );
-    }
+                    'data' => $this->data,
 
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array
-     */
-    public function attachments()
-    {
-        return [];
-    }
-    // public function build()
-    // {
-    //     return $this->subject('Mail from websitepercobaan.com')
-    //                 ->view('emails.myTestMail');
-    // }
+],
+);
+}
+
+/**
+* Get the attachments for the message.
+*
+* @return array
+*/
+public function attachments()
+{
+return [];
+}
 }

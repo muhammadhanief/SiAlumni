@@ -43,7 +43,7 @@ class MailVerifikasi extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'emails.verifEmail',
+            markdown: 'emails.user.akun_diterima',
             with: [
                 'data' => $this->data,
             ],

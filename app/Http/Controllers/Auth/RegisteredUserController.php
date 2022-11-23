@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Mail\MailRegistrasi;
+use App\Mail\MailRegistrasiPetugas;
 use App\Mail\MyTestMail;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -87,14 +88,15 @@ class RegisteredUserController extends Controller
             $validate['sklunastgr'] = $request->file('sklunastgr')->store('sklunastgr');
         }
         
-        
-        $email = $validate['email'];
-        $data = ([
-            'name'=> $validate['name'],
-            'email'=> $validate['email'],
-            'password'=> $validate['password'],
-        ]);
-        Mail::to($email)->send(new MailRegistrasi($data));
+        $emailuser = $validate['email'];
+        $email = ['user' => "$emailuser", 'petugas' => 'zakiramadhanii14@gmail.com'];
+        foreach ($email as $key => $value) {
+            if($key == 'user'){
+                Mail::to($value)->send(new MailRegistrasi($validate));
+            }if($key == 'petugas'){              
+                Mail::to($value)->send(new MailRegistrasiPetugas($validate));
+            }
+        }
 
         $validate['password'] = Hash::make($request->password);
         $user = User::create($validate);
