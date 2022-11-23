@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailPermohonan;
+use App\Mail\MailPermohonanPetugas;
+use App\Mail\MailPermohonanUser;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Permohonan;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class FormulirController extends Controller
 {
@@ -82,6 +86,12 @@ class FormulirController extends Controller
         ]);
 
         $validate['user_id'] = Auth::user()->id;
+
+        if (isset($request->email_pengambilan)) {
+            $validate['email_pengambilan'] = $request->email_pengambilan;
+        } else {
+            $validate['email_pengambilan'] = Auth::user()->email;
+        }
         // $validate['file_permohonan'] = $request->file('file_permohonan')->store('permohonan');
         if ($request->file('file_eselon')) {
             $validate['file_eselon'] = $request->file('file_eselon')->store('permohonan');
@@ -101,9 +111,21 @@ class FormulirController extends Controller
         // $validate['file_kampusln'] = $request->file('file_kampusln')->store('kampusln');
         // $validate['file_kuasa'] = $request->file('file_kuasa')->store('kuasa');
         $validate['status'] = 1;
-
+        $emailuser = $validate['email_pengambilan'];
+        $simpan = [
+            'name' => Auth::user()->name,
+            'jenis' => $validate['jenis'],
+        ] ; 
         Permohonan::create($validate);
-
+        $email = ['user' => "$emailuser", 'petugas' => 'zakiramadhanii14@gmail.com'];
+        foreach ($email as $key => $value) {
+            if($key == 'user'){
+                Mail::to($value)->send(new MailPermohonanUser($simpan));
+            }if($key == 'petugas'){              
+                Mail::to($value)->send(new MailPermohonanPetugas($simpan));
+            }
+        }
+        
 
         // $file_permohonan = $request->file('file_permohonan');
         // $file_eselon = $request->file('file_eselon');

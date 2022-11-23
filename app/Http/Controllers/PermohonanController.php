@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailKepalaBaak;
+use App\Mail\MailPetugasBaak;
+use App\Mail\MailPublish;
+use App\Mail\MailWadir1;
 use App\Models\dataalumni;
 use App\Models\Legalisir;
 use Illuminate\Http\Request;
@@ -11,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class PermohonanController extends Controller
 {
@@ -78,18 +83,43 @@ class PermohonanController extends Controller
     public function setuju($id)
     {
         $data = Permohonan::find($id);
-
+        $akun = User::find($data->user_id);
         $user = Auth::user()->roles->first()->name;
 
         if ($data->status == "Menunggu" || $user == 'petugasbaak') {
             $data->status = "Disetujui Petugas BAAK";
-            $data->time_petugas_baak = date("Y-m-d H:i:s");
+            $data->time_petugas_baak = date('Y-m-d H:i:s');
+            $simpan = [
+                'user' => "Kepala BAAK",
+                'name' => $akun->name,
+                'jenis' => $data->jenis,
+            ];
+            $email = 'zakiramadhanii88@gmail.com';
+
+            Mail::to($email)->send(new MailKepalaBaak($simpan));
         } elseif ($data->status == "Disetujui Petugas BAAK" || $user == 'kepalabaak') {
             $data->status = "Disetujui Kepala BAAK";
-            $data->time_kepala_baak = date("Y-m-d H:i:s");
+            $data->time_kepala_baak = date('Y-m-d H:i:s');
+            $simpan = [
+                'user' => "Wadir 1",
+                'name' => $akun->name,
+                'jenis' => $data->jenis,
+            ];
+            // $email = 'wadir1@gmail.com';
+            $email = 'zakiramadhanii88@gmail.com';
+            Mail::to($email)->send(new MailWadir1($simpan));
         } elseif ($data->status == "Disetujui Kepala BAAK" || $user == 'wadir1') {
             $data->status = "Disetujui Wakil Direktur 1";
-            $data->time_wadir_1 = date("Y-m-d H:i:s");
+            $data->time_wadir_1 = date('Y-m-d H:i:s');
+            $simpan = [
+                'user' => "Petugas BAAK",
+                'name' => $akun->name,
+                'jenis' => $data->jenis,
+            ];
+            // foreach (['petugasbaak@gmail.com', 'petugasbaak2@gmail.com'] as $recipient) {
+            foreach (['zakiramadhanii88@gmail.com', 'zakiramadhanii14@gmail.com'] as $recipient) {
+                Mail::to($recipient)->send(new MailPetugasBaak($simpan));
+            }
         } elseif ($data->status == "Disetujui Wakil Direktur 1") {
             $data->status = "Disetujui Wakil Direktur 1";
             $data->time_wadir_1 = date("Y-m-d H:i:s");
@@ -229,7 +259,13 @@ class PermohonanController extends Controller
         $data->status = "Selesai";
         $data->time_selesai = date("Y-m-d H:i:s");
         $data->file_legalisir = $legalisir->file_legalisir;
-
+        $akun = User::find($data->user_id);
+        $simpan = [
+            'name' => $akun->name,
+            'jenis' => $data->jenis,
+        ];
+        $email = $data->email_pengambilan;
+        Mail::to($email)->send(new MailPublish($data));
         $data->save();
 
         return redirect('/permohonan')->with('success', 'Permohonan berhasil dipublish');

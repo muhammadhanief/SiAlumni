@@ -43,7 +43,7 @@ class MailVerifikasiTolak extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'emails.tolakEmail',
+            markdown: 'emails.user.akun_ditolak',
             with: [
                 'data' => $this->data,
             ],
