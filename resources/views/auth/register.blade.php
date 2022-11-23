@@ -28,18 +28,15 @@
                             @endif
 
 
-                            <form method="POST" action="{{ route('register') }}" class="user"
-                                enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('register') }}" class="user" enctype="multipart/form-data">
 
                                 <div class="row px-4 justify-content-center">
                                     <div class="btn-group btn-group-toggle btn-block" data-toggle="buttons">
                                         <label class="btn btn-light w-50 btn-user active">
-                                            <input type="radio" name="tipe_alumni" id="option1" autocomplete="off"
-                                                value="BPS" checked> BPS
+                                            <input type="radio" name="tipe_alumni" id="option1" autocomplete="off" value="BPS" checked> BPS
                                         </label>
                                         <label class="btn btn-light w-50 btn-user">
-                                            <input type="radio" name="tipe_alumni" id="option2" autocomplete="off"
-                                                value="Non-BPS"> Non-BPS
+                                            <input type="radio" name="tipe_alumni" id="option2" autocomplete="off" value="Non-BPS"> Non-BPS
                                         </label>
                                     </div>
                                 </div>
@@ -49,30 +46,23 @@
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <p class="font-weight-bold">Informasi Pengguna</p>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" name="name"
-                                                placeholder="{{ __('Nama') }}" value="{{ old('name') }}" required
-                                                autofocus>
+                                            <input type="text" class="form-control form-control-user" name="name" placeholder="{{ __('Nama') }}" value="{{ old('name') }}" required autofocus>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                name="password" placeholder="{{ __('Password') }}" required>
+                                            <input type="password" class="form-control form-control-user" name="password" placeholder="{{ __('Password') }}" required>
                                         </div>
                                         <!-- <hr> -->
                                         <p class="font-weight-bold">Detail Pengguna</p>
 
                                         <!-- BPS -->
                                         <div class="form-group" id="nip">
-                                            <input id="nip-inp" type="text" class="form-control form-control-user"
-                                                name="nip" placeholder="{{ __('NIP') }}" value="{{ old('nip') }}"
-                                                required autofocus>
+                                            <input id="nip-inp" type="text" class="form-control form-control-user" name="nip" placeholder="{{ __('NIP') }}" value="{{ old('nip') }}" required autofocus>
                                         </div>
                                         <!-- End of  -->
 
                                         <!-- Non-BPS -->
                                         <div class="form-group" id="instansi">
-                                            <input id="instansi-inp" type="text" class="form-control form-control-user"
-                                                name="instansi" placeholder="{{ __('Instansi') }}"
-                                                value="{{ old('Instansi') }}" required>
+                                            <input id="instansi-inp" type="text" class="form-control form-control-user" name="instansi" placeholder="{{ __('Instansi') }}" value="{{ old('Instansi') }}" required>
                                         </div>
                                         <!-- End of -->
 
@@ -81,9 +71,7 @@
                                         </div> -->
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" name="tempatLahir"
-                                                placeholder="{{ __('Tempat Lahir') }}" value="{{ old('tempatLahir') }}"
-                                                required autofocus>
+                                            <input type="text" class="form-control form-control-user" name="tempatLahir" placeholder="{{ __('Tempat Lahir') }}" value="{{ old('tempatLahir') }}" required autofocus>
                                         </div>
 
                                         <!-- <div class="form-group">
@@ -93,9 +81,7 @@
                                         </div> -->
 
                                         <div class="form-group">
-                                            <select id="jurusan" name="jurusan" aria-placeholder="{{ __('Jurusan') }}"
-                                                class="form-control form-control-user py-0" style="height: 50.21px;"
-                                                required>
+                                            <select id="jurusan" name="jurusan" aria-placeholder="{{ __('Jurusan') }}" class="form-control form-control-user py-0" style="height: 50.21px;" required>
                                                 <option hidden selected disabled value="">Jurusan</option>
                                                 <option value="D-IV Komputasi Statistik">D-IV Komputasi Statistik
                                                 </option>
@@ -110,14 +96,10 @@
                                         <br>
                                         <p></p>
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" name="email"
-                                                placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}"
-                                                required>
+                                            <input type="email" class="form-control form-control-user" name="email" placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                name="password_confirmation" placeholder="{{ __('Ulangi Password') }}"
-                                                required>
+                                            <input type="password" class="form-control form-control-user" name="password_confirmation" placeholder="{{ __('Ulangi Password') }}" required>
                                         </div>
                                         <!-- <hr>  -->
                                         <br>
@@ -129,14 +111,10 @@
                                         </div> -->
 
                                         <div class="form-group">
-                                            <input type="tel" class="form-control form-control-user" name="nomorPonsel"
-                                                placeholder="{{ __('Nomor Ponsel') }}" value="{{ old('nomorPonsel') }}"
-                                                required>
+                                            <input type="tel" class="form-control form-control-user" name="nomorPonsel" placeholder="{{ __('Nomor Ponsel') }}" value="{{ old('nomorPonsel') }}" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="date" class="form-control form-control-user"
-                                                name="tanggalLahir" placeholder="{{ __('Tanggal Lahir') }}"
-                                                value="{{ old('tanggalLahir') }}" required autofocus>
+                                            <input type="date" class="form-control form-control-user" name="tanggalLahir" placeholder="{{ __('Tanggal Lahir') }}" value="{{ old('tanggalLahir') }}" required autofocus>
                                         </div>
 
                                         <!-- <div class="form-group">
@@ -156,46 +134,35 @@
                                     </div>
                                 </div>
                                 <div class="row p-2">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <!-- BPS -->
                                         <div class="form-group" id="skbps">
                                             <label class="font-weight-bold">Surat Pernyataan Atasan Langsung</label>
-                                            <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf"
-                                                target=”_blank” class="btn btn-sm btn-primary btn-icon-split mb-2"
-                                                aria-hidden="true">
+                                            <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split mb-2" aria-hidden="true">
                                                 <span class="icon text-light">
                                                     <i class='fas fa-download'></i>
                                                 </span>
                                                 <span class="text">Unduh Formulir</span>
                                             </a>
                                             <br>
-                                            <input id="skbps-inp" type="file"
-                                                class="form-control form-control-user py-2" name="skatasanbps"
-                                                placeholder=" {{ __('SK Atasan BPS') }}"
-                                                value="{{ old('skatasanbps') }}" required>
+                                            <input id="skbps-inp" type="file" class="form-control form-control-user py-2" name="skatasanbps" placeholder=" {{ __('SK Atasan BPS') }}" value="{{ old('skatasanbps') }}" required>
                                         </div>
                                         <!-- End of -->
 
                                         <!-- Non-BPS -->
                                         <div class="form-group" id="skatasan">
                                             <label class="font-weight-bold">Surat Pernyataan Atasan Langsung</label>
-                                            <input id="skatasan-inp" type="file"
-                                                class="form-control form-control-user py-2" name="skatasanlangsung"
-                                                placeholder=" {{ __('SK Atasan Langsung') }}"
-                                                value="{{ old('skatasanlangsung') }}" required>
+                                            <input id="skatasan-inp" type="file" class="form-control form-control-user py-2" name="skatasanlangsung" placeholder=" {{ __('SK Atasan Langsung') }}" value="{{ old('skatasanlangsung') }}" required>
                                         </div>
                                         <!-- End of -->
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <!-- BPS -->
                                         <div class="form-group" id="sktmpt">
                                             <label class="font-weight-bold text-center">SK Penempatan BPS
                                                 Terakhir</label>
-                                            <input id="sktmpt-inp" type="file"
-                                                class="form-control form-control-user pt-2" name="skpenempatan1bps"
-                                                placeholder=" {{ __('SK Penempatan 1 BPS') }}"
-                                                value="{{ old('skpenempatan1bps') }}" required>
+                                            <input id="sktmpt-inp" type="file" class="form-control form-control-user pt-2" name="skpenempatan1bps" placeholder=" {{ __('SK Penempatan 1 BPS') }}" value="{{ old('skpenempatan1bps') }}" required>
                                         </div>
                                         <!-- End of -->
 
@@ -203,10 +170,7 @@
                                         <div class="form-group" id="sklunas">
                                             <label class="font-weight-bold text-center">SK Lunas TGR (Tuntutan Ganti
                                                 Rugi)</label>
-                                            <input id="sklunas-inp" type="file"
-                                                class="form-control form-control-user pt-2" name="sklunastgr"
-                                                placeholder=" {{ __('SK Lunas TGR ') }}" value="{{ old('sklunastgr') }}"
-                                                required>
+                                            <input id="sklunas-inp" type="file" class="form-control form-control-user pt-2" name="sklunastgr" placeholder=" {{ __('SK Lunas TGR ') }}" value="{{ old('sklunastgr') }}" required>
                                         </div>
                                         <!-- End of -->
                                     </div>
@@ -228,9 +192,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 d-flex px-1">
-                            <img src="{{ asset('img/stis.png') }}"
-                                class="img-fluid m-auto justify-content-center pl-6 w-75 h-16"
-                                style="background-position:center;background-size:cover">
+                            <img src="{{ asset('img/stis.png') }}" class="img-fluid m-auto justify-content-center pl-6 w-75 h-16" style="background-position:center;background-size:cover">
                         </div>
                     </div>
                 </div>
