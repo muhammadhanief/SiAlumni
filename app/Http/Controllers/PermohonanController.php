@@ -161,21 +161,22 @@ class PermohonanController extends Controller
                                     <input type="text" id="jenis" class="form-control bg-light border-0" name="jenis" value="' . $data->jenis . '" disabled>
                 </div>
             </div>
-
+            '
+            . ($data->jenis == "ijazah" ? '
             <div class="col-lg-6">
                 <div class="form-group">
                     <p class="form-control-label">File Ijazah</p>   
-                        <a href="' . asset('storage/' . $dataalumni->ijazahasli) . '" target="_blank" class="btn btn-primary btn-sm">Unduh File</a>
+                        <a href="' . asset('storage/' . $dataalumni->ijazahasli) . '" download="Ijazah_' . $user->nim . '_' . $user->name . '" class="btn btn-primary btn-sm">Unduh File</a>
                 </div>
-            </div>
-
+            </div>'
+                : '
             <div class="col-lg-6">
                 <div class="form-group">
                     <p class="form-control-label">File Transkrip Nilai</p>   
-                        <a href="' . asset('storage/' . $dataalumni->transkripnilaiasli) . '" target="_blank" class="btn btn-primary btn-sm">Unduh File</a>
+                        <a href="' . asset('storage/' . $dataalumni->transkripnilaiasli) . '" download="Transkrip_' . $user->nim . '_' . $user->name . '" class="btn btn-primary btn-sm">Unduh File</a>
                 </div>
-            </div>
-
+            </div>'
+            ) . '
             <div class="col-lg-6">
                 <div class="form-group">
                     <label class="form-control-label" for="">Dokumen Legalisir<span class="small text-danger">*</span></label>
