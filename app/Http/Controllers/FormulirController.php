@@ -118,19 +118,20 @@ class FormulirController extends Controller
         foreach ($petugasbaak as $key => $value) {
             $simpan = [
                 'name' => $value->name,
+                'user' => Auth::user()->name,
                 'jenis' => $validate['jenis'],
-                ] ; 
-                Mail::to($value->email)->send(new MailPermohonanPetugas($simpan));
-            }
+            ];
+            Mail::to($value->email)->send(new MailPermohonanPetugas($simpan));
+        }
         $simpan = [
-                'name' => Auth::user()->name,
-                'jenis' => $validate['jenis'],
-            ] ; 
+            'name' => Auth::user()->name,
+            'jenis' => $validate['jenis'],
+        ];
         //send email to user
         Mail::to($emailuser)->send(new MailPermohonanUser($simpan));
 
-        
-        
+
+
 
         // $file_permohonan = $request->file('file_permohonan');
         // $file_eselon = $request->file('file_eselon');
