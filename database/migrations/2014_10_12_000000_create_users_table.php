@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('tempatLahir')->nullable();
             $table->date('tanggalLahir')->nullable();
             $table->string('nomorPonsel')->nullable();
-            $table->string('jenisKelamin')->nullable();
+            // $table->string('jenisKelamin')->nullable();
             // $table->enum('jenisKelamin', ['Laki-laki', 'Perempuan'])->default('Pending');
             $table->string('email')->unique();
             $table->enum('tipe_alumni', ['BPS', 'Non-BPS'])->nullable();

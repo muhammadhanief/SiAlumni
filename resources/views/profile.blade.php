@@ -147,16 +147,11 @@
                                     <label class="form-control-label" for="jurusan">Jurusan<span
                                             class="small text-danger">*</span></label>
                                     <br>
-                                    <select id="jurusan" name="jurusan"
-                                        class="form-select form-control bg-light border-1 small"
-                                        value="{{ old('jurusan', Auth::user()->jurusan) }}">
-                                        <option value="D-IV Komputasi Statistik">D-IV Komputasi Statistik</option>
-                                        <option value="D-IV Statistika">D-IV Statistika</option>
-                                        <option value="D-III Statistika">D-III Statistika</option>
-                                    </select>
+                                    <input readonly type="text" id="jurusan" class="form-control" name="jurusan"
+                                        placeholder="" value="{{ old('jurusan', Auth::user()->jurusan) }}">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <!-- <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="jeniskelamin">Jenis Kelamin<span
                                             class="small text-danger">*</span></label>
@@ -167,8 +162,11 @@
                                         <option value="Laki-laki">Laki-laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
+                                    <input readonly type="text" id="jeniskelamin" class="form-control"
+                                        name="jeniskelamin" placeholder=""
+                                        value="{{ old('jeniskelamin', Auth::user()->jenisKelamin) }}">
                                 </div>
-                            </div>
+                            </div> -->
 
 
 
