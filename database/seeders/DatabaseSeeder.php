@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
 
         $wadir1 = User::create([
             'name' => 'Setia Pramana',
-            'email' => 'wadir1@gmail.com',
+            'email' => 'wadir1stis@gmail.com',
             'password' => Hash::make('password'),
             'statusAkun' => 'Lolos',
         ]);
@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
 
         $kepalabaak = User::create([
             'name' => 'Nama Kepala BAAK',
-            'email' => 'kepalabaak@gmail.com',
+            'email' => 'kepalabaakstis@gmail.com',
             'password' => Hash::make('password'),
             'statusAkun' => 'Lolos',
 
@@ -158,7 +158,7 @@ class DatabaseSeeder extends Seeder
 
         $alumni3 = User::create([
             'name' => 'M Zaki',
-            'email' => 'alumni3@gmail.com',
+            'email' => 'zakiramadhanii88@gmail.com',
             'password' => Hash::make('password'),
             'statusAkun' => 'Pending',
             // 'nim' => '222011686',

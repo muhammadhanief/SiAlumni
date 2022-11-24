@@ -85,12 +85,14 @@ class PermohonanController extends Controller
         $data = Permohonan::find($id);
         $akun = User::find($data->user_id);
         // get user kepala baak
-        $kepalabaak = User::whereHas(
-            'roles',
-            function ($q) {
-                $q->where('name', 'kepalabaak');
-            }
-        )->first();
+        // $kepalabaak = User::whereHas(
+        //     'roles',
+        //     function ($q) {
+        //         $q->where('name', 'kepalabaak');
+        //     }
+        // )->first();
+
+        // get user wadir
 
         $wadir = User::whereHas(
             'roles',
@@ -114,30 +116,35 @@ class PermohonanController extends Controller
         if ($data->status == "Menunggu" || $user == 'petugasbaak') {
             $data->status = "Disetujui Petugas BAAK";
             $data->time_petugas_baak = date('Y-m-d H:i:s');
+            $kepalabaak = User::role('kepalabaak')->first();
+            $email = $kepalabaak->email;
             $simpan = [
                 'user' => $kepalabaak->name,
                 'name' => $akun->name,
                 'jenis' => $data->jenis,
             ];
 
-            $email = 'zakiramadhanii88@gmail.com'; // $kepalabaak->email
 
             Mail::to($email)->send(new MailKepalaBaak($simpan));
         } elseif ($data->status == "Disetujui Petugas BAAK" || $user == 'kepalabaak') {
             $data->status = "Disetujui Kepala BAAK";
             $data->time_kepala_baak = date('Y-m-d H:i:s');
+            // get user wadir
+            $wadir = User::role('wadir1')->first();
+            $email = $wadir->email;
             $simpan = [
                 'user' => $wadir->name,
                 'name' => $akun->name,
                 'jenis' => $data->jenis,
             ];
             // $email = $wadir->email;
-            $email = 'zakiramadhanii88@gmail.com';
             Mail::to($email)->send(new MailWadir1($simpan));
         } elseif ($data->status == "Disetujui Kepala BAAK" || $user == 'wadir1') {
             $data->status = "Disetujui Wakil Direktur 1";
             $data->time_wadir_1 = date('Y-m-d H:i:s');
 
+            //get user petugas baak
+            $petugasbaak = User::role('petugasbaak')->get();
             /// send email to all petugas baak
             foreach ($petugasbaak as $p) {
                 $simpan = [
@@ -145,8 +152,7 @@ class PermohonanController extends Controller
                     'name' => $akun->name,
                     'jenis' => $data->jenis,
                 ];
-                // $email = $p->email;
-                $email = 'zakiramadhanii88@gmail.com';
+                $email = $p->email;
                 Mail::to($email)->send(new MailPetugasBaak($simpan));
             }
         } elseif ($data->status == "Disetujui Wakil Direktur 1") {
@@ -294,7 +300,7 @@ class PermohonanController extends Controller
             'jenis' => $data->jenis,
         ];
         $email = $data->email_pengambilan;
-        Mail::to($email)->send(new MailPublish($data));
+        Mail::to($email)->send(new MailPublish($simpan));
         $data->save();
 
         return redirect('/permohonan')->with('success', 'Permohonan berhasil dipublish');

@@ -112,19 +112,24 @@ class FormulirController extends Controller
         // $validate['file_kuasa'] = $request->file('file_kuasa')->store('kuasa');
         $validate['status'] = 1;
         $emailuser = $validate['email_pengambilan'];
-        $simpan = [
-            'name' => Auth::user()->name,
-            'jenis' => $validate['jenis'],
-        ] ; 
         Permohonan::create($validate);
-        $email = ['user' => "$emailuser", 'petugas' => 'zakiramadhanii14@gmail.com'];
-        foreach ($email as $key => $value) {
-            if($key == 'user'){
-                Mail::to($value)->send(new MailPermohonanUser($simpan));
-            }if($key == 'petugas'){              
-                Mail::to($value)->send(new MailPermohonanPetugas($simpan));
+        // send email to all petugas baak
+        $petugasbaak = User::where('role', 'petugasbaak')->get();
+        foreach ($petugasbaak as $key => $value) {
+            $simpan = [
+                'name' => $value->name,
+                'jenis' => $validate['jenis'],
+                ] ; 
+                Mail::to($value->email)->send(new MailPermohonanPetugas($simpan));
             }
-        }
+        $simpan = [
+                'name' => Auth::user()->name,
+                'jenis' => $validate['jenis'],
+            ] ; 
+        //send email to user
+        Mail::to($emailuser)->send(new MailPermohonanUser($simpan));
+
+        
         
 
         // $file_permohonan = $request->file('file_permohonan');
