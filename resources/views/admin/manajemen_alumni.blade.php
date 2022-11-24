@@ -39,19 +39,23 @@
         <hr>
         <div class="row justify-content-between">
 
-            <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <input type="file" name="file" class="form-control">
-                <br>
-                <button class="btn btn-info">Import Data Alumni</button>
-            </form>
-            <div>
+            <div class="col-md-6">
+                <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="file" class="form-control">
+                    <br>
+                    <button class="btn btn-info">
+                        <i class="fas fa-file-import"></i> Import Data Alumni
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-6    ">
                 <br>
                 <br>
                 <br>
                 <a href="{{ route('users.export') }}">
-                    <button class="btn btn-info">
-                        Export Data Alumni
+                    <button class="btn btn-info float-right">
+                        <i class="fas fa-file-export"></i> Export Data Alumni
                     </button>
                 </a>
             </div>
@@ -90,8 +94,7 @@
                         <!-- <td>{{ "gada" }}</td> -->
                         <td>
                             @if ($data->ijazahasli != null)
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">
                                 Klik Untuk Melihat
                             </a>
                             @else
@@ -100,8 +103,7 @@
                         </td>
                         <td>
                             @if ($data->transkripnilaiasli != null)
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">
                                 Klik Untuk Melihat
                             </a>
                             @else
@@ -148,16 +150,16 @@
 <!-- End of Modal -->
 
 <script>
-function openModalInput(id) {
-    $.ajax({
-        url: '/admin/manajemenalumni/' + id,
-        type: 'GET',
-        success: function(data) {
-            $('#modal-input').modal('show');
-            $('#modal-input .data').html(data);
-        }
-    })
-}
+    function openModalInput(id) {
+        $.ajax({
+            url: '/admin/manajemenalumni/' + id,
+            type: 'GET',
+            success: function(data) {
+                $('#modal-input').modal('show');
+                $('#modal-input .data').html(data);
+            }
+        })
+    }
 </script>
 
 <!-- End of Main Content -->
