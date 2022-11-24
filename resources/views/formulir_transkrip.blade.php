@@ -189,7 +189,7 @@
 
                     <!-- Jika opsi yang dipilih nomer 1 -->
                     <div id="email-pengiriman">
-                        <p>Email</p>
+                        <p>Alamat Email</p>
                         <div class="input-group">
                             <input id="email_pengambilan" name="email_pengambilan" type="email"
                                 class="form-control bg-light border-1 small" placeholder="" aria-label="Search"

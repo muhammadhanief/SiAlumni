@@ -2,7 +2,7 @@
 
 @section('main-content')
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">{{ __('Profile') }}</h1>
+<h1 class="h3 mb-4 text-gray-800">{{ __('Profil') }}</h1>
 
 @if (session('success'))
 <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -111,7 +111,7 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="email">Email address<span
+                                    <label class="form-control-label" for="email">Alamat Email<span
                                             class="small text-danger">*</span></label>
                                     <input readonly type="email" id="email" name="email" class="form-control"
                                         placeholder="example@example.com"
@@ -241,8 +241,7 @@
                             <div class="col-12 py-2">
                                 <div class="row text-center">
                                     <div class="col">
-                                        <button type="submit" class="btn btn-primary">Save
-                                            Changes</button>
+                                        <button type="submit" class="btn btn-primary">Update Profil</button>
                                     </div>
                                 </div>
                             </div>

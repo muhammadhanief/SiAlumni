@@ -43,7 +43,7 @@
 
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user" name="email"
-                                            placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}" required
+                                            placeholder="{{ __('Alamat email') }}" value="{{ old('email') }}" required
                                             autofocus>
                                     </div>
 

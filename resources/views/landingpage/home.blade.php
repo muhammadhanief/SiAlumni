@@ -36,7 +36,7 @@
                         </button>
 
                         <ul class="navbar-links">
-                            <li><a class="btn btn-secondary" href="/login">Log In</a>
+                            <li><a class="btn btn-secondary" href="/login">Login</a>
                             </li>
                             <!-- <li><a href="#">Company</a></li>
                             <li><a href="#">Features</a></li>
