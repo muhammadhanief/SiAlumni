@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailPermohonanPetugas;
+use App\Mail\MailPermohonanUser;
 use App\Mail\MailRegistrasi;
 use App\Mail\MailRegistrasiPetugas;
 use App\Mail\MyTestMail;
@@ -97,6 +99,24 @@ class RegisteredUserController extends Controller
                 Mail::to($value)->send(new MailRegistrasiPetugas($validate));
             }
         }
+
+        $emailuser = $validate['email'];
+        // send email to all petugas baak
+        $petugasbaak = User::role('petugasbaak')->get();
+        foreach ($petugasbaak as $key => $value) {
+            $simpan = [
+                'name' => $value->name,
+                'user' => $validate['name'],
+                'email' => $validate['email'],
+                ] ; 
+                Mail::to($value->email)->send(new MailRegistrasiPetugas($simpan));
+            }
+        $simpan = [
+                'name' => $validate['name'],
+                'email' => $validate['email'],
+            ] ; 
+        //send email to user
+        Mail::to($emailuser)->send(new MailRegistrasi($simpan));
 
         $validate['password'] = Hash::make($request->password);
         $user = User::create($validate);

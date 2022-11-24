@@ -114,7 +114,7 @@ class FormulirController extends Controller
         $emailuser = $validate['email_pengambilan'];
         Permohonan::create($validate);
         // send email to all petugas baak
-        $petugasbaak = User::where('role', 'petugasbaak')->get();
+        $petugasbaak = User::role('petugasbaak')->get();
         foreach ($petugasbaak as $key => $value) {
             $simpan = [
                 'name' => $value->name,

@@ -2,7 +2,7 @@
 # Halo {{ $data['user'] }},
 <h2>Konfirmasi Permohonan Legalisir {{ $data['jenis']}}</h2><br>
 Kepala BAAK telah mengonfirmasi permohonan legalisir ijazah/transkrip nilai oleh alumni {{ $data['name'] }}.
-Mohon lakukan konfirmasi lebih lanjut untuk meneruskan proses legalisir.<br>
+Mohon lakukan konfirmasi lebih lanjut untuk meneruskan proses legalisir.<br><br>
 Klik tombol di bawah ini untuk melanjutkan ke aplikasi SiAlumni <br>
 @component('mail::button', ['url' => 'http://localhost:8000/login'])
 SiAlumni
