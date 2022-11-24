@@ -255,14 +255,14 @@ class DatabaseSeeder extends Seeder
             'status' => 'Disetujui Wakil Direktur 1',
         ]);
 
-        $permohonan1 = Permohonan::create([
-            'user_id' => '5',
-            'jenis' => 'transkrip',
-            'file_kampusln' => 'permohonan/KoRWMsRkdwPc9ayFY3GRzlwie9ndksvmxKHUamt3.pdf',
-            'file_permohonan' => 'permohonan/vESrFoZwpRHo5P4rh7Yhhr2wUEB2FZARIJ0GRiSP.pdf',
-            'pengambilan' => '2',
-            'status' => 'Selesai',
-        ]);
+        // $permohonan1 = Permohonan::create([
+        //     'user_id' => '5',
+        //     'jenis' => 'transkrip',
+        //     'file_kampusln' => 'permohonan/KoRWMsRkdwPc9ayFY3GRzlwie9ndksvmxKHUamt3.pdf',
+        //     'file_permohonan' => 'permohonan/vESrFoZwpRHo5P4rh7Yhhr2wUEB2FZARIJ0GRiSP.pdf',
+        //     'pengambilan' => '2',
+        //     'status' => 'Selesai',
+        // ]);
 
         \App\Models\dataalumni::factory(40)->create();
     }
