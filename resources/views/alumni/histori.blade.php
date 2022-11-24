@@ -58,46 +58,53 @@
                         <td>{{ $item->jenis }}</td>
                         <!-- Warnanya berbeda sesuai status pengajuan legalisir -->
                         <td>@if($item->status == 'Menunggu' )
-                            <div class="p-2 bg-secondary text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-secondary text-light rounded">{{ $item->status }}</div>
                             @elseif($item->status == 'Disetujui Kepala BAAK')
-                            <div class="p-2 bg-primary text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-primary text-light rounded">{{ $item->status }}</div>
                             @elseif($item->status == 'Disetujui Petugas BAAK')
-                            <div class="p-2 bg-primary text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-primary text-light rounded">{{ $item->status }}</div>
                             @elseif($item->status == 'Disetujui Wakil Direktur 1')
-                            <div class="p-2 bg-primary text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-primary text-light rounded">{{ $item->status }}</div>
                             @elseif($item->status == 'Selesai')
-                            <div class="p-2 bg-success text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-success text-light rounded">{{ $item->status }}</div>
                             @elseif($item->status == 'Ditolak Petugas BAAK')
-                            <div class="p-2 bg-danger text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-danger text-light rounded">{{ $item->status }}</div>
                             @elseif($item->status == 'Ditolak Kepala BAAK')
-                            <div class="p-2 bg-danger text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-danger text-light rounded">{{ $item->status }}</div>
                             @elseif($item->status == 'Ditolak Wakil Direktur 1')
-                            <div class="p-2 bg-danger text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2  bg-danger text-light rounded">{{ $item->status }}</div>
                             @endif
                         </td>
                         <td>
-                            <a href="historialumni/detail/{{ $item->id }}" class="btn btn-primary btn-sm">Detail Status</a>
+                            <a href="historialumni/detail/{{ $item->id }}" class="btn btn-primary btn-sm">Detail
+                                Status</a>
                         </td>
                         <td>
                             @if ($item->file_permohonan != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
+                            <a class="btn mb-2 btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
                             @endif
                             @if ($item->file_eselon != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
+                            <a class="btn mb-2 btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
                             @endif
                             @if ($item->file_pusdiklat != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
+                            <a class="btn mb-2 btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
                             @endif
                             @if ($item->file_kampusln != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
+                            <a class="btn  mb-2 btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
                             @endif
                             @if ($item->file_kuasa != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
+                            <a class="btn mb-2 btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
                             @endif
                         </td>
                         <td>
                             @if ($item->file_legalisir != NULL)
-                            <button class="btn btn-success" onclick="openModalPDF(`{{ asset('storage/'.$item->file_legalisir) }}`);">
+                            <button class="btn btn-success"
+                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_legalisir) }}`);">
                                 Download</button>
                             @else
                             <button class="btn btn-dark">
