@@ -46,7 +46,7 @@ class ProfileController extends Controller
         $user->jurusan = $request->input('jurusan');
         // $user->tahunLulus = $request->input('tahunLulus');
         // $user->tempatLahir = $request->input('tempatLahir');
-        $user->tanggalLahir = $request->input('tanggalLahir');
+        // $user->tanggalLahir = $request->input('tanggalLahir');
         $user->nomorPonsel = $request->input('nomorPonsel');
 
 
