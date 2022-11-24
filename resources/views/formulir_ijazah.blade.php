@@ -74,10 +74,10 @@
                             <th>Jurusan</th>
                             <th>{{ Auth::user()->jurusan }}</th>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th>Tahun Lulus</th>
                             <th>{{ Auth::user()->tahunLulus }}</th>
-                        </tr>
+                        </tr> -->
                     </table>
 
                 </div>
@@ -157,7 +157,7 @@
                         </div>
                     </div>
 
-                    <!-- Jika opsi yang dipilih nomer 1 -->
+                    <!-- Jika opsi yang dipilijeniskelamin nomer 1 -->
                     <div id="email-pengiriman">
                         <p>Alamat Email</p>
                         <div class="input-group">
