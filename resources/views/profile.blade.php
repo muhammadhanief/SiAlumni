@@ -40,7 +40,7 @@
                     <div class="col-lg-12">
                         <div class="text-center">
                             <h5 class="font-weight-bold">{{ Auth::user()->name }}</h5>
-                            <p>{{ Auth::user()->roles->first()->name }}</p>
+                            <p style="text-transform: capitalize">{{ Auth::user()->roles->first()->name }}</p>
                         </div>
                     </div>
 

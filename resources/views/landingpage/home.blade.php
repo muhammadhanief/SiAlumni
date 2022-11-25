@@ -22,13 +22,13 @@
 <body>
 
     <!-- Hero -->
-    <section id="hero">
+    <section id="hero" class="min-vh-100">
         <!-- Header -->
         <header>
             <div class="container">
                 <div id="navbar">
-                    <img src="img/stis.png" class="logo" width="50" height="50" alt="logo">
-                    <p class="kicker2">SiAlumni</p>
+                    <img src="img/stis.png" class="logo" alt="logo">
+                    <h1 class="jumbo2">SiAlumni</h1>
                     <nav>
 
                         <button class="navbar-toggle" aria-label="Toggle navigation">
@@ -50,8 +50,7 @@
 
         <div class="container ">
             <div class="row">
-                <div class="col-sm-7">
-                    <p class="kicker">SiAlumni</p>
+                <div class="col-sm-7">`
                     <h1 class="jumbo">Sistem Informasi Legalisir & Manajemen Alumni</h1>
 
                     <p class="text-white">Merupakan Sistem Informasi Pengelolaan Data Alumni & Permohonan Legalisir
@@ -76,260 +75,172 @@
     <main>
         <!-- Trusted -->
 
-        <!-- Content -->
-
         <section id="intro">
-            <div class="container">
+            <div class="container py-3">
+
+                <!-- For demo purpose -->
+                <div class="row text-center text-white mb-5">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="display-5">Prosedur Legalisir <br> Ijazah & Transkrip Nilai</h1>
+                        <p class="lead mb-0 text-dark">Build a responsive vertical timeline using Bootstrap 4. </p>
+
+                    </div>
+                </div><!-- End -->
+
+
                 <div class="row">
-                    <div class="col-sm-12">
-                        <p class="kicker">SiAlumni</p>
+                    <div class="col-lg-7 mx-auto">
 
-                        <div>
-                            <div class="container">
-                                <!------ Include the above in your HEAD tag ---------->
+                        <!-- Timeline -->
+                        <ul class="timeline">
+                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                <div class="timeline-arrow"></div>
+                                <p class="text-small mt-2 font-weight-light">Pemohon mengajukan terlebih dahulu surat
+                                    permohonan
+                                    legalisir kepada Direktur Polstat STIS sesuai dengan
+                                    format surat baku yang telah ditentukan</p>
+                            </li>
+                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                <div class="timeline-arrow"></div>
+                                <p class="text-small mt-2 font-weight-light">Surat permohonan legalisir ijazah dan
+                                    transkrip nilai
+                                    bisa dikirim melalui: <br>
+                                    a. email ke alumni@stis.ac.id dalam bentuk hasil scan <br>
+                                    b. pos ke alamat Politeknik Statistik STIS, Jl. Otto Iskandardinata No. 64C Jakarta
+                                    Timur 13330 <br>
+                                    c. fax ke nomor (021) 8197577
+                                </p>
 
-
-                                <section class="experience pt-100 pb-100" id="experience">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-xl-8 mx-auto text-center">
-                                                <div class="section-title">
-                                                    <h4>Prosedur Legalisir</h4>
-                                                    <p>Ijazah dan Transkrip Nilai Alumni</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xl-12">
-                                                <ul class="timeline-list">
-                                                    <!-- Single Experience -->
-                                                    <li>
-                                                        <div class="timeline_content">
-                                                            <span>1.</span>
-
-                                                            <p>Pemohon mengajukan terlebih dahulu surat permohonan
-                                                                legalisir kepada Direktur Polstat STIS sesuai dengan
-                                                                format surat baku yang telah ditentukan</p>
-                                                        </div>
-                                                    </li>
-                                                    <!-- Single Experience -->
-                                                    <li>
-                                                        <div class="timeline_content">
-                                                            <span>2.</span>
-                                                            <!-- <h4>Junior Developer</h4> -->
-                                                            <p>Surat permohonan legalisir ijazah dan transkrip nilai
-                                                                bisa dikirim melalui: <br>
-                                                                a. email ke alumni@stis.ac.id dalam bentuk hasil scan
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b. pos ke alamat
-                                                                Politeknik Statistik STIS, Jl.
-                                                                Otto Iskandardinata No. 64C Jakarta Timur 13330
-                                                                <br>
-                                                                c. fax ke nomor (021) 8197577
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                    <!-- Single Experience -->
-                                                    <li>
-                                                        <div class="timeline_content">
-                                                            <span>3.</span>
-                                                            <!-- <h4>Senior Developer</h4> -->
-                                                            <p>Apabila surat permohonan legalisir sudah diterima oleh
-                                                                petugas dan memenuhi ketentuan format baku yang telah
-                                                                ditentukan, maka permohonan legalisir akan diproses
-                                                                lebih kurang selama 6 hari kerja (terhitung sejak
-                                                                fax/surat diterima petugas).</p>
-                                                        </div>
-                                                    </li>
-                                                    <!-- Single Experience -->
-                                                    <li>
-                                                        <div class="timeline_content">
-                                                            <span>4.</span>
-                                                            <!-- <h4>1.</h4> -->
-                                                            <p>Untuk pemohon yang telah minimal 4 (empat) tahun
-                                                                ditempatkan di BPS, legalisir ijazah dan transkrip
-                                                                (Bahasa Indonesia maupun Bahasa Inggris) akan diberikan
-                                                                maksimal 5 (lima) lembar</p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="timeline_content">
-                                                            <span>5.</span>
-                                                            <!-- <h4>Junior Developer</h4> -->
-                                                            <p>Untuk pemohon yang belum 4 (empat) tahun ditempatkan di
-                                                                BPS, legalisir Ijazah hanya akan diberikan sebanyak 2
-                                                                lembar sedangkan legalisir Transkrip hanya akan diproses
-                                                                untuk keperluan Izin Belajar. Harap dilampirkan surat
-                                                                permohonan izin belajar yang disetujui oleh eselon II
-                                                                (download contoh) dan Kepala Pusdiklat BPS (download
-                                                                contoh).
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                    <!-- Single Experience -->
-                                                    <li>
-                                                        <div class="timeline_content">
-                                                            <span>6.</span>
-                                                            <!-- <h4>Senior Developer</h4> -->
-                                                            <p>Untuk pemohon lulusan Tugas Belajar Polstat STIS, tahun
-                                                                penempatan dihitung dari tahun lulus Tugas Belajar
-                                                                Polstat STIS, bukan dari tahun pengangkatan CPNS</p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="timeline_content">
-                                                            <span>7.</span>
-                                                            <!-- <h4>Junior Developer</h4> -->
-                                                            <p>Translasi ijazah dan transkrip ke Bahasa Inggris hanya
-                                                                akan dibuatkan apabila pemohon telah ditempatkan minimal
-                                                                4 (empat) tahun di BPS dan melampirkan bukti pendaftaran
-                                                                ke universitas yang dituju.
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                    <!-- Single Experience -->
-                                                    <li>
-                                                        <div class="timeline_content">
-                                                            <span>8.</span>
-                                                            <!-- <h4>Senior Developer</h4> -->
-                                                            <p>Mekanisme terkait pengambilan legalisir ijazah dan
-                                                                transkrip nilai oleh
-                                                                alumni Polstat STIS dapat dilakukan
-                                                                dengan cara (pilih salah satu di bawah ini) : <br>
-                                                                1. Diemail ke
-                                                                alamat
-                                                                pemohon dalam bentuk hasil scan
-                                                                <br>
-                                                                2. Diambil di kampus Polstat STIS langsung oleh pemohon
-                                                                <br>
-                                                                3. Diambil di kampus Polstat STIS oleh orang lain yang
-                                                                telah diberi kuasa <br>
-                                                                4. Dikirimkan via pos
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="timeline_content">
-                                                            <span>9.</span>
-                                                            <!-- <h4>Senior Developer</h4> -->
-                                                            <p>Bila hasil legalisir diambil di kampus Polstat STIS oleh
-                                                                orang lain yang telah diberi kuasa, surat permohonan
-                                                                harus dilampiri surat kuasa (download contoh surat
-                                                                kuasa)</p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="timeline_content">
-                                                            <span>10.</span>
-                                                            <!-- <h4>Senior Developer</h4> -->
-                                                            <p>Terhitung mulai tanggal 1 Januari 2016, untuk hasil
-                                                                legalisir yang dikirimkan via pos, ongkos kirim akan
-                                                                ditanggung oleh Polstat STIS (mahasiswa tidak akan
-                                                                dikenakan biaya )
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="timeline_content">
-                                                            <span>11.</span>
-                                                            <!-- <h4>Senior Developer</h4> -->
-                                                            <p>Bila surat permohonan dikirimkan via pos/fax, silakan
-                                                                mengkonfirmasi diterimanya surat ke petugas legalisir
-                                                                melalui telepon: (021) 8508812 atau (021)8191437 EXT
-                                                                207. Konfirmasi dilakukan paling cepat 1 (satu) hari
-                                                                kerja setelah pemohon mengirimkan surat permohonan
-                                                                legalisir melalui fax atau 4 hari kerja (tergantung
-                                                                jenis pos/ekspedisi yang digunakan) setelah pemohon
-                                                                mengirimkan surat permohonan legalisir melalui pos.</p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="timeline_content">
-                                                            <span>11.</span>
-                                                            <!-- <h4>Senior Developer</h4> -->
-                                                            <p>Apabila surat permohonan legalisir tidak memenuhi
-                                                                ketentuan baku, maka petugas akan mengkonfirmasi agar
-                                                                pemohon memperbaiki surat permohonan legalisir tersebut
-                                                                dan mengirimkannya kembali</p>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-
-
-
-
-
-
-
-
-                            </div>
-
-                            <div class="accordion">
-                                <div class="a-container">
-                                    <p class="a-btn">PERSYARATAN PENGAMBILAN IJAZAH DAN TRANSKRIP ASLI AIS/STIS
-
-                                        <span></span>
-                                    </p>
-                                    <div class="a-panel">
-                                        <p>1. Pengambilan ijazah dan transkrip asli bisa dilakukan dengan cara diambil
-                                            di
-                                            kampus Polstat STIS langsung oleh pemohon atau oleh orang lain yang telah
-                                            diberi kuasa. Ijazah dan transkrip asli tidak bisa dikirmkan via pos karena
-                                            saat pengambilan, terdapat berita acara yang harus ditandatangani. <br>
-                                            2. Untuk alumni yang sudah selesai masa Ikatan Dinas (ID): <br>
-                                            &nbsp;&nbsp;a. Surat Keterangan (SK) masih bekerja di BPS mengetahui (tanda
-                                            tangan) minimal
-                                            eselon III (download contoh surat keterangan) <br>
-                                            &nbsp;&nbsp;b. Surat Kuasa (bila pengambilan dikuasakan/diwakilkan, download
-                                            contoh
-                                            surat
-                                            kuasa) dengan Materai Rp10.000,- yang dikirim melalui email
-                                            alumni@stis.ac.id dan dibawa dalam bentuk hardcopy <br>
-                                            3. Untuk alumni yang belum selesai masa Ikatan Dinas: <br>
-                                            &nbsp;&nbsp;a. Bukti Asli pembayaran tuntutan ganti rugi (TGR) dari
-                                            Kementerian
-                                            Keuangan <br>
-                                            &nbsp;&nbsp;b. Surat Kuasa (bila pengambilan dikuasakan/diwakilkan, download
-                                            contoh surat
-                                            kuasa) dengan Materai Rp10.000,- yang dikirim melalui email
-                                            alumni@stis.ac.id dan dibawa dalam bentuk hardcopy <br>
-                                            4. Satu minggu sebelum pengambilan ijazah dan/atau transkrip Asli AIS/STIS,
-                                            harap menghubungi petugas melalui email alumni@stis.ac.id dengan melampirkan
-                                            surat pada poin 2 atau 3 di atas agar disiapkan berita acara pengambilannya.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                            </li>
+                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                <div class="timeline-arrow"></div>
+                                <p class="text-small mt-2 font-weight-light">Apabila surat permohonan legalisir sudah
+                                    diterima oleh
+                                    petugas dan memenuhi ketentuan format baku yang telah
+                                    ditentukan, maka permohonan legalisir akan diproses
+                                    lebih kurang selama 6 hari kerja (terhitung sejak
+                                    fax/surat diterima petugas).</p>
+                            </li>
+                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                <div class="timeline-arrow"></div>
+                                <p class="text-small mt-2 font-weight-light">Untuk pemohon yang telah minimal 4 (empat)
+                                    tahun
+                                    ditempatkan di BPS, legalisir ijazah dan transkrip
+                                    (Bahasa Indonesia maupun Bahasa Inggris) akan diberikan
+                                    maksimal 5 (lima) lembar</p>
+                            </li>
+                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                <div class="timeline-arrow"></div>
+                                <p class="text-small mt-2 font-weight-light">Untuk pemohon yang belum 4 (empat) tahun
+                                    ditempatkan di
+                                    BPS, legalisir Ijazah hanya akan diberikan sebanyak 2
+                                    lembar sedangkan legalisir Transkrip hanya akan diproses
+                                    untuk keperluan Izin Belajar. Harap dilampirkan surat
+                                    permohonan izin belajar yang disetujui oleh eselon II
+                                    (download contoh) dan Kepala Pusdiklat BPS (download
+                                    contoh)</p>
+                            </li>
+                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                <div class="timeline-arrow"></div>
+                                <p class="text-small mt-2 font-weight-light">Untuk pemohon lulusan Tugas Belajar Polstat
+                                    STIS, tahun
+                                    penempatan dihitung dari tahun lulus Tugas Belajar
+                                    Polstat STIS, bukan dari tahun pengangkatan CPNS</p>
+                            </li>
+                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                <div class="timeline-arrow"></div>
+                                <p class="text-small mt-2 font-weight-light">Translasi ijazah dan transkrip ke Bahasa
+                                    Inggris hanya
+                                    akan dibuatkan apabila pemohon telah ditempatkan minimal
+                                    4 (empat) tahun di BPS dan melampirkan bukti pendaftaran
+                                    ke universitas yang dituju.</p>
+                            </li>
+                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                <div class="timeline-arrow"></div>
+                                <p class="text-small mt-2 font-weight-light">Mekanisme terkait pengambilan legalisir
+                                    ijazah dan
+                                    transkrip nilai oleh
+                                    alumni Polstat STIS dapat dilakukan
+                                    dengan cara (pilih salah satu di bawah ini) : <br>
+                                    1. Diemail ke
+                                    alamat
+                                    pemohon dalam bentuk hasil scan
+                                    <br>
+                                    2. Diambil di kampus Polstat STIS langsung oleh pemohon
+                                    <br>
+                                    3. Diambil di kampus Polstat STIS oleh orang lain yang
+                                    telah diberi kuasa <br>
+                                    4. Dikirimkan via pos
+                                </p>
+                            </li>
+                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                <div class="timeline-arrow"></div>
+                                <p class="text-small mt-2 font-weight-light">Bila hasil legalisir diambil di kampus
+                                    Polstat STIS oleh
+                                    orang lain yang telah diberi kuasa, surat permohonan
+                                    harus dilampiri surat kuasa (download contoh surat
+                                    kuasa)
+                                </p>
+                            </li>
+                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                <div class="timeline-arrow"></div>
+                                <p class="text-small mt-2 font-weight-light">Terhitung mulai tanggal 1 Januari 2016,
+                                    untuk hasil
+                                    legalisir yang dikirimkan via pos, ongkos kirim akan
+                                    ditanggung oleh Polstat STIS (mahasiswa tidak akan
+                                    dikenakan biaya )
+                                </p>
+                            </li>
+                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                <div class="timeline-arrow"></div>
+                                <p class="text-small mt-2 font-weight-light">Bila surat permohonan dikirimkan via
+                                    pos/fax, silakan
+                                    mengkonfirmasi diterimanya surat ke petugas legalisir
+                                    melalui telepon: (021) 8508812 atau (021)8191437 EXT
+                                    207. Konfirmasi dilakukan paling cepat 1 (satu) hari
+                                    kerja setelah pemohon mengirimkan surat permohonan
+                                    legalisir melalui fax atau 4 hari kerja (tergantung
+                                    jenis pos/ekspedisi yang digunakan) setelah pemohon
+                                    mengirimkan surat permohonan legalisir melalui pos.
+                                </p>
+                            </li>
+                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                <div class="timeline-arrow"></div>
+                                <p class="text-small mt-2 font-weight-light">Apabila surat permohonan legalisir tidak
+                                    memenuhi
+                                    ketentuan baku, maka petugas akan mengkonfirmasi agar
+                                    pemohon memperbaiki surat permohonan legalisir tersebut
+                                    dan mengirimkannya kembali
+                                </p>
+                            </li>
+                        </ul><!-- End -->
 
                     </div>
                 </div>
+            </div>
+
         </section>
 
-        <section id="features">
-            <div class="container">
-                <div class="row">
+
+        <section>
+            <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+                <div class="row bg-white my-5">
 
 
-                    <div class="col-sm-6">
-                        <img src="img/header-stis.png" class="img-left" alt="">
+                    <div class="col-sm-8">
+                        <img src="img/stis.jpg" class="img-left" width="100%" alt="">
                     </div>
 
-                    <div class="col-sm-6">
-                        <p class="kicker">SiAlumni</p>
-                        <h2>Politeknik Statistika <br>STIS.</h2>
+                    <div class="col-sm-4 pt-4">
+                        <p class="kicker mt-5">SiAlumni</p>
+                        <h2>Politeknik Statistika STIS.</h2>
 
-                        <p>Address: Jl. Otto Iskandardinata No.64C, RT.1/RW.4, Bidara Cina, Kecamatan Jatinegara, Kota
+                        <p>Alamat: Jl. Otto Iskandardinata No.64C, RT.1/RW.4, Bidara Cina, Kecamatan Jatinegara, Kota
                             Jakarta Timur, Daerah Khusus Ibukota Jakarta 13330 <br>
-                            Hours:
-                            Closed ⋅ Opens 7:30AM <br>
-                            Phone: (021) 8191437 <br>
-                            Founded: August 11, 1958 <br>
-                            Province: Jakarta</p>
+                            Jam Operasional: 7:30AM - 04.00PM <br>
+                            No Telepon: (021) 8191437 <br>
+                            Provinsi: DKI Jakarta</p>
+                        Berdiri sejak, 11 Agustus 1958 <br>
 
                     </div>
                 </div>
