@@ -34,10 +34,10 @@
                 <thead>
                     <tr>
                         <th>Nama</th>
-                        <th>Tahun Lulus</th>
+                        <th>NIM</th>
                         <th>Jurusan/ Peminatan</th>
-                        <th>Tanggal Pengajuan</th>
-                        <th>Jenis Pengajuan</th>
+                        <th>Tanggal Permohonan</th>
+                        <th>Jenis Permohonan</th>
                         <th>Status</th>
                         <th>Catatan</th>
                         <th>Lampiran</th>
@@ -48,10 +48,16 @@
                     @foreach ($data as $item)
                     <tr>
                         <td>{{ $users[$item->user_id]->name }}</td>
-                        <td>{{ $users[$item->user_id]->tahunLulus }}</td>
+                        <td>{{ $users[$item->user_id]->nim }}</td>
                         <td>{{ $users[$item->user_id]->jurusan }}</td>
                         <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</td>
-                        <td>{{ $item->jenis }}</td>
+                        <td>
+                            @if ($item->jenis == 'ijazah')
+                            Ijazah
+                            @elseif ($item->jenis == 'transkrip')
+                            Transkrip Nilai
+                            @endif
+                        </td>
                         <!-- Warnanya berbeda sesuai status pengajuan legalisir -->
                         <td>@if($item->status == 'Menunggu' )
                             <div class="p-2 bg-secondary text-light rounded">{{ $item->status }}</div>
@@ -71,22 +77,24 @@
                             <div class="p-2 bg-danger text-light rounded">{{ $item->status }}</div>
                             @endif
                         </td>
-                        <td>{{ $item->catatan }}</td>
+                        <td class="text-justify">
+                            {{ $item->catatan }}
+                        </td>
                         <td>
                             @if ($item->file_permohonan != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
+                            <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
                             @endif
                             @if ($item->file_eselon != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
+                            <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
                             @endif
                             @if ($item->file_pusdiklat != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
+                            <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
                             @endif
                             @if ($item->file_kampusln != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
+                            <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
                             @endif
                             @if ($item->file_kuasa != NULL)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
+                            <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
                             @endif
                         </td>
                         <td>
@@ -199,19 +207,19 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Preview</h4>
+                <h4 class="modal-title">Preview Dokumen</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
 
-                <embed id="modalpublish" src="" frameborder="0" width="100%" height="720px">
+                <embed id="modalpublish" src="" frameborder="0" width="100%" height="600px">
 
                 <div class="modal-footer">
                     <form id="form-publish" action="" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-primary">Publish</button>
                         <button type="button" class="btn btn-warning" data-dismiss="modal" id="btn-reupload">Reupload</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                     </form>
                 </div>
             </div>
@@ -227,7 +235,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Upload Dokumen</h4>
+                <h4 class="modal-title">Unggah Dokumen</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -238,8 +246,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Upload</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                     </div>
                 </form>
             </div>

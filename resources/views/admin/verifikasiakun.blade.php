@@ -57,7 +57,7 @@
                         <th>NIP</th>
                         <!-- <th>Tahun Lulus</th> -->
                         <!-- <th>Email</th> -->
-                        <th>File Lamppiran</th>
+                        <th>Lampiran</th>
                         <th>Status Akun</th>
                         <th>Aksi</th>
                     </tr>
@@ -73,36 +73,38 @@
                         <!-- <td>{{ $data->jurusan }}</td> -->
                         <td>
                             @if ($data->tipe_alumni == 'BPS')
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanbps) }}`);">Surat Pernyataan
-                                Atasan Langsung</a>
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$data->skpenempatan1bps) }}`);">SK Penempatan
-                                1 BPS</a>
-                            @elseif ($data->tipe_alumni == 'Non-BPS')
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanbps) }}`);">
+                                Surat Pernyataan Atasan Langsung
+                            </a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skpenempatan1bps) }}`);">
+                                SK Penempatan Terakhir BPS
+                            </a>
 
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanlangsung) }}`);">Surat
-                                Pernyataan Atasan Langsung</a>
-                            <a class="btn btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$data->sklunastgr) }}`);">SK Lunas TGR</a>
+                            @elseif ($data->tipe_alumni == 'Non-BPS')
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanlangsung) }}`);">
+                                Surat Pernyataan Atasan Langsung
+                            </a>
+                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->sklunastgr) }}`);">
+                                SK Lunas TGR
+                            </a>
                             @endif
                         </td>
                         <td>
                             @if ($data->statusAkun == 'Lolos')
-                            <span class="badge badge-success">Lolos</span>
+                            <span class="btn btn-success btn-sm">Lolos</span>
                             @elseif ($data->statusAkun == 'Pending')
-                            <span class="badge badge-warning">Pending</span>
+                            <span class="btn btn-warning btn-sm">Pending</span>
                             @else
-                            <span class="badge badge-danger">Ditolak</span>
+                            <span class="btn btn-danger btn-sm">Tidak Lolos</span>
                             @endif
                         </td>
-                        <td>
+                        <td class="text-center">
                             <form action="/konfirmasi/{{$data->id}}" method="post" class="d-inline">
                                 @csrf
                                 @method('post')
-                                <a href="{{route('konfirmasi', $data->id)}}" class="btn btn-success btn-circle btn-sm">
-                                    <i class="fas fa-external-link-alt"></i></a>
+                                <a href="{{route('konfirmasi', $data->id)}}" class="btn btn-info btn-circle btn-sm">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
                             </form>
 
                             <!-- <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">

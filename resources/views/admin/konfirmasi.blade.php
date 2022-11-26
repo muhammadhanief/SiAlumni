@@ -32,13 +32,15 @@
                     <h4 class="m-0 font-weight-bold text-primary col">Data Akun</h4>
                 </div>
                 <!-- <div class="row justify-content-first"> -->
-                <!-- <br> -->
-                <p class="card-title-desc">Klik tombol <span class="btn btn-success btn-circle btn-sm fas fa-check"
-                        data-feather="check"></span>
-                    untuk menyetujui dan <span class="btn btn-info btn-circle btn-sm fas fa-pause"
-                        data-feather="check"></span> untuk Pending dan <span
-                        class="btn btn-danger btn-circle btn-sm fas fa-hand" data-feather="check"></span>
-                    untuk menolak aktivasi akun</p>
+                <br>
+                <p class="card-title-desc">
+                    <i class="btn btn-success btn-circle btn-sm" data-feather="check"><i class="fas fa-check"></i></i>
+                    Setujui &emsp;
+                    <i class="btn btn-info btn-circle btn-sm" data-feather="check"><i class="fas fa-pause"></i></i>
+                    Pending &emsp;
+                    <i class="btn btn-danger btn-circle btn-sm" data-feather="check"><i class="fas fa-hand"></i></i>
+                    Tolak
+                </p>
                 <!-- </div> -->
             </div>
             <!-- tabel user -->
@@ -55,8 +57,7 @@
                                 <th>Tanggal Lahir</th>
                                 <!-- <th>Tahun Lulus</th> -->
                                 <!-- <th>Email</th> -->
-                                <th>File SK Penempatan 1 BPS</th>
-                                <th>File SK Atasan BPS</th>
+                                <th>Lampiran</th>
                                 <th>Status Akun</th>
                                 <th>Aksi</th>
                             </tr>
@@ -75,34 +76,43 @@
                                 <!-- <td>{{ $user->email }}</td> -->
                                 <!-- <td>{{ $user->jurusan }}</td> -->
                                 <td>
-                                    <a class="btn btn-primary btn-sm"
-                                        onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanbps) }}`);">
-                                        Klik Untuk Melihat
+                                    @if ($user->tipe_alumni == 'BPS')
+                                    <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanbps) }}`);">
+                                        Surat Pernyataan Atasan Langsung
                                     </a>
+                                    <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$user->skpenempatan1bps) }}`);">
+                                        SK Penempatan Terakhir BPS
+                                    </a>
+
+                                    @elseif ($user->tipe_alumni == 'Non-BPS')
+                                    <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanlangsung) }}`);">
+                                        Surat Pernyataan Atasan Langsung
+                                    </a>
+                                    <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$user->sklunastgr) }}`);">
+                                        SK Lunas TGR
+                                    </a>
+                                    @endif
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm"
-                                        onclick="openModalPDF(`{{ asset('storage/'.$user->skpenempatan1bps) }}`);">
-                                        Klik Untuk Melihat
-                                    </a>
-                                </td>
-                                <td>{{ $user->statusAkun }}</td>
-                                <td>
+                                    @if ($user->statusAkun == 'Lolos')
+                                    <span class="btn btn-success btn-sm">Lolos</span>
+                                    @elseif ($user->statusAkun == 'Pending')
+                                    <span class="btn btn-warning btn-sm">Pending</span>
+                                    @else
+                                    <span class="btn btn-danger btn-sm">Tidak Lolos</span>
+                                    @endif
+                                <td class="text-center">
                                     <form action="/pendingakun/{{ $user->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
 
-                                        <button type="submit" class="btn btn-info btn-circle btn-sm"
-                                            onclick="return confirm('Apakah kamu yakin pending akun?')"><span
-                                                data-feather="check"><i class="fas fa-pause"></i></span></button>
+                                        <button type="submit" class="btn btn-info btn-circle btn-sm" onclick="return confirm('Apakah kamu yakin pending akun?')"><span data-feather="check"><i class="fas fa-pause"></i></span></button>
                                     </form>
                                     <form action="/tolakakun/{{ $user->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
 
-                                        <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                            onclick="return confirm('Apakah kamu yakin menolak akun?')"><span
-                                                data-feather="check"><i class="fa-regular fa-hand"></i></span></button>
+                                        <button type="submit" class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Apakah kamu yakin menolak akun?')"><span data-feather="check"><i class="fa-regular fa-hand"></i></span></button>
                                     </form>
                                     <!-- <form action="/verifakun/{{ $user->id }}" method="post" class="d-inline">
                                         @csrf
@@ -121,8 +131,10 @@
                     </table>
                 </div>
             </div>
-            <div class="card-header py-0">
-                <h4 class="font-weight-bold text-primary">Database Mahasiswa</h4>
+        </div>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h4 class="font-weight-bold text-primary">Database Alumni</h4>
             </div>
             <!-- tabel database -->
             <div class="card-body">
@@ -155,25 +167,21 @@
                                 <!-- <td>{{ $data->email }}</td> -->
                                 <!-- <td>{{ $data->jurusan }}</td> -->
 
-                                <td> <a class="btn btn-primary btn-sm"
-                                        onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">
+                                <td> <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">
                                         Klik Untuk Melihat
                                     </a> </td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm"
-                                        onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">
+                                    <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">
                                         Klik Untuk Melihat
                                     </a>
                                 </td>
                                 <!-- <td>{{ $data->statusAkun }}</td> -->
-                                <td>
+                                <td class="text-center">
                                     <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
                                         <input type="hidden" name="id_user" value="{{ $user->id }}">
-                                        <button type="submit" class="btn btn-success btn-circle btn-sm"
-                                            onclick="return confirm('Apakah kamu yakin menyetujui akun?')"><span
-                                                data-feather="check"><i class="fas fa-check"></i></span></button>
+                                        <button type="submit" class="btn btn-success btn-circle btn-sm" onclick="setuju()"><span data-feather="check"><i class="fas fa-check"></i></span></button>
                                     </form>
                                 </td>
                                 <!-- <td> -->
@@ -224,8 +232,50 @@
 
 </div>
 
-
 <!-- End of Main Content -->
 <!-- End of Content Wrapper -->
-<!-- </html> -->
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function setuju() {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+    }
+
+    function pending() {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+    }
+</script>
 @endsection
