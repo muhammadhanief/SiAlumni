@@ -128,7 +128,7 @@
                 </a>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Formulir tersedia:</h6>
+                        <h6 class="collapse-header">Jenis Permohonan:</h6>
                         <a class="collapse-item" href="{{ route('formulir.ijazah') }}">Legalisir Ijazah</a>
                         <a class="collapse-item" href="{{ route('formulir.transkrip') }}">Legalisir Transkrip Nilai</a>
                     </div>
@@ -152,7 +152,7 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <div class="sidebar-heading">
-                {{ __('Settings') }}
+                {{ __('Lainnya') }}
             </div>
 
             <!-- Nav Item - Profile -->

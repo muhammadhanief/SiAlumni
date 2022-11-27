@@ -7,7 +7,7 @@
 <!-- Main Content -->
 
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">{{ __('Detail Permohonan Alumni') }}</h1>
+<h1 class="h3 mb-4 text-gray-800">{{ __('Detail Permohonan Saya') }}</h1>
 
 @if (session('success'))
 <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -24,18 +24,18 @@
 </div>
 @endif
 
-<!-- Tabel untuk approved pengajuan legalisir -->
+<!-- Tabel untuk approved Permohonan legalisir -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Detail Permohonan</h6>
     </div>
     <div class="card-body">
-        <p><b>Tanggal Pengajuan</b></p>
+        <p><b>Tanggal Permohonan</b></p>
         <p>{{ \Carbon\Carbon::parse($data->created_at)->format('d F Y') }}</p>
-        <p><b>Jenis Pengajuan</b></p>
+        <p><b>Jenis Permohonan</b></p>
         <p style="text-transform:capitalize">{{ $data->jenis }}</p>
         <hr>
-        <p>Progress Pengajuan</p>
+        <p><b>Progress Permohonan</b></p>
         <!-- Section: Monitoring Progress -->
         <!-- Ada CSS tambahan -->
         <div class="p-3">
