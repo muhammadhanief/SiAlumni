@@ -27,6 +27,9 @@
     <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel=" stylesheet">
     <script src="https://kit.fontawesome.com/73dfd73928.js" crossorigin="anonymous"></script>
 
+    <!-- Swal -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- CSS tambahan untuk Detail Monitoring Permohonan -->
     <link rel="stylesheet" href="{{ asset('css/style-monitoring.css') }}">
 
@@ -239,7 +242,7 @@
                                     {{ __('Activity Log') }}
                                 </a> -->
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" onclick="logout();">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     {{ __('Logout') }}
                                 </a>
@@ -335,6 +338,24 @@
         $(function() {
             $('[data-toggle="popover"]').popover()
         })
+
+        // logout using swal
+        function logout() {
+            Swal.fire({
+                title: "Apakah anda yakin?",
+                text: "Anda akan keluar dari sistem",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Logout',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('logout-form').submit();
+                }
+            });
+        }
     </script>
 
 
