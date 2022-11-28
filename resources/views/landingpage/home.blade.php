@@ -82,7 +82,6 @@
                 <div class="row text-center text-white mb-5">
                     <div class="col-lg-8 mx-auto">
                         <h1 class="display-5">Prosedur Legalisir <br> Ijazah & Transkrip Nilai</h1>
-                        <p class="lead mb-0 text-dark">Build a responsive vertical timeline using Bootstrap 4. </p>
 
                     </div>
                 </div><!-- End -->
@@ -93,7 +92,7 @@
 
                         <!-- Timeline -->
                         <ul class="timeline">
-                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                            <li class="timeline-item bg-transparent rounded ml-3 p-4 shadow">
                                 <div class="timeline-arrow"></div>
                                 <p class="text-small mt-2 font-weight-light">Pemohon mengajukan terlebih dahulu surat
                                     permohonan
