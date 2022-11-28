@@ -77,18 +77,18 @@
                                 <!-- <td>{{ $user->jurusan }}</td> -->
                                 <td>
                                     @if ($user->tipe_alumni == 'BPS')
-                                    <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanbps) }}`);">
+                                    <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanbps) }}`);">
                                         Surat Pernyataan Atasan Langsung
                                     </a>
-                                    <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$user->skpenempatan1bps) }}`);">
+                                    <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$user->skpenempatan1bps) }}`);">
                                         SK Penempatan Terakhir BPS
                                     </a>
 
                                     @elseif ($user->tipe_alumni == 'Non-BPS')
-                                    <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanlangsung) }}`);">
+                                    <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanlangsung) }}`);">
                                         Surat Pernyataan Atasan Langsung
                                     </a>
-                                    <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$user->sklunastgr) }}`);">
+                                    <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$user->sklunastgr) }}`);">
                                         SK Lunas TGR
                                     </a>
                                     @endif
@@ -102,18 +102,18 @@
                                     <span class="btn btn-danger btn-sm">Tidak Lolos</span>
                                     @endif
                                 <td class="text-center">
-                                    <form action="/pendingakun/{{ $user->id }}" method="post" class="d-inline">
+                                    <form action="/pendingakun/{{ $user->id }}" method="post" class="d-inline" id="form-pending-{{ $user->id }}">
                                         @csrf
                                         @method('post')
 
-                                        <button type="submit" class="btn btn-info btn-circle btn-sm" onclick="return confirm('Apakah kamu yakin pending akun?')"><span data-feather="check"><i class="fas fa-pause"></i></span></button>
                                     </form>
-                                    <form action="/tolakakun/{{ $user->id }}" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-info btn-circle btn-sm mb-1" onclick="pending('{{ $user->id }}')"><span data-feather="check"><i class="fas fa-pause"></i></span></button>
+                                    <form action="/tolakakun/{{ $user->id }}" method="post" class="d-inline" id="form-tolak-{{ $user->id }}">
                                         @csrf
                                         @method('post')
 
-                                        <button type="submit" class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Apakah kamu yakin menolak akun?')"><span data-feather="check"><i class="fa-regular fa-hand"></i></span></button>
                                     </form>
+                                    <button type="submit" class="btn btn-danger btn-circle btn-sm mb-1" onclick="tolak('{{ $user->id }}')"><span data-feather="check"><i class="fa-regular fa-hand"></i></span></button>
                                     <!-- <form action="/verifakun/{{ $user->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
@@ -177,12 +177,12 @@
                                 </td>
                                 <!-- <td>{{ $data->statusAkun }}</td> -->
                                 <td class="text-center">
-                                    <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
+                                    <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline" id="form-{{ $data->id }}">
                                         @csrf
                                         @method('post')
                                         <input type="hidden" name="id_user" value="{{ $user->id }}">
-                                        <button type="submit" class="btn btn-success btn-circle btn-sm" onclick="setuju()"><span data-feather="check"><i class="fas fa-check"></i></span></button>
                                     </form>
+                                    <button type="submit" class="btn btn-success btn-circle btn-sm" onclick="setuju('{{ $data->id }}')"><span data-feather="check"><i class="fas fa-check"></i></span></button>
                                 </td>
                                 <!-- <td> -->
                                 <!-- <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
@@ -235,43 +235,72 @@
 <!-- End of Main Content -->
 <!-- End of Content Wrapper -->
 
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 <script>
-    function setuju() {
+    function setuju(id) {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Apakah Anda yakin?',
+            text: "Apakah Anda yakin untuk menyetujui aktivasi akun?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Ya, Setujui!',
+            cancelButtonText: 'Batal'
         }).then((result) => {
             if (result.isConfirmed) {
+                // submit form using jquery
+                $('#form-' + id).submit();
                 Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
+                    'Disetuji!',
+                    'Akun telah diverifikasi.',
                     'success'
                 )
             }
         })
     }
 
-    function pending() {
+    function pending(id) {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Apakah Anda yakin?',
+            text: "Apakah Anda yakin untuk pending aktivasi akun?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Ya, Pending!',
+            cancelButtonText: 'Batal'
         }).then((result) => {
             if (result.isConfirmed) {
+                // submit form using jquery
+                $('#form-pending-' + id).submit();
                 Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
+                    'Pending!',
+                    'Aktivasi akun telah pending.',
+                    'success'
+                )
+            }
+        })
+    }
+
+    function tolak(id) {
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Apakah Anda yakin untuk menolak aktivasi akun?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Tolak!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // submit form using jquery
+                $('#form-tolak-' + id).submit();
+                Swal.fire(
+                    'Ditolak!',
+                    'Aktivasi akun telah ditolak.',
                     'success'
                 )
             }

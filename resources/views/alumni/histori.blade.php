@@ -8,7 +8,7 @@
 
 
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">{{ __('Daftar Permohonan Anda') }}</h1>
+<h1 class="h3 mb-4 text-gray-800">{{ __('Histori Permohonan Anda') }}</h1>
 
 @if (session('success'))
 <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -38,8 +38,8 @@
                         <!-- <th>Nama</th> -->
                         <!-- <th>Tahun Lulus</th> -->
                         <!-- <th>Jurusan/ Peminatan</th> -->
-                        <th>Tanggal Pengajuan</th>
-                        <th>Jenis Pengajuan</th>
+                        <th>Tanggal Permohonan</th>
+                        <th>Jenis Permohonan</th>
                         <th>Status</th>
                         <th>Detail</th>
                         <th>Lampiran</th>
@@ -55,65 +55,64 @@
                             <td>{{ User::find($item->user_id)->tahunLulus }}</td>
                             <td>{{ User::find($item->user_id)->jurusan }}</td> -->
                         <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</td>
-                        <td>{{ $item->jenis }}</td>
+                        <td>
+                            @if ($item->jenis == 'ijazah')
+                            Ijazah
+                            @elseif ($item->jenis == 'transkrip')
+                            Transkrip Nilai
+                            @endif
+                        </td>
                         <!-- Warnanya berbeda sesuai status pengajuan legalisir -->
                         <td>@if($item->status == 'Menunggu' )
-                            <div class="p-2 mb-2 bg-secondary text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-secondary text-light rounded btn-sm">{{ $item->status }}</div>
                             @elseif($item->status == 'Disetujui Kepala BAAK')
-                            <div class="p-2 mb-2 bg-primary text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-primary text-light rounded btn-sm">{{ $item->status }}</div>
                             @elseif($item->status == 'Disetujui Petugas BAAK')
-                            <div class="p-2 mb-2 bg-primary text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-primary text-light rounded btn-sm">{{ $item->status }}</div>
                             @elseif($item->status == 'Disetujui Wakil Direktur 1')
-                            <div class="p-2 mb-2 bg-primary text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-primary text-light rounded btn-sm">{{ $item->status }}</div>
                             @elseif($item->status == 'Selesai')
-                            <div class="p-2 mb-2 bg-success text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-success text-light rounded btn-sm">{{ $item->status }}</div>
                             @elseif($item->status == 'Ditolak Petugas BAAK')
-                            <div class="p-2 mb-2 bg-danger text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-danger text-light rounded btn-sm">{{ $item->status }}</div>
                             @elseif($item->status == 'Ditolak Kepala BAAK')
-                            <div class="p-2 mb-2 bg-danger text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2 bg-danger text-light rounded btn-sm">{{ $item->status }}</div>
                             @elseif($item->status == 'Ditolak Wakil Direktur 1')
-                            <div class="p-2 mb-2  bg-danger text-light rounded">{{ $item->status }}</div>
+                            <div class="p-2 mb-2  bg-danger text-light rounded btn-sm">{{ $item->status }}</div>
                             @endif
                         </td>
                         <td class="text-center">
-                            <a href="historialumni/detail/{{ $item->id }}" class="btn btn-info btn-circle btn-sm "><i
-                                    class="fas fa-info-circle"></i> </a>
+                            <a href="historialumni/detail/{{ $item->id }}" class="btn btn-info btn-circle btn-sm "><i class="fas fa-info-circle"></i> </a>
                         </td>
                         <td>
                             @if ($item->file_permohonan != NULL)
-                            <a class="btn mb-2 btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
+                            <a class="btn mb-2 btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
                             @endif
                             @if ($item->file_eselon != NULL)
-                            <a class="btn mb-2 btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
+                            <a class="btn mb-2 btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
                             @endif
                             @if ($item->file_pusdiklat != NULL)
-                            <a class="btn mb-2 btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
+                            <a class="btn mb-2 btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
                             @endif
                             @if ($item->file_kampusln != NULL)
-                            <a class="btn  mb-2 btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
+                            <a class="btn  mb-2 btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
                             @endif
                             @if ($item->file_kuasa != NULL)
-                            <a class="btn mb-2 btn-primary btn-sm"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
+                            <a class="btn mb-2 btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kuasa) }}`);">Kuasa</a>
                             @endif
                         </td>
                         <td>
                             @if ($item->file_legalisir != NULL)
-                            <button class="btn btn-success"
-                                onclick="openModalPDF(`{{ asset('storage/'.$item->file_legalisir) }}`);">
+                            <button class="btn btn-success btn-sm" onclick=" openModalPDF(`{{ asset('storage/'.$item->file_legalisir) }}`);">
                                 Download</button>
                             @else
-                            <button class="btn btn-dark">
+                            <button class="btn btn-dark btn-sm">
                                 Belum ada</button>
                             @endif
                         </td>
                         <!-- <td>
-                                <a href="/admin/daftar_permohonan/{{ $item->id }}" class="btn btn-primary">Aksi</a>
-                            </td> -->
+                                <a href=" /admin/daftar_permohonan/{{ $item->id }}" class="btn btn-primary">Aksi</a>
+                        </td> -->
 
 
 
