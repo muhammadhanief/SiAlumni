@@ -22,10 +22,10 @@
 <body>
 
     <!-- Hero -->
-    <section id="hero" class="min-vh-100">
+    <section id="hero">
         <!-- Header -->
         <header>
-            <div class="container">
+            <div class="container" class="min-vh-100">
                 <div id="navbar">
                     <img src="img/stis.png" class="logo" alt="logo">
                     <h1 class="jumbo2">SiAlumni</h1>
