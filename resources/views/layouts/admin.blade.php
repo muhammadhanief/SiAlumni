@@ -378,18 +378,16 @@
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-xl">
             <!-- Modal content-->
-            <div class="modal-content">
+            <div class="modal-content" style="height:90vh;">
                 <div class="modal-header">
                     <h4 class="modal-title">Preview Dokumen</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-
-                    <embed id="modalpdf" src="" frameborder="0" width="100%" height="720px">
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                    </div>
+                    <embed id="modalpdf" src="" frameborder="0" width="100%" height="100%">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                 </div>
             </div>
             <!-- End of Modal content -->

@@ -205,23 +205,23 @@
 <div id="myModalPublish" class="modal fade" role="dialog">
     <div class="modal-dialog modal-xl">
         <!-- Modal content-->
-        <div class="modal-content">
+        <div class="modal-content" style="height: 90vh;">
             <div class="modal-header">
                 <h4 class="modal-title">Preview Dokumen</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
 
-                <embed id="modalpublish" src="" frameborder="0" width="100%" height="600px">
+                <embed id="modalpublish" src="" frameborder="0" width="100%" height="100%">
 
-                <div class="modal-footer">
-                    <form id="form-publish" action="" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-primary">Publish</button>
-                        <button type="button" class="btn btn-warning" data-dismiss="modal" id="btn-reupload">Reupload</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                    </form>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <form id="form-publish" action="" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">Publish</button>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal" id="btn-reupload">Reupload</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                </form>
             </div>
         </div>
         <!-- End of Modal content -->
