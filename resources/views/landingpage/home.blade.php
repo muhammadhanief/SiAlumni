@@ -22,18 +22,18 @@
 <body>
 
     <!-- Hero -->
-    <section id="hero">
+    <section id="hero" class="min-vh-100 d-flex flex-row flex-wrap justify-content-center align-items-start">
         <!-- Header -->
         <header>
-            <div class="container" class="min-vh-100">
+            <div class="container">
                 <div id="navbar">
                     <img src="img/stis.png" class="logo" alt="logo">
-                    <h1 class="jumbo2">SiAlumni</h1>
+                    <h1 class="kicker">SiAlumni</h1>
                     <nav>
 
-                        <button class="navbar-toggle" aria-label="Toggle navigation">
+                        <!-- <button class="navbar-toggle" aria-label="Toggle navigation">
                             <i class="fa-solid fa-bars"></i>
-                        </button>
+                        </button> -->
 
                         <ul class="navbar-links">
                             <li><a class="btn btn-secondary" href="/login">Login</a>
@@ -49,9 +49,9 @@
         </header>
 
         <div class="container ">
-            <div class="row">
-                <div class="col-sm-7">`
-                    <h1 class="jumbo">Sistem Informasi Legalisir & Manajemen Alumni</h1>
+            <div class="row align-items-center">
+                <div class="col-sm-7 col-lg-7 col-7">
+                    <h1 class="jumbo">Sistem Informasi <br> Legalisir & Manajemen Alumni</h1>
 
                     <p class="text-white">Merupakan Sistem Informasi Pengelolaan Data Alumni & Permohonan Legalisir
                         Ijazah dan Transkrip
@@ -65,7 +65,7 @@
                             class="fa-brands fa-github"></i> &nbsp;View on GitHub</a> -->
                 </div>
 
-                <div class="col-sm-5">
+                <div class="col-sm-5 col-lg-5 col-5 ">
                     <img src="img/stis.png" class="hero-img" alt="">
                 </div>
             </div>
