@@ -119,7 +119,8 @@
                             </div>
 
 
-
+                            <!-- if tipe alumni -->
+                            @if (Auth::user()->tipe_alumni == 'alumni')
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="nip">NIP</label>
@@ -127,8 +128,15 @@
                                         value="{{ old('nip', Auth::user()->nip) }}">
                                 </div>
                             </div>
-
-
+                            @else
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="instansi">Instansi</label>
+                                    <input type="text" id="nip" class="form-control" name="nip" placeholder=""
+                                        value="{{ old('nip', Auth::user()->instansi) }}">
+                                </div>
+                            </div>
+                            @endif
 
                             <div class="col-lg-6">
                                 <div class="form-group">

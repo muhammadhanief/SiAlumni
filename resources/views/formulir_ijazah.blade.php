@@ -54,10 +54,17 @@
                             <th>NIM</th>
                             <th>{{ Auth::user()->nim }}</th>
                         </tr>
+                        @if (Auth::user()->tipe_alumni == 'BPS')
                         <tr>
                             <th>NIP</th>
                             <th>{{ Auth::user()->nip }}</th>
                         </tr>
+                        @else
+                        <tr>
+                            <th>Instansi</th>
+                            <th>{{ Auth::user()->instansi }}</th>
+                        </tr>
+                        @endif
                         <tr>
                             <th>Nomor Ponsel</th>
                             <th>{{ Auth::user()->nomorPonsel }}</th>
@@ -99,7 +106,9 @@
                     <!-- <br>
                     <br> -->
                     <p class="ms-auto">Catatan Tambahan
-                        <i class="far fa-question-circle" data-toggle="popover" data-placement="right" title="Catatan Tambahan" data-content="Tuliskan permintaan tambahan, misalnya permintaan legalisir ijazah/ transkrip nilai dalam Bahasa Inggris"></i>
+                        <i class="far fa-question-circle" data-toggle="popover" data-placement="right"
+                            title="Catatan Tambahan"
+                            data-content="Tuliskan permintaan tambahan, misalnya permintaan legalisir ijazah/ transkrip nilai dalam Bahasa Inggris"></i>
                         <br>
                         <!-- <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                             <span class="icon text-light">
@@ -110,7 +119,8 @@
                     </p>
                     <!-- <input class="form-control" type="file" id="formFile" name="file_permohonan" required> -->
 
-                    <textarea class="form-control" name="catatan" id="catatan" rows="3" placeholder="Catatan"></textarea>
+                    <textarea class="form-control" name="catatan" id="catatan" rows="3"
+                        placeholder="Catatan"></textarea>
                     <br>
 
                     <!-- Hanya untuk legalisir Ijazah atau Transkrip > 4 tahun -->
@@ -129,7 +139,8 @@
 
                     <p>Metode Pengambilan</p>
 
-                    <select id="metodePengambilan" name="pengambilan" class="form-select form-control bg-light border-0 small">
+                    <select id="metodePengambilan" name="pengambilan"
+                        class="form-select form-control bg-light border-0 small">
                         <option value="1">Dikirimkan ke email pemohon dalam bentuk hasil scan</option>
                         <option value="2">Diambil di kampus Polstat STIS langsung oleh pemohon</option>
                         <option value="3">Diambil di kampus Polstat STIS oleh orang lain yang telah diberi kuasa
@@ -147,7 +158,9 @@
                     <div id="alamat-pengiriman">
                         <p>Alamat Pengiriman</p>
                         <div class="input-group">
-                            <input id="alamat_pengambilan" name=" alamat_pengambilan" type="text" class="form-control bg-light border-1 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                            <input id="alamat_pengambilan" name=" alamat_pengambilan" type="text"
+                                class="form-control bg-light border-1 small" placeholder="" aria-label="Search"
+                                aria-describedby="basic-addon2">
                         </div>
                     </div>
 
@@ -155,7 +168,9 @@
                     <div id="email-pengiriman">
                         <p>Alamat Email</p>
                         <div class="input-group">
-                            <input id="email_pengambilan" name="email_pengambilan" type="email" class="form-control bg-light border-1 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                            <input id="email_pengambilan" name="email_pengambilan" type="email"
+                                class="form-control bg-light border-1 small" placeholder="" aria-label="Search"
+                                aria-describedby="basic-addon2">
                         </div>
                     </div>
 
@@ -164,7 +179,8 @@
                     <div id="surat_kuasa">
                         <p class="ms-auto">Surat Kuasa
                             <br>
-                            <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                            <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank”
+                                class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                                 <span class="icon text-light">
                                     <i class='fas fa-download'></i>
                                 </span>

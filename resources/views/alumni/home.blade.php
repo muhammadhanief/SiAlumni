@@ -43,10 +43,17 @@
                         <th>NIM</th>
                         <th>{{ Auth::user()->nim }}</th>
                     </tr>
+                    @if (Auth::user()->tipe_alumni == 'BPS')
                     <tr>
                         <th>NIP</th>
                         <th>{{ Auth::user()->nip }}</th>
                     </tr>
+                    @else
+                    <tr>
+                        <th>Instansi</th>
+                        <th>{{ Auth::user()->instansi }}</th>
+                    </tr>
+                    @endif
                     <tr>
                         <th>Nomor Ponsel</th>
                         <th>{{ Auth::user()->nomorPonsel }}</th>
