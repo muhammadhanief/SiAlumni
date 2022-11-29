@@ -40,7 +40,7 @@
                     <div class="col-lg-12">
                         <div class="text-center">
                             <h5 class="font-weight-bold">{{ Auth::user()->name }}</h5>
-                            <p>{{ Auth::user()->roles->first()->name }}</p>
+                            <p style="text-transform: capitalize;">{{ Auth::user()->roles->first()->name }}</p>
                         </div>
                     </div>
 
@@ -79,7 +79,8 @@
         <div class="card shadow mb-4">
 
             <div class="card-header py-3">
-                <h6 class="heading-small m-0 font-weight-bold text-primary">Profil Saya</h6>
+                <!-- heading-small -->
+                <h6 class="m-0 font-weight-bold text-primary">Profil Saya</h6>
             </div>
 
             <div class="card-body">
@@ -95,8 +96,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="name">Name<span
-                                            class="small text-danger">*</span></label>
+                                    <label class="form-control-label" for="name">Nama</label>
                                     <input readonly type="text" id="name" class="form-control" name="name"
                                         placeholder="Name" value="{{ old('name', Auth::user()->name) }}">
                                 </div>
@@ -111,8 +111,7 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="email">Alamat Email<span
-                                            class="small text-danger">*</span></label>
+                                    <label class="form-control-label" for="email">Alamat Email</label>
                                     <input readonly type="email" id="email" name="email" class="form-control"
                                         placeholder="example@example.com"
                                         value="{{ old('email', Auth::user()->email) }}">
@@ -123,8 +122,7 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="nip">NIP<span
-                                            class="small text-danger">*</span></label>
+                                    <label class="form-control-label" for="nip">NIP</label>
                                     <input type="text" readonly id="nip" class="form-control" name="nip" placeholder=""
                                         value="{{ old('nip', Auth::user()->nip) }}">
                                 </div>
@@ -134,8 +132,7 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="nim">NIM<span
-                                            class="small text-danger">*</span></label>
+                                    <label class="form-control-label" for="nim">NIM</label>
                                     <input readonly type="text" id="nim" class="form-control" name="nim" placeholder=""
                                         value="{{ old('nim', Auth::user()->nim) }}">
                                 </div>
@@ -144,8 +141,7 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="jurusan">Jurusan<span
-                                            class="small text-danger">*</span></label>
+                                    <label class="form-control-label" for="jurusan">Jurusan</label>
                                     <br>
                                     <input readonly type="text" id="jurusan" class="form-control" name="jurusan"
                                         placeholder="" value="{{ old('jurusan', Auth::user()->jurusan) }}">
@@ -172,7 +168,7 @@
 
                             <!-- <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="tahunLulus">Tahun Lulus<span class="small text-danger">*</span></label>
+                                    <label class="form-control-label" for="tahunLulus">Tahun Lulus</label>
                                     <input type="text" class="form-control form-control-user" name="tahunLulus" value="{{ old('tahunLulus', Auth::user()->tahunLulus) }}" required>
                                 </div>
                             </div> -->
@@ -204,8 +200,7 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="nomorPonsel">Nomor Ponsel<span
-                                            class="small text-danger">*</span></label>
+                                    <label class="form-control-label" for="nomorPonsel">Nomor Ponsel</label>
                                     <input type="text" class="form-control form-control-user" name="nomorPonsel"
                                         value="{{ old('nomorPonsel', Auth::user()->nomorPonsel) }}" required>
                                 </div>
@@ -239,7 +234,7 @@
                             <div class="col-12 py-2">
                                 <div class="row text-center">
                                     <div class="col">
-                                        <button type="submit" class="btn btn-primary">Update Profil</button>
+                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                     </div>
                                 </div>
                             </div>

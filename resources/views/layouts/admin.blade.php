@@ -29,6 +29,9 @@
     <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel=" stylesheet">
     <script src="https://kit.fontawesome.com/73dfd73928.js" crossorigin="anonymous"></script>
 
+    <!-- Swal -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- CSS tambahan untuk Detail Monitoring Permohonan -->
     <link rel="stylesheet" href="{{ asset('css/style-monitoring.css') }}">
 
@@ -78,19 +81,20 @@
                 </a>
             </li>
 
+            @role('superadmin|petugasbaak|kepalabaak')
             <li class="nav-item">
                 <a class="nav-link collapsed" href=" {{ route('verifikasiindex') }}">
                     <i class="fas fa-fw fas fa-user-edit"></i>
                     <span>{{ __('Verifikasi Akun') }}</span>
                 </a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link collapsed" href=" {{ route('manajemen_alumni') }}">
                     <i class="fas fa-fw fa-users-cog"></i>
                     <span>{{ __('Manajemen Data Alumni') }}</span>
                 </a>
             </li>
+            @endrole
 
             <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href=" {{ route('addalumni') }}">
@@ -133,7 +137,7 @@
                 </a>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Formulir tersedia:</h6>
+                        <h6 class="collapse-header">Jenis Permohonan:</h6>
                         <a class="collapse-item" href="{{ route('formulir.ijazah') }}">Legalisir Ijazah</a>
                         <a class="collapse-item" href="{{ route('formulir.transkrip') }}">Legalisir Transkrip Nilai</a>
                     </div>
@@ -157,7 +161,7 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <div class="sidebar-heading">
-                {{ __('Settings') }}
+                {{ __('Lainnya') }}
             </div>
 
             <!-- Nav Item - Profile -->
@@ -249,7 +253,7 @@
                                     {{ __('Activity Log') }}
                                 </a> -->
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" onclick="logout();">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     {{ __('Logout') }}
                                 </a>
@@ -347,6 +351,24 @@
     $(function() {
         $('[data-toggle="popover"]').popover()
     })
+
+    // logout using swal
+    function logout() {
+        Swal.fire({
+            title: "Apakah anda yakin?",
+            text: "Anda akan keluar dari sistem",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Logout',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('logout-form').submit();
+            }
+        });
+    }
     </script>
 
 
@@ -356,18 +378,16 @@
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-xl">
             <!-- Modal content-->
-            <div class="modal-content">
+            <div class="modal-content" style="height:90vh;">
                 <div class="modal-header">
-                    <h4 class="modal-title">Preview Tampilan</h4>
+                    <h4 class="modal-title">Preview Dokumen</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-
-                    <embed id="modalpdf" src="" frameborder="0" width="100%" height="720px">
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                    <embed id="modalpdf" src="" frameborder="0" width="100%" height="100%">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                 </div>
             </div>
             <!-- End of Modal content -->

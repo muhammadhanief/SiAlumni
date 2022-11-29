@@ -56,8 +56,8 @@
                         <th>{{ Auth::user()->email }}</th>
                     </tr>
                     <tr>
-                        <th>TTL</th>
-                        <th>{{ Auth::user()->tempatLahir }} {{ Auth::user()->tanggalLahir }}</th>
+                        <th>Tempat, Tanggal Lahir</th>
+                        <th>{{ Auth::user()->tempatLahir }} , {{ Auth::user()->tanggalLahir }}</th>
                     </tr>
                     <tr>
                         <th>Jurusan</th>

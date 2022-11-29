@@ -298,7 +298,10 @@ class PermohonanController extends Controller
         $simpan = [
             'name' => $akun->name,
             'jenis' => $data->jenis,
+            'filepath' => public_path() . '/storage/' . $data->file_legalisir,
+            'filename' => $data->jenis . '_' . $akun->nim . '_' . time() . '.pdf',
         ];
+        
         $email = $data->email_pengambilan;
         Mail::to($email)->send(new MailPublish($simpan));
         $data->save();

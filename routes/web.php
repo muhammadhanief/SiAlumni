@@ -31,13 +31,13 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('auth.login');
     // return view('landingpage.home');
-});
+})->name('login');
 
 // Route::get('/landing', function () {
 //     return view('landingpage.home');
 // });
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'status']], function () {
 
     Route::get('/home', function () {
         return view('alumni.home');
