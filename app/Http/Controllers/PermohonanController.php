@@ -221,7 +221,7 @@ class PermohonanController extends Controller
 
             <div class="col-lg-6">
                 <div class="form-group focused">
-                    <label class="form-control-label" for="nim">Nim</label>
+                    <label class="form-control-label" for="nim">NIM</label>
                     <input type="text" id="nim" class="form-control bg-light border-0" nama="nim" value="' . $user->nim . '" readonly>
                 </div>
             </div>
@@ -236,7 +236,7 @@ class PermohonanController extends Controller
             <div class="col-lg-6">
                 <div class="form-group">
                     <label class="form-control-label" for="jenis">Jenis</label>
-                                    <input type="text" id="jenis" class="form-control bg-light border-0" name="jenis" value="' . $data->jenis . '" disabled>
+                                    <input type="text" id="jenis" class="form-control bg-light border-0" name="jenis" value="' . ($data->jenis == "ijazah" ? 'Ijazah' : 'Transkrip Nilai') . '" disabled>
                 </div>
             </div>
             '
@@ -294,6 +294,8 @@ class PermohonanController extends Controller
         $data->status = "Selesai";
         $data->time_selesai = date("Y-m-d H:i:s");
         $data->file_legalisir = $legalisir->file_legalisir;
+        $data->resi = $_POST['resi'];
+
         $akun = User::find($data->user_id);
         $simpan = [
             'name' => $akun->name,
@@ -301,8 +303,12 @@ class PermohonanController extends Controller
             'filepath' => public_path() . '/storage/' . $data->file_legalisir,
             'filename' => $data->jenis . '_' . $akun->nim . '_' . time() . '.pdf',
         ];
-        
-        $email = $data->email_pengambilan;
+
+        if ($data->email_pengambilan == null) {
+            $email = $akun->email;
+        } else {
+            $email = $data->email_pengambilan;
+        }
         Mail::to($email)->send(new MailPublish($simpan));
         $data->save();
 

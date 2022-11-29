@@ -23,6 +23,7 @@ class Permohonan extends Model
         'pengambilan',
         'alamat_pengambilan',
         'email_pengambilan',
+        'resi',
         'status',
         'file_legalisir',
         'time_petugas_baak',
