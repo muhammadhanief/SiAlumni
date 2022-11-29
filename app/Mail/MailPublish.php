@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Attachment;
 
 class MailPublish extends Mailable
 {
@@ -22,6 +23,8 @@ class MailPublish extends Mailable
     {
         $this->data = $data;
         $this->jenis = $data['jenis'];
+        $this->filepath = $data['filepath'];
+        $this->filename = $data['filename'];
     }
 
     /**
@@ -58,6 +61,10 @@ class MailPublish extends Mailable
      */
     public function attachments()
     {
-        return [];
+        return [
+            Attachment::fromPath($this->filepath)
+                    ->as($this->filename)
+                    ->withMime('application/pdf'),
+        ];
     }
 }

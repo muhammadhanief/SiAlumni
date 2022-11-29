@@ -50,6 +50,7 @@ class VerifikasiAkunController extends Controller
             ->where('id', $id_user)
             ->update(['statusAkun' => 'Lolos', 'nim' => $users->nim, 'tahunLulus' => $users->tahunLulus]);
         $user = DB::table('users')->where('id', $id_user)->first();
+
         $email = $user->email;
         $data = ([
             'name' => $users->name,
@@ -62,23 +63,26 @@ class VerifikasiAkunController extends Controller
 
     public function tolakakun($id)
     {
-        $users = dataalumni::where('id', $id)->first();
-        $email = $users->email;
-        $data = ([
-            'name' => $users->name,
-            'email' => $users->email,
-            'nim' => $users->nim,
-        ]);
+        // $users = dataalumni::where('id', $id)->first();
+
+        // $email = $users->email;
+        // $data = ([
+        //     'name' => $users->name,
+        //     'email' => $users->email,
+        //     'nim' => $users->nim,
+        // ]);
+
         DB::table('users')
             ->where('id', $id)
-            ->update(['statusAkun' => 'Ditolak']);
+            ->update(['statusAkun' => 'Ditolak', 'nim' => null, 'tahunLulus' => null]);
         $user = DB::table('users')->where('id', $id)->first();
+
         $email = $user->email;
         $data = ([
-            'name' => $users->name,
-            'email' => $users->email,
-            'nim' => $users->nim,
-            ]);
+            'name' => $user->name,
+            'email' => $user->email,
+            'nim' => $user->nim,
+        ]);
         Mail::to($email)->send(new MailVerifikasiTolak($data));
         return redirect('/verifikasiindex')->with('success', 'Akun berhasil ditolak');
     }

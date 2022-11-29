@@ -6,7 +6,7 @@
 
 
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">{{ __('Formulir Pengajuan Legalisir Ijazah') }}</h1>
+<h1 class="h3 mb-4 text-gray-800">{{ __('Formulir Permohonan Legalisir Ijazah') }}</h1>
 
 @if (session('success'))
 <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -39,10 +39,10 @@
 
         <div class="col-lg-6">
 
-            <!-- Detail Pengajuan -->
+            <!-- Data Diri -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Detail Pengajuan</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Data Diri</h6>
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -74,10 +74,10 @@
                             <th>Jurusan</th>
                             <th>{{ Auth::user()->jurusan }}</th>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th>Tahun Lulus</th>
                             <th>{{ Auth::user()->tahunLulus }}</th>
-                        </tr>
+                        </tr> -->
                     </table>
 
                 </div>
@@ -99,21 +99,18 @@
                     <!-- <br>
                     <br> -->
                     <p class="ms-auto">Catatan Tambahan
-                        <i class="far fa-question-circle" data-toggle="popover" data-placement="right"
-                            title="Catatan Tambahan"
-                            data-content="Tuliskan permintaan tambahan, misalnya permintaan legalisir ijazah/ transkrip nilai dalam Bahasa Inggris"></i>
+                        <i class="far fa-question-circle" data-toggle="popover" data-placement="right" title="Catatan Tambahan" data-content="Tuliskan permintaan tambahan, misalnya permintaan legalisir ijazah/ transkrip nilai dalam Bahasa Inggris"></i>
                         <br>
                         <!-- <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                             <span class="icon text-light">
                                 <i class='fas fa-download'></i>
                             </span>
-                            <span class="text">Unduh Formulir</span>
+                            <span class="text">Unduh Template</span>
                         </a> -->
                     </p>
                     <!-- <input class="form-control" type="file" id="formFile" name="file_permohonan" required> -->
 
-                    <textarea class="form-control" name="catatan" id="catatan" rows="3"
-                        placeholder="Catatan"></textarea>
+                    <textarea class="form-control" name="catatan" id="catatan" rows="3" placeholder="Catatan"></textarea>
                     <br>
 
                     <!-- Hanya untuk legalisir Ijazah atau Transkrip > 4 tahun -->
@@ -132,8 +129,7 @@
 
                     <p>Metode Pengambilan</p>
 
-                    <select id="metodePengambilan" name="pengambilan"
-                        class="form-select form-control bg-light border-0 small">
+                    <select id="metodePengambilan" name="pengambilan" class="form-select form-control bg-light border-0 small">
                         <option value="1">Dikirimkan ke email pemohon dalam bentuk hasil scan</option>
                         <option value="2">Diambil di kampus Polstat STIS langsung oleh pemohon</option>
                         <option value="3">Diambil di kampus Polstat STIS oleh orang lain yang telah diberi kuasa
@@ -151,19 +147,15 @@
                     <div id="alamat-pengiriman">
                         <p>Alamat Pengiriman</p>
                         <div class="input-group">
-                            <input id="alamat_pengambilan" name=" alamat_pengambilan" type="text"
-                                class="form-control bg-light border-1 small" placeholder="" aria-label="Search"
-                                aria-describedby="basic-addon2">
+                            <input id="alamat_pengambilan" name=" alamat_pengambilan" type="text" class="form-control bg-light border-1 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
                         </div>
                     </div>
 
-                    <!-- Jika opsi yang dipilih nomer 1 -->
+                    <!-- Jika opsi yang dipilijeniskelamin nomer 1 -->
                     <div id="email-pengiriman">
                         <p>Alamat Email</p>
                         <div class="input-group">
-                            <input id="email_pengambilan" name="email_pengambilan" type="email"
-                                class="form-control bg-light border-1 small" placeholder="" aria-label="Search"
-                                aria-describedby="basic-addon2">
+                            <input id="email_pengambilan" name="email_pengambilan" type="email" class="form-control bg-light border-1 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
                         </div>
                     </div>
 
@@ -172,12 +164,11 @@
                     <div id="surat_kuasa">
                         <p class="ms-auto">Surat Kuasa
                             <br>
-                            <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank”
-                                class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                            <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                                 <span class="icon text-light">
                                     <i class='fas fa-download'></i>
                                 </span>
-                                <span class="text">Unduh Formulir</span>
+                                <span class="text">Unduh Template</span>
                             </a>
                         </p>
                         <input class="form-control" type="file" id="formFileKuasa" name="file_kuasa">

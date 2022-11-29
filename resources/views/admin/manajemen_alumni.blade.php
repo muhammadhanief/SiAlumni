@@ -36,9 +36,20 @@
                 Tambah Data Alumni
             </a> -->
         </div>
-        <hr>
-        <div class="row justify-content-between">
 
+
+        <!-- <hr> -->
+        <!-- <div class="row justify-content-start">
+            <a href="{{ route('users.export') }}">
+                <button class="btn btn-success">
+                    Export Data Alumni
+                </button>
+            </a>
+        </div> -->
+    </div>
+    <div class=" card-body">
+
+        <div class="row justify-content-between">
             <div class="col-md-6">
                 <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -49,7 +60,7 @@
                     </button>
                 </form>
             </div>
-            <div class="col-md-6    ">
+            <div class="col-md-6">
                 <br>
                 <br>
                 <br>
@@ -59,19 +70,10 @@
                     </button>
                 </a>
             </div>
-
-
         </div>
-        <!-- <hr> -->
-        <div class="row justify-content-start">
-            <!-- <a href="{{ route('users.export') }}">
-                <button class="btn btn-success">
-                    Export Data Alumni
-                </button>
-            </a> -->
-        </div>
-    </div>
-    <div class=" card-body">
+
+        <hr>
+
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <!-- <table id="datatable-buttons" class="table table-bordered dt-responsive w-100">-->
@@ -110,8 +112,9 @@
                             <a class="btn btn-secondary btn-sm" disabled>Belum Upload</a>
                             @endif
                         </td>
-                        <td><a class="btn btn-primary btn-sm" onclick="openModalInput(`{{ $data->id }}`);">
-                                Aksi
+                        <td class="text-center">
+                            <a class="btn btn-info btn-circle btn-sm" onclick="openModalInput(`{{ $data->id }}`);">
+                                <i class="fas fa-external-link-alt"></i>
                             </a>
                         </td>
                     </tr>

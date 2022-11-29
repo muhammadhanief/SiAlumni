@@ -32,13 +32,15 @@
                     <h4 class="m-0 font-weight-bold text-primary col">Data Akun</h4>
                 </div>
                 <!-- <div class="row justify-content-first"> -->
-                <!-- <br> -->
-                <p class="card-title-desc">Klik tombol <span class="btn btn-success btn-circle btn-sm fas fa-check"
-                        data-feather="check"></span>
-                    untuk menyetujui dan <span class="btn btn-info btn-circle btn-sm fas fa-pause"
-                        data-feather="check"></span> untuk Pending dan <span
-                        class="btn btn-danger btn-circle btn-sm fas fa-hand" data-feather="check"></span>
-                    untuk menolak aktivasi akun</p>
+                <br>
+                <p class="card-title-desc">
+                    <i class="btn btn-success btn-circle btn-sm" data-feather="check"><i class="fas fa-check"></i></i>
+                    Setujui &emsp;
+                    <i class="btn btn-info btn-circle btn-sm" data-feather="check"><i class="fas fa-pause"></i></i>
+                    Pending &emsp;
+                    <i class="btn btn-danger btn-circle btn-sm" data-feather="check"><i class="fas fa-hand"></i></i>
+                    Tolak
+                </p>
                 <!-- </div> -->
             </div>
             <!-- tabel user -->
@@ -55,8 +57,7 @@
                                 <th>Tanggal Lahir</th>
                                 <!-- <th>Tahun Lulus</th> -->
                                 <!-- <th>Email</th> -->
-                                <th>File SK Penempatan 1 BPS</th>
-                                <th>File SK Atasan BPS</th>
+                                <th>Lampiran</th>
                                 <th>Status Akun</th>
                                 <th>Aksi</th>
                             </tr>
@@ -75,35 +76,54 @@
                                 <!-- <td>{{ $user->email }}</td> -->
                                 <!-- <td>{{ $user->jurusan }}</td> -->
                                 <td>
-                                    <a class="btn btn-primary btn-sm"
+                                    @if ($user->tipe_alumni == 'BPS')
+                                    <a class="btn btn-primary btn-sm mb-1"
                                         onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanbps) }}`);">
-                                        Klik Untuk Melihat
+                                        Surat Pernyataan Atasan Langsung
                                     </a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-primary btn-sm"
+                                    <a class="btn btn-primary btn-sm mb-1"
                                         onclick="openModalPDF(`{{ asset('storage/'.$user->skpenempatan1bps) }}`);">
-                                        Klik Untuk Melihat
+                                        SK Penempatan Terakhir BPS
                                     </a>
+
+                                    @elseif ($user->tipe_alumni == 'Non-BPS')
+                                    <a class="btn btn-primary btn-sm mb-1"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanlangsung) }}`);">
+                                        Surat Pernyataan Atasan Langsung
+                                    </a>
+                                    <a class="btn btn-primary btn-sm mb-1"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$user->sklunastgr) }}`);">
+                                        SK Lunas TGR
+                                    </a>
+                                    @endif
                                 </td>
-                                <td>{{ $user->statusAkun }}</td>
                                 <td>
-                                    <form action="/pendingakun/{{ $user->id }}" method="post" class="d-inline">
+                                    @if ($user->statusAkun == 'Lolos')
+                                    <span class="btn btn-success btn-sm">Lolos</span>
+                                    @elseif ($user->statusAkun == 'Pending')
+                                    <span class="btn btn-warning btn-sm">Pending</span>
+                                    @else
+                                    <span class="btn btn-danger btn-sm">Tidak Lolos</span>
+                                    @endif
+                                <td class="text-center">
+                                    <form action="/pendingakun/{{ $user->id }}" method="post" class="d-inline"
+                                        id="form-pending-{{ $user->id }}">
                                         @csrf
                                         @method('post')
 
-                                        <button type="submit" class="btn btn-info btn-circle btn-sm"
-                                            onclick="return confirm('Apakah kamu yakin pending akun?')"><span
-                                                data-feather="check"><i class="fas fa-pause"></i></span></button>
                                     </form>
-                                    <form action="/tolakakun/{{ $user->id }}" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-info btn-circle btn-sm mb-1"
+                                        onclick="pending('{{ $user->id }}')"><span data-feather="check"><i
+                                                class="fas fa-pause"></i></span></button>
+                                    <form action="/tolakakun/{{ $user->id }}" method="post" class="d-inline"
+                                        id="form-tolak-{{ $user->id }}">
                                         @csrf
                                         @method('post')
 
-                                        <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                            onclick="return confirm('Apakah kamu yakin menolak akun?')"><span
-                                                data-feather="check"><i class="fa-regular fa-hand"></i></span></button>
                                     </form>
+                                    <button type="submit" class="btn btn-danger btn-circle btn-sm mb-1"
+                                        onclick="tolak('{{ $user->id }}')"><span data-feather="check"><i
+                                                class="fa-regular fa-hand"></i></span></button>
                                     <!-- <form action="/verifakun/{{ $user->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
@@ -121,8 +141,10 @@
                     </table>
                 </div>
             </div>
-            <div class="card-header py-0">
-                <h4 class="font-weight-bold text-primary">Database Mahasiswa</h4>
+        </div>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h4 class="font-weight-bold text-primary">Database Alumni</h4>
             </div>
             <!-- tabel database -->
             <div class="card-body">
@@ -166,15 +188,16 @@
                                     </a>
                                 </td>
                                 <!-- <td>{{ $data->statusAkun }}</td> -->
-                                <td>
-                                    <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
+                                <td class="text-center">
+                                    <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline"
+                                        id="form-{{ $data->id }}">
                                         @csrf
                                         @method('post')
                                         <input type="hidden" name="id_user" value="{{ $user->id }}">
-                                        <button type="submit" class="btn btn-success btn-circle btn-sm"
-                                            onclick="return confirm('Apakah kamu yakin menyetujui akun?')"><span
-                                                data-feather="check"><i class="fas fa-check"></i></span></button>
                                     </form>
+                                    <button type="submit" class="btn btn-success btn-circle btn-sm"
+                                        onclick="setuju('{{ $data->id }}')"><span data-feather="check"><i
+                                                class="fas fa-check"></i></span></button>
                                 </td>
                                 <!-- <td> -->
                                 <!-- <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
@@ -224,8 +247,79 @@
 
 </div>
 
-
 <!-- End of Main Content -->
 <!-- End of Content Wrapper -->
-<!-- </html> -->
+
+
+
+<script>
+function setuju(id) {
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: "Apakah Anda yakin untuk menyetujui aktivasi akun?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Setujui!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // submit form using jquery
+            $('#form-' + id).submit();
+            Swal.fire(
+                'Disetujui!',
+                'Akun telah diverifikasi.',
+                'success'
+            )
+        }
+    })
+}
+
+function pending(id) {
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: "Apakah Anda yakin untuk pending aktivasi akun?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Pending!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // submit form using jquery
+            $('#form-pending-' + id).submit();
+            Swal.fire(
+                'Pending!',
+                'Aktivasi akun telah pending.',
+                'success'
+            )
+        }
+    })
+}
+
+function tolak(id) {
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: "Apakah Anda yakin untuk menolak aktivasi akun?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Tolak!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // submit form using jquery
+            $('#form-tolak-' + id).submit();
+            Swal.fire(
+                'Ditolak!',
+                'Aktivasi akun telah ditolak.',
+                'success'
+            )
+        }
+    })
+}
+</script>
 @endsection

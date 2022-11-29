@@ -21,17 +21,24 @@ class FormulirController extends Controller
 
         $user = Auth::user();
 
+        if($user->tipe_alumni == 'BPS'){
+
         $tahun = substr($user->nip, 8, 4);
         $bulan = substr($user->nip, 12, 2);
         $tahunsekarang = date("Y");
-        $bulansekaran = date("m");
-        $selisihdalambulan = ($tahunsekarang - $tahun) * 12 + ($bulansekaran - $bulan);
+        $bulansekarang = date("m");
+        $selisihdalambulan = ($tahunsekarang - $tahun) * 12 + ($bulansekarang - $bulan);
 
         if ($selisihdalambulan > 48 || $user->tipe_alumni == "Non-BPS") {
             $eligible = true;
         } else {
             $eligible = false;
         }
+    } elseif ($user->tipe_alumni == "Non-BPS") {
+        $eligible = true;
+    } else {
+        $eligible = false;
+    }
 
         return view('formulir_ijazah', [
             'user' => $user,
@@ -48,8 +55,8 @@ class FormulirController extends Controller
             $tahun = substr($user->nip, 8, 4);
             $bulan = substr($user->nip, 12, 2);
             $tahunsekarang = date("Y");
-            $bulansekaran = date("m");
-            $selisihdalambulan = ($tahunsekarang - $tahun) * 12 + ($bulansekaran - $bulan);
+            $bulansekarang = date("m");
+            $selisihdalambulan = ($tahunsekarang - $tahun) * 12 + ($bulansekarang - $bulan);
 
             if ($selisihdalambulan > 48) {
                 $eligible = true;
