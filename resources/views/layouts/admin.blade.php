@@ -355,8 +355,8 @@
     // logout using swal
     function logout() {
         Swal.fire({
-            title: "Apakah anda yakin?",
-            text: "Anda akan keluar dari sistem",
+            title: "Apakah Anda yakin?",
+            text: "Anda akan keluar dari SiAlumni",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
