@@ -128,16 +128,6 @@
                                         value="{{ old('nip', Auth::user()->nip) }}">
                                 </div>
                             </div>
-                            @else
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="instansi">Instansi</label>
-                                    <input type="text" id="nip" class="form-control" name="nip" placeholder=""
-                                        value="{{ old('nip', Auth::user()->instansi) }}">
-                                </div>
-                            </div>
-                            @endif
-
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="nim">NIM</label>
@@ -155,6 +145,34 @@
                                         placeholder="" value="{{ old('jurusan', Auth::user()->jurusan) }}">
                                 </div>
                             </div>
+                            @elseif (Auth::user()->tipe_alumni == 'Non-BPS')
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="nim">NIM</label>
+                                    <input readonly type="text" id="nim" class="form-control" name="nim" placeholder=""
+                                        value="{{ old('nim', Auth::user()->nim) }}">
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="jurusan">Jurusan</label>
+                                    <br>
+                                    <input readonly type="text" id="jurusan" class="form-control" name="jurusan"
+                                        placeholder="" value="{{ old('jurusan', Auth::user()->jurusan) }}">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="instansi">Instansi</label>
+                                    <input type="text" id="nip" class="form-control" name="nip" placeholder=""
+                                        value="{{ old('nip', Auth::user()->instansi) }}">
+                                </div>
+                            </div>
+                            @endif
+
+                            
                             <!-- <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="jeniskelamin">Jenis Kelamin<span

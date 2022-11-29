@@ -68,7 +68,7 @@
                             @elseif($item->status == 'Disetujui Kepala BAAK')
                             <div class="p-2 mb-2 bg-info text-light rounded btn-sm">{{ $item->status }}</div>
                             @elseif($item->status == 'Disetujui Petugas BAAK')
-                            <div class="p-2 mb-2 text-light rounded btn-sm" style="background:#ecab50 ;">
+                            <div class="p-2 mb-2 text-light bg-warning rounded btn-sm" >
                                 {{ $item->status }}</div>
                             @elseif($item->status == 'Disetujui Wakil Direktur 1')
                             <div class="p-2 mb-2 text-light bg-primary rounded btn-sm">

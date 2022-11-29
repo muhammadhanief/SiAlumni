@@ -21,7 +21,7 @@ class MailPetugasBaak extends Mailable
     public function __construct($data)
     {
         $this->data = $data;
-        $this->jenis = $data['jenis'];
+        $this->jenis = ucwords(($data['jenis']=='transkrip') ? 'transkrip nilai' : 'ijazah');
     }
 
     /**
@@ -47,6 +47,7 @@ class MailPetugasBaak extends Mailable
             markdown: 'emails.admin.petugasbaak',
             with: [
                 'data' => $this->data,
+                'jenis' => $this->jenis,
             ],
         );
     }

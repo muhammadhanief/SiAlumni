@@ -73,8 +73,8 @@
                             <th>{{ Auth::user()->email }}</th>
                         </tr>
                         <tr>
-                            <th>TTL</th>
-                            <th>{{ Auth::user()->tempatLahir }} {{ Auth::user()->tanggalLahir }}</th>
+                            <th>Tempat, Tanggal Lahir</th>
+                            <th>{{ Auth::user()->tempatLahir }}, {{\Carbon\Carbon::parse(Auth::user()->tanggalLahir)->format('d M Y') }}</th>
                         </tr>
                         <tr>
                             <th>Jurusan</th>

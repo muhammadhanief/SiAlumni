@@ -21,7 +21,7 @@ class MailWadir1 extends Mailable
     public function __construct($data)
     {
         $this->data = $data;
-        $this->jenis = $data['jenis'];
+        $this->jenis = ucwords(($data['jenis']=='transkrip') ? 'transkrip nilai' : 'ijazah');
     }
 
     /**
@@ -47,6 +47,7 @@ class MailWadir1 extends Mailable
             markdown: 'emails.admin.wadir1',
             with: [
                 'data' => $this->data,
+                'jenis' => $this->jenis,
             ],
         );
     }
