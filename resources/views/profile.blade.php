@@ -120,7 +120,7 @@
 
 
                             <!-- if tipe alumni -->
-                            @if (Auth::user()->tipe_alumni == 'alumni')
+                            @if (Auth::user()->tipe_alumni == 'BPS')
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="nip">NIP</label>
