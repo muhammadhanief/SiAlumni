@@ -47,6 +47,7 @@ class MailPermohonanPetugas extends Mailable
             markdown: 'emails.admin.permohonanbaru',
             with: [
                 'data' => $this->data,
+                'jenis' => $this->jenis,
             ],
         );
     }
