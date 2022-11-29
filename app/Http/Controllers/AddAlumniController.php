@@ -34,33 +34,33 @@ class AddAlumniController extends Controller
 
                             <div class="col-lg-6">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="name">Nama<span class="small text-danger">*</span></label>
+                                    <label class="form-control-label" for="name">Nama</label>
                                     <input type="text" id="name" class="form-control bg-light border-0" name="name" value="' . $alumni->name . '" disabled>
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="nim">NIM<span class="small text-danger">*</span></label>
+                                    <label class="form-control-label" for="nim">NIM</label>
                                     <input type="text" id="nim" class="form-control bg-light border-0" name="nim" value="' . $alumni->nim . '" disabled>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="">Dokumen Ijazah<span class="small text-danger">*</span></label>
+                                    <label class="form-control-label" for="">Dokumen Ijazah</label>
                                     <!-- <input class="form-control form-control-user" type="file" name="ijazahasli"
                                         id="ijazahasli"> -->
-                                    <input type="file" class="form-control form-control-user pt-2" name="ijazahasli" placeholder=" {{ __(\'SK Penempatan 1 BPS\') }}" required>
+                                    <input type="file" class="form-control form-control-user pt-2" name="ijazahasli" placeholder=" {{ __(\'SK Penempatan 1 BPS\') }}">
                                     <br>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="">Dokumen Transkrip Nilai<span class="small text-danger">*</span></label>
+                                    <label class="form-control-label" for="">Dokumen Transkrip Nilai</label>
                                     <!-- <input class="form-control form-control-user" type="file" name="transkripnilaiasli"
                                         id="transkripnilaiasli"> <br> -->
 
-                                    <input type="file" class="form-control form-control-user pt-2" name="transkripnilaiasli" placeholder=" {{ __(\'SK Penempatan 1 BPS\') }}" required>
+                                    <input type="file" class="form-control form-control-user pt-2" name="transkripnilaiasli" placeholder=" {{ __(\'SK Penempatan 1 BPS\') }}" >
                                 </div>
                             </div>
                         </div>
@@ -97,37 +97,25 @@ class AddAlumniController extends Controller
         //
         $validate =  $request->validate([
             'id' => 'required',
-            // 'name' => ['required', 'string', 'max:255'],
-            // 'email' => ['required', 'string', 'email', 'max:255'],
-            // 'nip' => ['required', 'string', 'max:255'],
-            // 'nim' => ['required', 'string', 'max:255'],
-            // 'jurusan' => ['required', 'string', 'max:255'],
-            // 'tahunLulus' => ['required', 'string', 'max:255'],
-            // 'tempatLahir' => ['required', 'string', 'max:255'],
-            // 'tanggalLahir' => ['required', 'string', 'max:255'],
-            // 'nomorPonsel' => ['required', 'string', 'max:255'],
-            // 'name' => ['required', 'string', 'max:255'],
-            'ijazahasli' => 'required|mimes:pdf',
-            'transkripnilaiasli' => 'required|mimes:pdf',
+            'ijazahasli' => 'mimes:pdf',
+            'transkripnilaiasli' => 'mimes:pdf',
         ]);
 
-        // $validate['ijazahasli'] = $request->file('ijazahasli')->store('ijazahasli');
-        // $validate['transkripnilaiasli'] = $request->file('transkripnilaiasli')->store('transkripnilaiasli');
-        DB::table('dataalumni')->where('id', $request->id)->update([
-            // 'name' => $request->input('name'),
-            // 'email' => $request->input('email'),
-            // 'nip' => $request->input('nip'),
-            // 'nim' => $request->input('nim'),
-            // 'jurusan' => $request->input('jurusan'),
-            // 'jurusan' => 'D-IV Komputasi Statistik',
-            // 'tahunLulus' => $request->input('tahunLulus'),
-            // 'tempatLahir' => $request->input('tempatLahir'),
-            // 'tanggalLahir' => $request->input('name'),
-            // 'nomorPonsel' => $request->input('nomorPonsel'),
-            // 'jenisKelamin' => $request->input('jenisKelamin'),
-            'ijazahasli' => $request->file('ijazahasli')->store('ijazahasli'),
-            'transkripnilaiasli' => $request->file('transkripnilaiasli')->store('transkripnilaiasli'),
-        ]);
+        if (!request()->hasFile('ijazahasli')) {
+            DB::table('dataalumni')->where('id', $request->id)->update([
+                'transkripnilaiasli' => $request->file('transkripnilaiasli')->store('transkripnilaiasli')
+            ]);
+        } elseif (!request()->hasFile('transkripnilaiasli')) {
+            DB::table('dataalumni')->where('id', $request->id)->update([
+                'ijazahasli' => $request->file('ijazahasli')->store('ijazahasli')
+            ]);
+        } else {
+            DB::table('dataalumni')->where('id', $request->id)->update([
+                'ijazahasli' => $request->file('ijazahasli')->store('ijazahasli'),
+                'transkripnilaiasli' => $request->file('transkripnilaiasli')->store('transkripnilaiasli')
+            ]);
+        }
+
 
         return redirect()->route('manajemen_alumni')->withSuccess('Data Berhasil Ditambahkan.');
         // $user = dataalumni::create($validate);
