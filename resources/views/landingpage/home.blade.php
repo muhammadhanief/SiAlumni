@@ -28,7 +28,7 @@
             <div class="container">
                 <div id="navbar">
                     <img src="img/stis.png" class="logo" alt="logo">
-                    <h1 class="kicker">SiAlumni</h1>
+                    <h1 class="kicktitle">SiAlumni</h1>
                     <nav>
 
                         <!-- <button class="navbar-toggle" aria-label="Toggle navigation">
@@ -81,7 +81,7 @@
                 <!-- For demo purpose -->
                 <div class="row text-center text-white mb-5">
                     <div class="col-lg-8 mx-auto">
-                        <h1 class="display-5">Prosedur Legalisir <br> Ijazah & Transkrip Nilai</h1>
+                        <h1 class="display-5 jumbo">Prosedur Legalisir <br> Ijazah & Transkrip Nilai</h1>
 
                     </div>
                 </div><!-- End -->

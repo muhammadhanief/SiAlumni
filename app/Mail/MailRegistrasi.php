@@ -31,7 +31,7 @@ class MailRegistrasi extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Registrasi akun SiAlumni Anda telah berhasil.',
+            subject: 'Registrasi akun SiAlumni Anda telah berhasil',
         );
     }
 

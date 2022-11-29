@@ -22,7 +22,7 @@ class MailPublish extends Mailable
     public function __construct($data)
     {
         $this->data = $data;
-        $this->jenis = $data['jenis'];
+        $this->jenis = ucwords(($data['jenis']=='transkrip') ? 'transkrip nilai' : 'ijazah');
         $this->filepath = $data['filepath'];
         $this->filename = $data['filename'];
     }
@@ -50,6 +50,7 @@ class MailPublish extends Mailable
             markdown: 'emails.user.publish',
             with: [
                 'data' => $this->data,
+                'jenis' => $this->jenis,
             ],
         );
     }
