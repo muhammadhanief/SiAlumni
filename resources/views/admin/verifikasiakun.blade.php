@@ -73,18 +73,18 @@
                         <!-- <td>{{ $data->jurusan }}</td> -->
                         <td>
                             @if ($data->tipe_alumni == 'BPS')
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanbps) }}`);">
+                            <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanbps) }}`);">
                                 Surat Pernyataan Atasan Langsung
                             </a>
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skpenempatan1bps) }}`);">
+                            <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$data->skpenempatan1bps) }}`);">
                                 SK Penempatan Terakhir BPS
                             </a>
 
                             @elseif ($data->tipe_alumni == 'Non-BPS')
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanlangsung) }}`);">
+                            <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$data->skatasanlangsung) }}`);">
                                 Surat Pernyataan Atasan Langsung
                             </a>
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->sklunastgr) }}`);">
+                            <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$data->sklunastgr) }}`);">
                                 SK Lunas TGR
                             </a>
                             @endif

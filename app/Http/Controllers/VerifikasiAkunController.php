@@ -84,6 +84,10 @@ class VerifikasiAkunController extends Controller
             'nim' => $user->nim,
         ]);
         Mail::to($email)->send(new MailVerifikasiTolak($data));
+        // remove email in database user
+        DB::table('users')
+            ->where('id', $id)
+            ->update(['email' => $user->id . '@alumni.com']);
         return redirect('/verifikasiindex')->with('success', 'Akun berhasil ditolak');
     }
 
