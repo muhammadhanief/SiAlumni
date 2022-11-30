@@ -44,23 +44,32 @@ class RegisteredUserController extends Controller
         $tipe_alumni = $request->tipe_alumni;
 
         if ($tipe_alumni == "BPS") {
-            $validate =  $request->validate([
-                'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'confirmed', Rules\Password::defaults()],
-                'nip' => ['required', 'string', 'max:255'],
-                // 'nim' => ['required', 'string', 'max:255'],
-                'jurusan' => ['required', 'string', 'max:255'],
-                // 'tahunLulus' => ['required', 'string', 'max:255'],
-                'tempatLahir' => ['required', 'string', 'max:255'],
-                'tanggalLahir' => ['required', 'string', 'max:255'],
-                'nomorPonsel' => ['required', 'string', 'max:255'],
-                // 'jenisKelamin' => ['required', 'string', 'max:255'],
-                'name' => ['required', 'string', 'max:255'],
-                'skpenempatan1bps' => 'required|mimes:pdf',
-                'skatasanbps' => 'required|mimes:pdf',
-                'tipe_alumni' => 'required',
-            ]);
+            $validate =  $request->validate(
+                [
+                    'name' => ['required', 'string', 'max:255'],
+                    'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                    'password' => ['required', 'confirmed', Rules\Password::defaults()],
+                    'nip' => ['required', 'string', 'max:255'],
+                    // 'nim' => ['required', 'string', 'max:255'],
+                    'jurusan' => ['required', 'string', 'max:255'],
+                    // 'tahunLulus' => ['required', 'string', 'max:255'],
+                    'tempatLahir' => ['required', 'string', 'max:255'],
+                    'tanggalLahir' => ['required', 'string', 'max:255'],
+                    'nomorPonsel' => ['required', 'string', 'max:255'],
+                    // 'jenisKelamin' => ['required', 'string', 'max:255'],
+                    'name' => ['required', 'string', 'max:255'],
+                    'skpenempatan1bps' => 'required|mimes:pdf',
+                    'skatasanbps' => 'required|mimes:pdf',
+                    'tipe_alumni' => 'required',
+                ],
+                [
+                    'skpenempatan1bps.required' => 'Dokumen Surat Pernyataan Atasan Langsung harus diisi',
+                    'skpenempatan1bps.mimes' => 'Dokumen Surat Pernyataan Atasan Langsung harus berformat PDF',
+                    'skatasanbps.required' => 'Dokumen SK Penempatan BPS Terakhir wajib diisi',
+                    'skatasanbps.mimes' => 'Dokumen SK Penempatan BPS Terakhir harus berformat PDF',
+
+                ]
+            );
 
             $validate['skpenempatan1bps'] = $request->file('skpenempatan1bps')->store('skpenempatan1bps');
             $validate['skatasanbps'] = $request->file('skatasanbps')->store('skatasanbps');
@@ -84,18 +93,24 @@ class RegisteredUserController extends Controller
                 'skatasanlangsung' => 'required|mimes:pdf',
                 'sklunastgr' => 'required|mimes:pdf',
                 'tipe_alumni' => 'required',
+            ], [
+                'skatasanlangsung.required' => 'Dokumen Surat Pernyataan Atasan Langsung wajib diisi',
+                'skatasanlangsung.mimes' => 'Dokumen Surat Pernyataan Atasan Langsung harus berformat PDF',
+                'sklunastgr.required' => 'Dokumen SK Lunas TGR (Tuntutan Ganti Rugi) wajib diisi',
+                'sklunastgr.mimes' => 'Dokumen SK Lunas TGR (Tuntutan Ganti Rugi) harus berformat PDF',
             ]);
 
             $validate['skatasanlangsung'] = $request->file('skatasanlangsung')->store('skatasanlangsung');
             $validate['sklunastgr'] = $request->file('sklunastgr')->store('sklunastgr');
         }
-        
+
         $emailuser = $validate['email'];
         $email = ['user' => "$emailuser", 'petugas' => 'zakiramadhanii14@gmail.com'];
         foreach ($email as $key => $value) {
-            if($key == 'user'){
+            if ($key == 'user') {
                 Mail::to($value)->send(new MailRegistrasi($validate));
-            }if($key == 'petugas'){              
+            }
+            if ($key == 'petugas') {
                 Mail::to($value)->send(new MailRegistrasiPetugas($validate));
             }
         }
@@ -108,13 +123,13 @@ class RegisteredUserController extends Controller
                 'name' => $value->name,
                 'user' => $validate['name'],
                 'email' => $validate['email'],
-                ] ; 
-                Mail::to($value->email)->send(new MailRegistrasiPetugas($simpan));
-            }
+            ];
+            Mail::to($value->email)->send(new MailRegistrasiPetugas($simpan));
+        }
         $simpan = [
-                'name' => $validate['name'],
-                'email' => $validate['email'],
-            ] ; 
+            'name' => $validate['name'],
+            'email' => $validate['email'],
+        ];
         //send email to user
         Mail::to($emailuser)->send(new MailRegistrasi($simpan));
 
