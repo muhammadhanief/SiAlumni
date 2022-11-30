@@ -167,7 +167,7 @@ class DatabaseSeeder extends Seeder
             'nip' => '198708262020121001',
             'tipe_alumni' => 'BPS',
             'nomorPonsel' => '085376470953',
-            'tanggalLahir' => '2022-11-08',
+            'tanggalLahir' => '2000-11-14',
             'jurusan' => 'D-IV Komputasi Statistik',
             'tahunLulus' => '2019',
             'skpenempatan1bps' => 'skpenempatan1bps/skpenempatan1bpsdummy.pdf',
@@ -267,5 +267,29 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         \App\Models\dataalumni::factory(40)->create();
+
+        $data1 = dataalumni::create([
+            "tahunMasuk" => "2010",
+            'nim' => '222011686',
+            'name' => 'Muhammad Hanief',
+            "noIjazahNasional" => "1000000000000000",
+            "nik" => "1304032508010003",
+            "agama" => "Islam",
+            // "email" => $this->faker->safeEmail,
+            "tempatLahir" => "Padang",
+            'tanggalLahir' => '2001-08-25',
+            "prodi" => "DIV Komputasi Statistik",
+            "peminatan" => "Sistem Informasi",
+            "kelas" => "3SI1",
+            "status" => "Ikatan Dinas",
+            "ipk" => "4,00",
+            "peringkat" => "1",
+            "noHp" => "085376470953",
+            "kabDomisiliPmb" => "Tanah Datar",
+            "provDomisiliPmb" => "Sumatera Barat",
+            "provDaftarPmb" => "Sumatera Barat",
+            'ijazahasli' => 'ijazahasli/contohijazah.pdf',
+            'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
+        ]);
     }
 }
