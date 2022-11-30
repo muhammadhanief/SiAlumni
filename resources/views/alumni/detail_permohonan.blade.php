@@ -33,7 +33,13 @@
         <p><b>Tanggal Permohonan</b></p>
         <p>{{ \Carbon\Carbon::parse($data->created_at)->format('d F Y') }}</p>
         <p><b>Jenis Permohonan</b></p>
-        <p style="text-transform:capitalize">{{ $data->jenis }}</p>
+        <p>
+            @if ($data->jenis == 'ijazah')
+            Ijazah
+            @elseif ($data->jenis == 'transkrip')
+            Transkrip Nilai
+            @endif
+        </p>
         <hr>
         <p><b>Progress Permohonan</b></p>
         <!-- Section: Monitoring Progress -->
@@ -138,7 +144,27 @@
                     </p>
                     <a href="{{ route('download', $data->id) }}" class="btn btn-success btn-icon-split">
                         <span class="text">Unduh Dokumen</span>
+                        <span class="icon text-light">
+                            <i class="fas fa-download"></i>
+                        </span>
                     </a>
+                    @if ($data->resi != null)
+                    <!-- resi with copy button -->
+                    <div class="form-group row mx-0 my-2">
+                        <div class="col-xs-3 mr-2 mt-2">
+                            <input type="text" class="form-control" id="resi" value="{{ $data->resi }}" style="height: 35px;" readonly>
+                            <span class="help-block">Resi Pengiriman</span>
+                        </div>
+                        <div class="col-xs-2 mr-2 mt-2">
+                            <button class="btn btn-secondary btn-icon-split" onclick="copyResi()">
+                                <span class="text">Salin</span>
+                                <span class="icon text-light">
+                                    <i class="fas fa-copy"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    @endif
                 </li>
                 @endif
 
@@ -167,5 +193,18 @@
 <!-- End of Main Content -->
 <!-- End of Content Wrapper -->
 
-
+<script>
+    function copyResi() {
+        var copyText = document.getElementById("resi");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            html: 'Resi <b>' + copyText.value + '</b> berhasil disalin',
+            confirmButtonColor: '#3085d6',
+        })
+    }
+</script>
 @endsection

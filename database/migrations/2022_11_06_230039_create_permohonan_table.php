@@ -27,6 +27,7 @@ return new class extends Migration
             $table->enum('pengambilan', ['1', '2', '3', '4']);
             $table->string('alamat_pengambilan')->nullable();
             $table->string('email_pengambilan')->nullable();
+            $table->string('resi')->nullable();
             // $table->string('status'); // status pakai enum
             $table->enum('status', ['Menunggu', 'Disetujui Petugas BAAK', 'Ditolak Petugas BAAK', 'Disetujui Kepala BAAK', 'Disetujui Wakil Direktur 1', 'Ditolak Kepala BAAK', 'Ditolak Wakil Direktur 1', 'Selesai'])->default('Menunggu');
             $table->string('alasan_tolak')->nullable();
