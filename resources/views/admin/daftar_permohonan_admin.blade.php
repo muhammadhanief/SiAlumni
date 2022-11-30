@@ -107,7 +107,7 @@
                             @elseif ($item->status == 'Disetujui Wakil Direktur 1' && !isset($legalisir[$item->id]))
                             <a onclick="openModalInput('{{ $item->id }}')" class="btn btn-primary btn-sm">Upload</a>
                             @elseif (isset($legalisir[$item->id]) && $item->status != 'Selesai')
-                            <a onclick="openModalPDFpublish(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`, `{{ $item->id }}`);" class="btn btn-warning btn-sm">Publish</a>
+                            <a onclick="openModalPDFpublish(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`, `{{ $item->id }}`, `{{ $item->pengambilan }}`);" class="btn btn-warning btn-sm">Publish</a>
                             @elseif ($item->status == 'Selesai' && isset($item->file_legalisir))
                             <a onclick="openModalPDF(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`);" class="btn btn-success btn-sm">Hasil</a>
                             @endif
@@ -224,7 +224,7 @@
 
                     <div class="row p-0 ">
                         <div class="form-group col-md-4 mb-0" id="input-resi">
-                            <input type="text" name="resi" class="form-control bg-light border-1 small" placeholder="Masukkan Resi Pengiriman" required>
+                            <input type="text" name="resi" id="resi" class="form-control bg-light border-1 small" placeholder="Masukkan Resi Pengiriman" required>
                         </div>
                         <div class="col-md-8 d-inline-flex justify-content-end">
                             <button type="submit" class="btn btn-primary m-1">Serahkan</button>
@@ -292,8 +292,11 @@
         // if permohonan->pengambilan != 4 invisible input resi
         if (pengambilan != 4) {
             $('#input-resi').css("visibility", "hidden");
+            $('#resi').attr('required', false);
+
         } else {
             $('#input-resi').css("visibility", "visible");
+            $('#resi').attr('required', true);
         }
         // await sleep(1 * 1000);
         $('#myModalPublish').modal('show');
