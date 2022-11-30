@@ -22,6 +22,12 @@
 </div>
 @endif
 
+@if (session('error'))
+<div class="alert alert-danger border-left-danger" role="alert">
+    {{ session('error') }}
+</div>
+@endif
+
 <!-- Tabel untuk approved pengajuan legalisir -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">

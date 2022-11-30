@@ -101,18 +101,23 @@ class AddAlumniController extends Controller
             'transkripnilaiasli' => 'mimes:pdf',
         ]);
 
-        if (!request()->hasFile('ijazahasli')) {
+        $validate['ijazahasli'] = ($request->file('ijazahasli') != null) ? $request->file('ijazahasli')->store('ijazahasli') : null;
+        $validate['transkripnilaiasli'] = ($request->file('transkripnilaiasli') != null) ? $request->file('transkripnilaiasli')->store('transkripnilaiasli') : null;
+
+        if (!request()->hasFile('ijazahasli') && !request()->hasFile('transkripnilaiasli')) {
+            return redirect()->back()->with('error', 'File tidak boleh kosong');
+        } elseif (!request()->hasFile('ijazahasli')) {
             DB::table('dataalumni')->where('id', $request->id)->update([
-                'transkripnilaiasli' => $request->file('transkripnilaiasli')->store('transkripnilaiasli')
+                'transkripnilaiasli' => $validate['transkripnilaiasli'],
             ]);
         } elseif (!request()->hasFile('transkripnilaiasli')) {
             DB::table('dataalumni')->where('id', $request->id)->update([
-                'ijazahasli' => $request->file('ijazahasli')->store('ijazahasli')
+                'ijazahasli' =>   $validate['ijazahasli'],
             ]);
         } else {
             DB::table('dataalumni')->where('id', $request->id)->update([
-                'ijazahasli' => $request->file('ijazahasli')->store('ijazahasli'),
-                'transkripnilaiasli' => $request->file('transkripnilaiasli')->store('transkripnilaiasli')
+                'ijazahasli' =>  $validate['ijazahasli'],
+                'transkripnilaiasli' => $validate['transkripnilaiasli'],
             ]);
         }
 
