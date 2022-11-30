@@ -48,7 +48,7 @@ class VerifikasiAkunController extends Controller
 
         DB::table('users')
             ->where('id', $id_user)
-            ->update(['statusAkun' => 'Lolos', 'nim' => $users->nim, 'tahunLulus' => $users->tahunLulus, 'tempatLahir' => $users->tempatLahir]);
+            ->update(['statusAkun' => 'Lolos', 'nim' => $users->nim, 'tahunLulus' => $users->tahunLulus]);
         $user = DB::table('users')->where('id', $id_user)->first();
 
         $email = $user->email;

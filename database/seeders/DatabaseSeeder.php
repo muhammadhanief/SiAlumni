@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
         $superadmin->assignRole('superadmin');
 
         $wadir1 = User::create([
-            'name' => 'Setia Pramana',
+            'name' => 'Prof. Setia Pramana, Ph.D.',
             'email' => 'wadir1stis@gmail.com',
             'password' => Hash::make('password'),
             'statusAkun' => 'Lolos',
@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
         $wadir1->assignRole('wadir1');
 
         $kepalabaak = User::create([
-            'name' => 'Kepla Baak',
+            'name' => 'Nurseto Wisnumurti, S.Si., M.Stat',
             'email' => 'kepalabaakstis@gmail.com',
             'password' => Hash::make('password'),
             'statusAkun' => 'Lolos',
@@ -74,7 +74,7 @@ class DatabaseSeeder extends Seeder
         $petugasbaak->assignRole('petugasbaak');
 
         $alumni1 = User::create([
-            'name' => 'Alumni 1',
+            'name' => 'SiAlumni 1',
             'email' => 'sialumni1bps@gmail.com',
             'password' => Hash::make('password'),
             'statusAkun' => 'Lolos',
@@ -82,7 +82,7 @@ class DatabaseSeeder extends Seeder
             'nip' => '198708262010121001',
             'tipe_alumni' => 'BPS',
             'nomorPonsel' => '085376470953',
-            // "tempatLahir" => "Indonesia",
+            "tempatLahir" => "DKI Jakarta",
             'tanggalLahir' => '2000-11-08',
             'jurusan' => 'D-IV Komputasi Statistik',
             'tahunLulus' => '2014',
@@ -95,7 +95,7 @@ class DatabaseSeeder extends Seeder
         $data1 = dataalumni::create([
             "tahunMasuk" => "2019",
             'nim' => '222011623',
-            'name' => 'Alumni 1',
+            'name' => 'SiAlumni 1',
             "noIjazahNasional" => "1000000000000000",
             "nik" => "1304032508010003",
             "agama" => "Islam",
@@ -117,7 +117,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $alumni2 = User::create([
-            'name' => 'Alumni 2',
+            'name' => 'SiAlumni 2',
             'email' => 'sialumni2nonbps@gmail.com',
             'password' => Hash::make('password'),
             'statusAkun' => 'Lolos',
@@ -125,7 +125,7 @@ class DatabaseSeeder extends Seeder
             'instansi' => 'PT. Tokopedia',
             'tipe_alumni' => 'Non-BPS',
             'nomorPonsel' => '085376470953',
-            // "tempatLahir" => "Padang",
+            "tempatLahir" => "Padang",
             'tanggalLahir' => '2000-12-08',
             'jurusan' => 'D-IV Statistika',
             'tahunLulus' => '2014',
@@ -137,7 +137,7 @@ class DatabaseSeeder extends Seeder
         $data1 = dataalumni::create([
             "tahunMasuk" => "2019",
             'nim' => '222011787',
-            'name' => 'Alumni 2',
+            'name' => 'SiAlumni 2',
             "noIjazahNasional" => "1000000000000000",
             "nik" => "1304032508010003",
             "agama" => "Islam",
@@ -167,6 +167,7 @@ class DatabaseSeeder extends Seeder
             'nip' => '198708262020121001',
             'tipe_alumni' => 'BPS',
             'nomorPonsel' => '085376470953',
+            "tempatLahir" => "Banjarmasin",
             'tanggalLahir' => '2000-11-14',
             'jurusan' => 'D-IV Komputasi Statistik',
             'tahunLulus' => '2019',

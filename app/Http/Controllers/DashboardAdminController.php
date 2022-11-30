@@ -16,9 +16,11 @@ class DashboardAdminController extends Controller
     public function index()
     {
         //
-        $ijazahasli = dataalumni::all();
-        $ijazahasli = $ijazahasli->count();
+        $jumlahalumni = dataalumni::all();
+        $jumlahalumni = $jumlahalumni->count();
 
+        //jumlah permohonan dari tabel permohonan
+        $jumlahpermohonan = DB::table('permohonan')->count();
         $permohonanbaru = DB::table('permohonan')
             ->where('status', '=', 'Menunggu')
             ->count();
@@ -35,15 +37,29 @@ class DashboardAdminController extends Controller
         //     ->where('status', '=', 'Disetujui Wakil Direktur 1')
         //     ->count();
 
+        // jumlah data transkripnilaiasli dari tabel dataalumni
+        $transkripnilaiasli = dataalumni::all();
+        $transkripnilaiasli = $transkripnilaiasli->count();
+
+        $jumlahtranskrip = DB::table('dataalumni')
+            ->whereNotNull('transkripnilaiasli')
+            ->count();
+        $jumlahijazah = DB::table('dataalumni')
+            ->whereNotNull('ijazahasli')
+            ->count();
+        
         $selesai = DB::table('permohonan')
             ->where('status', '=', 'Selesai')
             ->count();
 
         return view('admin.dashboard', [
-            'ijazahasli' => $ijazahasli,
+            'jumlahpermohonan' => $jumlahpermohonan,
             'permohonanbaru' => $permohonanbaru,
             'lolossyarat' => $lolossyarat,
             'disetujuikepalabaak' => $disetujuikepalabaak,
+            'jumlahalumni' => $jumlahalumni,
+            'jumlahtranskrip' => $jumlahtranskrip,
+            'jumlahijazah' => $jumlahijazah,
             'selesai' => $selesai,
         ]);
     }
