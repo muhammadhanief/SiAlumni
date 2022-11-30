@@ -122,7 +122,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'statusAkun' => 'Lolos',
             'nim' => '222011787',
-            'nip' => '198708262010121002',
+            'instansi' => 'PT. BPS',
             'tipe_alumni' => 'Non-BPS',
             'nomorPonsel' => '085376470953',
             // "tempatLahir" => "Padang",

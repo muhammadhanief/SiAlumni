@@ -166,8 +166,8 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="instansi">Instansi</label>
-                                    <input type="text" id="nip" class="form-control" name="nip" placeholder=""
-                                        value="{{ old('nip', Auth::user()->instansi) }}">
+                                    <input type="text" id="instansi" class="form-control" name="instansi" placeholder=""
+                                        value="{{ old('instansi', Auth::user()->instansi) }}">
                                 </div>
                             </div>
                             @endif

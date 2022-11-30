@@ -29,7 +29,8 @@ class ProfileController extends Controller
             // 'new_password' => 'nullable|min:8|max:12|required_with:current_password',
             // 'password_confirmation' => 'nullable|min:8|max:12|required_with:new_password|same:new_password'
             // 'last_name' => ['required', 'string', 'max:255'],
-            'nip' => ['required', 'numeric', 'digits:18'],
+            'nip' => ['numeric', 'digits:18'],
+            'instansi' => ['string', 'max:255'],
             'nim' => ['required', 'string'],
             'nomorPonsel' => ['required', 'numeric', 'digits_between:11,13'],
             // 'tahunLulus' => ['required', 'numeric', 'digits:4']
@@ -42,6 +43,7 @@ class ProfileController extends Controller
         $user->email = $request->input('email');
 
         $user->nip = $request->input('nip');
+        $user->instansi = $request->input('instansi');
         $user->nim = $request->input('nim');
         $user->jurusan = $request->input('jurusan');
         // $user->tahunLulus = $request->input('tahunLulus');
