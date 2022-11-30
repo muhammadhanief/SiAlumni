@@ -158,6 +158,24 @@ class DatabaseSeeder extends Seeder
             'transkripnilaiasli' => 'transkripnilaiasli/contohtranskrip.pdf',
         ]);
 
+        $alumni3 = User::create([
+            'name' => 'M Zaki Ramadhani',
+            'email' => 'zakiramadhanii88@gmail.com',
+            'password' => Hash::make('password'),
+            'statusAkun' => 'Pending',
+            'nim' => '222011351',
+            'nip' => '198708262020121001',
+            'tipe_alumni' => 'BPS',
+            'nomorPonsel' => '085376470953',
+            'tanggalLahir' => '2022-11-08',
+            'jurusan' => 'D-IV Komputasi Statistik',
+            'tahunLulus' => '2019',
+            'skpenempatan1bps' => 'skpenempatan1bps/skpenempatan1bpsdummy.pdf',
+            'skatasanbps' => 'skatasanbps/skatasanbpsdummy.pdf',
+        ]);
+        $alumni3->assignRole('alumni');
+
+
         $data1 = dataalumni::create([
             "tahunMasuk" => "2019",
             'nim' => '222011351',

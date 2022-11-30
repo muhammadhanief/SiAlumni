@@ -89,16 +89,6 @@ class RegisteredUserController extends Controller
             $validate['skatasanlangsung'] = $request->file('skatasanlangsung')->store('skatasanlangsung');
             $validate['sklunastgr'] = $request->file('sklunastgr')->store('sklunastgr');
         }
-        
-        $emailuser = $validate['email'];
-        $email = ['user' => "$emailuser", 'petugas' => 'zakiramadhanii14@gmail.com'];
-        foreach ($email as $key => $value) {
-            if($key == 'user'){
-                Mail::to($value)->send(new MailRegistrasi($validate));
-            }if($key == 'petugas'){              
-                Mail::to($value)->send(new MailRegistrasiPetugas($validate));
-            }
-        }
 
         $emailuser = $validate['email'];
         // send email to all petugas baak
