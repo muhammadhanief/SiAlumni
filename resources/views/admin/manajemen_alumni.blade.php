@@ -53,7 +53,7 @@
             <div class="col-md-6">
                 <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <input type="file" name="file" class="form-control">
+                    <input type="file" name="file" class="form-control" required>
                     <br>
                     <button class="btn btn-info">
                         <i class="fas fa-file-import"></i> Import Data Alumni
