@@ -28,7 +28,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-xl-6">
-            <div class="card h-75 bg-c-blue order-card">
+            <div class="card h-75 bg-c-navy order-card">
                 <div class="card-block">
                     <h6 class="m-b-20 mb-3">Data Alumni</h6>
                     <h2 class="text-right"><i class="fas fa-user-tie f-left"></i><span>{{$jumlahalumni}}</span></h2>
@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="col-md-6 col-xl-3">
-            <div class="card h-75 bg-c-navy order-card">
+            <div class="card h-75 bg-c-blue order-card">
                 <div class="card-block">
                     <h6 class="m-b-20 mb-3">Permohonan Baru</h6>
                     <h2 class="text-right"><i class="fa fa-refresh fa-spin f-left"></i><span>{{$permohonanbaru}}</span>
