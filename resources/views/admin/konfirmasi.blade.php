@@ -50,17 +50,26 @@
                         <!-- <table id="datatable-buttons" class="table table-bordered dt-responsive w-100">-->
                         <!-- <table class="table table-bordered yajra-datatable"> -->
                         <thead>
+                            @foreach($user as $u)
                             <tr>
+                                @once
                                 <th>Nama</th>
                                 <th>NIM</th>
+                                @if ($u->tipe_alumni == 'BPS')
                                 <th>NIP</th>
-                                <th>Tanggal Lahir</th>
+                                @else
+                                <th>Instansi</th>
+                                @endif
+                                <th>TTL</th>
+                                <th>Jurusan</th>
                                 <!-- <th>Tahun Lulus</th> -->
                                 <!-- <th>Email</th> -->
                                 <th>Lampiran</th>
                                 <th>Status Akun</th>
                                 <th>Aksi</th>
+                                @endonce
                             </tr>
+                            @endforeach
                         </thead>
                         <tbody>
 
@@ -70,25 +79,34 @@
                                 @once
                                 <td>{{ $user->name  }}</td>
                                 <td>{{ $user->nim }}</td>
+                                @if ($user->tipe_alumni == 'BPS')
                                 <td>{{ $user->nip }}</td>
-                                <td>{{ $user->tanggalLahir }}</td>
+                                @else
+                                <td>{{ $user->instansi }}</td>
+                                @endif
+                                <td>{{ $user->tempatLahir }}, {{$user->tanggalLahir}}</td>
+                                <td>{{ $user->jurusan}}</td>
                                 <!-- <td>{{ $user->tahunLulus }}</td> -->
                                 <!-- <td>{{ $user->email }}</td> -->
                                 <!-- <td>{{ $user->jurusan }}</td> -->
                                 <td>
                                     @if ($user->tipe_alumni == 'BPS')
-                                    <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanbps) }}`);">
+                                    <a class="btn btn-primary btn-sm mb-1"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanbps) }}`);">
                                         Surat Pernyataan Atasan Langsung
                                     </a>
-                                    <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$user->skpenempatan1bps) }}`);">
+                                    <a class="btn btn-primary btn-sm mb-1"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$user->skpenempatan1bps) }}`);">
                                         SK Penempatan Terakhir BPS
                                     </a>
 
                                     @elseif ($user->tipe_alumni == 'Non-BPS')
-                                    <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanlangsung) }}`);">
+                                    <a class="btn btn-primary btn-sm mb-1"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$user->skatasanlangsung) }}`);">
                                         Surat Pernyataan Atasan Langsung
                                     </a>
-                                    <a class="btn btn-primary btn-sm mb-1" onclick="openModalPDF(`{{ asset('storage/'.$user->sklunastgr) }}`);">
+                                    <a class="btn btn-primary btn-sm mb-1"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$user->sklunastgr) }}`);">
                                         SK Lunas TGR
                                     </a>
                                     @endif
@@ -102,18 +120,24 @@
                                     <span class="btn btn-danger btn-sm">Tidak Lolos</span>
                                     @endif
                                 <td class="text-center">
-                                    <form action="/pendingakun/{{ $user->id }}" method="post" class="d-inline" id="form-pending-{{ $user->id }}">
+                                    <form action="/pendingakun/{{ $user->id }}" method="post" class="d-inline"
+                                        id="form-pending-{{ $user->id }}">
                                         @csrf
                                         @method('post')
 
                                     </form>
-                                    <button type="submit" class="btn btn-info btn-circle btn-sm mb-1" onclick="pending('{{ $user->id }}')"><span data-feather="check"><i class="fas fa-pause"></i></span></button>
-                                    <form action="/tolakakun/{{ $user->id }}" method="post" class="d-inline" id="form-tolak-{{ $user->id }}">
+                                    <button type="submit" class="btn btn-info btn-circle btn-sm mb-1"
+                                        onclick="pending('{{ $user->id }}')"><span data-feather="check"><i
+                                                class="fas fa-pause"></i></span></button>
+                                    <form action="/tolakakun/{{ $user->id }}" method="post" class="d-inline"
+                                        id="form-tolak-{{ $user->id }}">
                                         @csrf
                                         @method('post')
 
                                     </form>
-                                    <button type="submit" class="btn btn-danger btn-circle btn-sm mb-1" onclick="tolak('{{ $user->id }}')"><span data-feather="check"><i class="fa-regular fa-hand"></i></span></button>
+                                    <button type="submit" class="btn btn-danger btn-circle btn-sm mb-1"
+                                        onclick="tolak('{{ $user->id }}')"><span data-feather="check"><i
+                                                class="fa-regular fa-hand"></i></span></button>
                                     <!-- <form action="/verifakun/{{ $user->id }}" method="post" class="d-inline">
                                         @csrf
                                         @method('post')
@@ -144,45 +168,48 @@
                         <!-- <table class="table table-bordered yajra-datatable"> -->
                         <thead>
                             <tr>
-                                <th class="bg-light">Nama</th>
+                                <th>Nama</th>
                                 <th>NIM</th>
-                                <th>Tanggal Lahir</th>
-                                <!-- <th>NIP</th> -->
-                                <!-- <th>Tahun Lulus</th> -->
-                                <!-- <th>Email</th> -->
+                                <th>TTL</th>
+                                <th>Jurusan</th>
                                 <th>Ijazah Asli</th>
                                 <th>Transkrip Nilai Asli</th>
                                 <!-- <th>Status Akun</th> -->
-                                <th class="bg-light">Aksi</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($alumni as $data)
                             <tr>
-                                <td class="bg-light">{{ $data->name  }}</td>
+                                <td>{{ $data->name  }}</td>
                                 <td>{{ $data->nim }}</td>
-                                <td>{{ $data->tanggalLahir }}</td>
-                                <!-- <td>{{ $data->nip }}</td> -->
+                                <td>{{ $data->tempatLahir }}, {{$data->tanggalLahir}}</td>
+                                <td>{{ $data->prodi }}</td>
                                 <!-- <td>{{ $data->tahunLulus }}</td> -->
                                 <!-- <td>{{ $data->email }}</td> -->
                                 <!-- <td>{{ $data->jurusan }}</td> -->
 
-                                <td> <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">
+                                <td> <a class="btn btn-primary btn-sm"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">
                                         Klik Untuk Melihat
                                     </a> </td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">
+                                    <a class="btn btn-primary btn-sm"
+                                        onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">
                                         Klik Untuk Melihat
                                     </a>
                                 </td>
                                 <!-- <td>{{ $data->statusAkun }}</td> -->
-                                <td class="text-center bg-light">
-                                    <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline" id="form-{{ $data->id }}">
+                                <td class="text-center">
+                                    <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline"
+                                        id="form-{{ $data->id }}">
                                         @csrf
                                         @method('post')
                                         <input type="hidden" name="id_user" value="{{ $user->id }}">
                                     </form>
-                                    <button type="submit" class="btn btn-success btn-circle btn-sm" onclick="setuju('{{ $data->id }}')"><span data-feather="check"><i class="fas fa-check"></i></span></button>
+                                    <button type="submit" class="btn btn-success btn-circle btn-sm"
+                                        onclick="setuju('{{ $data->id }}')"><span data-feather="check"><i
+                                                class="fas fa-check"></i></span></button>
                                 </td>
                                 <!-- <td> -->
                                 <!-- <form action="/setujuiakun/{{ $data->id }}" method="post" class="d-inline">
@@ -238,73 +265,73 @@
 
 
 <script>
-    function setuju(id) {
-        Swal.fire({
-            title: 'Apakah Anda yakin?',
-            text: "Apakah Anda yakin untuk menyetujui aktivasi akun?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Setujui!',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // submit form using jquery
-                $('#form-' + id).submit();
-                Swal.fire(
-                    'Disetujui!',
-                    'Akun telah diverifikasi.',
-                    'success'
-                )
-            }
-        })
-    }
+function setuju(id) {
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: "Apakah Anda yakin untuk menyetujui aktivasi akun?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Setujui!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // submit form using jquery
+            $('#form-' + id).submit();
+            Swal.fire(
+                'Disetujui!',
+                'Akun telah diverifikasi.',
+                'success'
+            )
+        }
+    })
+}
 
-    function pending(id) {
-        Swal.fire({
-            title: 'Apakah Anda yakin?',
-            text: "Apakah Anda yakin untuk pending aktivasi akun?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Pending!',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // submit form using jquery
-                $('#form-pending-' + id).submit();
-                Swal.fire(
-                    'Pending!',
-                    'Aktivasi akun telah pending.',
-                    'success'
-                )
-            }
-        })
-    }
+function pending(id) {
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: "Apakah Anda yakin untuk pending aktivasi akun?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Pending!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // submit form using jquery
+            $('#form-pending-' + id).submit();
+            Swal.fire(
+                'Pending!',
+                'Aktivasi akun telah pending.',
+                'success'
+            )
+        }
+    })
+}
 
-    function tolak(id) {
-        Swal.fire({
-            title: 'Apakah Anda yakin?',
-            text: "Apakah Anda yakin untuk menolak aktivasi akun?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Tolak!',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // submit form using jquery
-                $('#form-tolak-' + id).submit();
-                Swal.fire(
-                    'Ditolak!',
-                    'Aktivasi akun telah ditolak.',
-                    'success'
-                )
-            }
-        })
-    }
+function tolak(id) {
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: "Apakah Anda yakin untuk menolak aktivasi akun?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Tolak!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // submit form using jquery
+            $('#form-tolak-' + id).submit();
+            Swal.fire(
+                'Ditolak!',
+                'Aktivasi akun telah ditolak.',
+                'success'
+            )
+        }
+    })
+}
 </script>
 @endsection

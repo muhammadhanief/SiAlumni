@@ -81,16 +81,31 @@
         <hr>
 
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="table-alumni" width="100%" cellspacing="0">
                 <!-- <table id="datatable-buttons" class="table table-bordered dt-responsive w-100">-->
                 <!-- <table class="table table-bordered yajra-datatable"> -->
                 <thead>
                     <tr>
                         <th>Nama</th>
                         <th>NIM</th>
-                        <!-- <th>Nomor Ijazah</th> -->
-                        <th>File Ijazah</th>
-                        <th>File Transkrip Nilai</th>
+                        <th>NIK</th>
+                        <th>Tahun Masuk</th>
+                        <th>Nomor Ijazah Nasional</th>
+                        <th>Agama</th>
+                        <th>Tempat Lahir</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Prodi</th>
+                        <th>Peminatan</th>
+                        <th>Kelas</th>
+                        <th>Status</th>
+                        <th>Ipk</th>
+                        <th>Peringkat</th>
+                        <th>NoHp</th>
+                        <th>Kab Domisili PMB</th>
+                        <th>Prov Domisili PMB</th>
+                        <th>Prov Daftar PMB</th>
+                        <th>Ijazah Asli</th>
+                        <th>Transkrip Nilai Asli</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -99,10 +114,26 @@
                     <tr>
                         <td>{{ $data->name  }}</td>
                         <td>{{ $data->nim }}</td>
-                        <!-- <td>{{ "gada" }}</td> -->
+                        <td>{{ $data->nik}}</td>
+                        <td>{{ $data->tahunMasuk}}</td>
+                        <td>{{ $data->noIjazahNasional}}</td>
+                        <td>{{ $data->agama}}</td>
+                        <td>{{ $data->tempatLahir}}</td>
+                        <td>{{ $data->tanggalLahir}}</td>
+                        <td>{{ $data->prodi}}</td>
+                        <td>{{ $data->peminatan}}</td>
+                        <td>{{ $data->kelas}}</td>
+                        <td>{{ $data->status}}</td>
+                        <td>{{ $data->ipk}}</td>
+                        <td>{{ $data->peringkat}}</td>
+                        <td>{{ $data->noHp}}</td>
+                        <td>{{ $data->kabDomisiliPmb}}</td>
+                        <td>{{ $data->provDomisiliPmb}}</td>
+                        <td>{{ $data->provDaftarPmb}}</td>
                         <td>
                             @if ($data->ijazahasli != null)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">
+                            <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$data->ijazahasli) }}`);">
                                 Klik Untuk Melihat
                             </a>
                             @else
@@ -111,7 +142,8 @@
                         </td>
                         <td>
                             @if ($data->transkripnilaiasli != null)
-                            <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">
+                            <a class="btn btn-primary btn-sm"
+                                onclick="openModalPDF(`{{ asset('storage/'.$data->transkripnilaiasli) }}`);">
                                 Klik Untuk Melihat
                             </a>
                             @else
@@ -159,16 +191,16 @@
 <!-- End of Modal -->
 
 <script>
-    function openModalInput(id) {
-        $.ajax({
-            url: '/admin/manajemenalumni/' + id,
-            type: 'GET',
-            success: function(data) {
-                $('#modal-input').modal('show');
-                $('#modal-input .data').html(data);
-            }
-        })
-    }
+function openModalInput(id) {
+    $.ajax({
+        url: '/admin/manajemenalumni/' + id,
+        type: 'GET',
+        success: function(data) {
+            $('#modal-input').modal('show');
+            $('#modal-input .data').html(data);
+        }
+    })
+}
 </script>
 
 <!-- End of Main Content -->
