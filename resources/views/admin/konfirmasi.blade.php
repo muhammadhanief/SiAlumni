@@ -50,17 +50,26 @@
                         <!-- <table id="datatable-buttons" class="table table-bordered dt-responsive w-100">-->
                         <!-- <table class="table table-bordered yajra-datatable"> -->
                         <thead>
+                            @foreach($user as $u)
                             <tr>
+                                @once
                                 <th>Nama</th>
                                 <th>NIM</th>
+                                @if ($u->tipe_alumni == 'BPS')
                                 <th>NIP</th>
-                                <th>Tanggal Lahir</th>
+                                @else
+                                <th>Instansi</th>
+                                @endif
+                                <th>TTL</th>
+                                <th>Jurusan</th>
                                 <!-- <th>Tahun Lulus</th> -->
                                 <!-- <th>Email</th> -->
                                 <th>Lampiran</th>
                                 <th>Status Akun</th>
                                 <th>Aksi</th>
+                                @endonce
                             </tr>
+                            @endforeach
                         </thead>
                         <tbody>
 
@@ -70,8 +79,13 @@
                                 @once
                                 <td>{{ $user->name  }}</td>
                                 <td>{{ $user->nim }}</td>
+                                @if ($user->tipe_alumni == 'BPS')
                                 <td>{{ $user->nip }}</td>
-                                <td>{{ $user->tanggalLahir }}</td>
+                                @else
+                                <td>{{ $user->instansi }}</td>
+                                @endif
+                                <td>{{ $user->tempatLahir }}, {{$user->tanggalLahir}}</td>
+                                <td>{{ $user->jurusan}}</td>
                                 <!-- <td>{{ $user->tahunLulus }}</td> -->
                                 <!-- <td>{{ $user->email }}</td> -->
                                 <!-- <td>{{ $user->jurusan }}</td> -->
@@ -156,10 +170,8 @@
                             <tr>
                                 <th>Nama</th>
                                 <th>NIM</th>
-                                <th>Tanggal Lahir</th>
-                                <!-- <th>NIP</th> -->
-                                <!-- <th>Tahun Lulus</th> -->
-                                <!-- <th>Email</th> -->
+                                <th>TTL</th>
+                                <th>Jurusan</th>
                                 <th>Ijazah Asli</th>
                                 <th>Transkrip Nilai Asli</th>
                                 <!-- <th>Status Akun</th> -->
@@ -171,8 +183,8 @@
                             <tr>
                                 <td>{{ $data->name  }}</td>
                                 <td>{{ $data->nim }}</td>
-                                <td>{{ $data->tanggalLahir }}</td>
-                                <!-- <td>{{ $data->nip }}</td> -->
+                                <td>{{ $data->tempatLahir }}, {{$data->tanggalLahir}}</td>
+                                <td>{{ $data->prodi }}</td>
                                 <!-- <td>{{ $data->tahunLulus }}</td> -->
                                 <!-- <td>{{ $data->email }}</td> -->
                                 <!-- <td>{{ $data->jurusan }}</td> -->
