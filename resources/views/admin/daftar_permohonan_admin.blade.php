@@ -107,7 +107,7 @@
                             @elseif ($item->status == 'Disetujui Wakil Direktur 1' && !isset($legalisir[$item->id]))
                             <a onclick="openModalInput('{{ $item->id }}')" class="btn btn-primary btn-sm">Upload</a>
                             @elseif (isset($legalisir[$item->id]) && $item->status != 'Selesai')
-                            <a onclick="openModalPDFpublish(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`, `{{ $item->id }}`, `{{ $item->pengambilan }}`);" class="btn btn-warning btn-sm">Publish</a>
+                            <a onclick="openModalPDFpublish(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`, `{{ $item->id }}`, `{{ $item->pengambilan }}`);" class="btn btn-warning btn-sm">Serahkan</a>
                             @elseif ($item->status == 'Selesai' && isset($item->file_legalisir))
                             <a onclick="openModalPDF(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`);" class="btn btn-success btn-sm">Hasil</a>
                             @endif
@@ -117,7 +117,7 @@
                             @elseif ($item->status == 'Disetujui Wakil Direktur 1' && !isset($legalisir[$item->id]))
                             <a onclick="openModalInput('{{ $item->id }}')" class="btn btn-primary btn-sm">Upload</a>
                             @elseif (isset($legalisir[$item->id]) && $item->status != 'Selesai')
-                            <a onclick="openModalPDFpublish(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`, `{{ $item->id }}`, `{{ $item->pengambilan }}`);" class="btn btn-warning btn-sm">Publish</a>
+                            <a onclick="openModalPDFpublish(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`, `{{ $item->id }}`, `{{ $item->pengambilan }}`);" class="btn btn-warning btn-sm">Serahkan</a>
                             @elseif ($item->status == 'Selesai' && isset($item->file_legalisir))
                             <a onclick="openModalPDF(`{{ asset('storage/'.$legalisir[$item->id]->file_legalisir) }}`);" class="btn btn-success btn-sm">Hasil</a>
                             @endif
