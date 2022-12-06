@@ -318,6 +318,7 @@
             showCancelButton: true,
             confirmButtonText: 'Setuju',
             denyButtonText: `Tolak`,
+            cancelButtonText: 'Batal'
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
