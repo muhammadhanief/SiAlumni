@@ -10,6 +10,7 @@ use App\Http\Controllers\VerifikasiAkunController;
 use App\Http\Controllers\PermohonanController;
 use App\Http\Controllers\ImportExportController;
 use App\Http\Controllers\HistoriPermohonanAlumniController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,10 @@ use App\Http\Controllers\HistoriPermohonanAlumniController;
 |
 */
 
+Route::get('/generate', function () {
+    \Illuminate\Support\Facades\Artisan::call('storage:link');
+    echo 'ok';
+});
 
 Route::get('/', function () {
     // return view('auth.login');

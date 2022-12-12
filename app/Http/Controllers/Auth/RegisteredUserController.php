@@ -40,9 +40,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-
         $tipe_alumni = $request->tipe_alumni;
-
         if ($tipe_alumni == "BPS") {
             $validate =  $request->validate(
                 [
@@ -125,17 +123,6 @@ class RegisteredUserController extends Controller
         $validate['password'] = Hash::make($request->password);
         $user = User::create($validate);
         $user->assignRole('alumni');
-        // $user = User::create([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'password' => Hash::make($request->password),
-        // ]);
-
-        // event(new Registered($user));
-
-        // Auth::login($user);
-        // return redirect('login');
         return redirect()->route('login')->withSuccess('Berhasil Melakukan Register, Silakan Login');
-        // return redirect(RouteServiceProvider::HOME);
     }
 }
